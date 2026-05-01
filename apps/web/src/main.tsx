@@ -30,6 +30,12 @@ type City = {
     services?: DiscoveryDump;
     rentals?: DiscoveryDump;
   };
+  paidSources?: {
+    googleServices?: DiscoveryDump;
+    googleRentals?: DiscoveryDump;
+    serpServices?: DiscoveryDump;
+    serpRentals?: DiscoveryDump;
+  };
   source?: unknown;
 };
 
@@ -52,6 +58,13 @@ type DiscoveryItem = {
   website?: string | null;
   phone?: string | null;
   operator?: string | null;
+  address?: string | null;
+  sourceUrl?: string | null;
+  status?: string | null;
+  rating?: number | null;
+  reviews?: number | null;
+  marketClass?: "local" | "regional" | "chain" | "unknown";
+  managementCompany?: string | null;
   lat?: number | null;
   lon?: number | null;
   tags?: Record<string, string>;
@@ -72,6 +85,18 @@ type DiscoveryDump = {
   warning?: string;
   error?: string;
   sourceUrl?: string;
+};
+
+type ManualRecord = DiscoveryItem & {
+  category: string;
+  evidence?: string;
+  evidenceNote?: string;
+};
+
+type ManualResearchDump = {
+  generatedAt: string;
+  method: string;
+  states: Record<string, Record<string, { services?: ManualRecord[]; rentals?: ManualRecord[] }>>;
 };
 
 type ResearchDump = {
@@ -116,11 +141,38 @@ const SOURCES: SourceRef[] = [
       "Pre-gathered but incomplete. OSM is free and useful for public POIs, but it undercounts contractors, apartment managers, ownership, and weak-web businesses.",
   },
   {
+    label: "Public Web",
+    name: "Manual Public Web Research",
+    url: "/data/manual-research.json",
+    method:
+      "Human-readable public web research dump using official service-area pages, apartment/community pages, and public directories. No paid API keys are used.",
+    coverage:
+      "Seed coverage for Alabama and Georgia top-10 cities. Every service/community record carries its own source URL and evidence note.",
+  },
+  {
+    label: "Google",
+    name: "Google Places Text Search",
+    url: "https://developers.google.com/maps/documentation/places/web-service/text-search",
+    method:
+      "Pre-gathered offline for the top 10 city list only, with a limited field mask and local response cache to reduce API use.",
+    coverage:
+      "Better service-company and rental-community discovery than OSM, but still a discovery layer. The API key is used only during local data gathering and is not shipped to the frontend.",
+  },
+  {
+    label: "SerpAPI",
+    name: "SerpAPI Google Local API",
+    url: "https://serpapi.com/google-local-api",
+    method:
+      "Pre-gathered offline using one broad Google Local query per top city/category, with both local cache and SerpAPI provider cache enabled.",
+    coverage:
+      "Good for visible digital footprint, ratings, reviews, and local-result presence. Free tier should be treated as a scarce monthly budget.",
+  },
+  {
     label: "Nominatim",
     name: "OpenStreetMap Nominatim",
     url: "https://nominatim.org/release-docs/latest/api/Search/",
     method: "Geocodes the selected city before Overpass radius searches.",
-    coverage: "Live for city centers; rate-limited and intended for light use.",
+    coverage: "Used only by the offline OSM gather script for city centers; rate-limited and intended for light use.",
   },
   {
     label: "HUD LIHTC",
@@ -170,6 +222,24 @@ function discoveryFromDump(dump?: DiscoveryDump): DiscoveryResult {
   };
 }
 
+function discoveryFromManual(records: ManualRecord[] | undefined, type: DiscoveryType): DiscoveryResult {
+  if (!records) return emptyDiscovery("No manual public-web records loaded for this city.");
+  return {
+    status: "ready",
+    count: records.length,
+    items: records.map((record, index) => ({
+      ...record,
+      id: record.id || `manual-${type}-${index}-${record.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
+      tags: {
+        ...(record.tags || {}),
+        evidence: record.evidence || record.evidenceNote || "",
+        source: "Manual public web",
+      },
+    })),
+    message: "Loaded from manual public-web research dump. Each item links to the page used as evidence.",
+  };
+}
+
 function App() {
   const [authed, setAuthed] = useState(
     () => localStorage.getItem("city-dashboard-auth") === "true" || localStorage.getItem("plotline-demo-auth") === "true",
@@ -180,13 +250,36 @@ function App() {
   const [cityFilter, setCityFilter] = useState("");
   const [radius, setRadius] = useState(10000);
   const [dumpMeta, setDumpMeta] = useState<ResearchDump | null>(null);
+  const [manualDump, setManualDump] = useState<ManualResearchDump | null>(null);
   const [growthStatus, setGrowthStatus] = useState<"loading" | "ready" | "error">("loading");
   const [growthError, setGrowthError] = useState("");
   const [services, setServices] = useState<DiscoveryResult>(emptyDiscovery());
   const [rentals, setRentals] = useState<DiscoveryResult>(emptyDiscovery());
+  const [googleServices, setGoogleServices] = useState<DiscoveryResult>(emptyDiscovery());
+  const [googleRentals, setGoogleRentals] = useState<DiscoveryResult>(emptyDiscovery());
+  const [serpServices, setSerpServices] = useState<DiscoveryResult>(emptyDiscovery());
+  const [serpRentals, setSerpRentals] = useState<DiscoveryResult>(emptyDiscovery());
+  const [manualServices, setManualServices] = useState<DiscoveryResult>(emptyDiscovery());
+  const [manualRentals, setManualRentals] = useState<DiscoveryResult>(emptyDiscovery());
 
   const state = STATES[stateCode];
   const activeCity = cities.find((city) => city.name === selectedCity) ?? cities[0];
+  const summary = useMemo(
+    () =>
+      activeCity
+        ? summarizeMarket(activeCity, {
+            services,
+            rentals,
+            manualServices,
+            manualRentals,
+            googleServices,
+            googleRentals,
+            serpServices,
+            serpRentals,
+          })
+        : null,
+    [activeCity, services, rentals, manualServices, manualRentals, googleServices, googleRentals, serpServices, serpRentals],
+  );
   const filteredCities = useMemo(() => {
     const q = cityFilter.trim().toLowerCase();
     if (!q) return cities;
@@ -200,13 +293,24 @@ function App() {
       setGrowthError("");
       setServices(emptyDiscovery());
       setRentals(emptyDiscovery());
+      setGoogleServices(emptyDiscovery());
+      setGoogleRentals(emptyDiscovery());
+      setSerpServices(emptyDiscovery());
+      setSerpRentals(emptyDiscovery());
+      setManualServices(emptyDiscovery());
+      setManualRentals(emptyDiscovery());
       try {
-        const response = await fetch(`/data/${state.abbr.toLowerCase()}-free-research.json`);
+        const [response, manualResponse] = await Promise.all([
+          fetch(`/data/${state.abbr.toLowerCase()}-free-research.json`),
+          fetch("/data/manual-research.json"),
+        ]);
         const payload = await response.json();
+        const manualPayload = await manualResponse.json();
         if (!response.ok) throw new Error(payload.error || "Could not load dumped research data.");
         if (cancelled) return;
         setCities(payload.cities);
         setDumpMeta(payload);
+        setManualDump(manualResponse.ok ? manualPayload : null);
         setRadius(payload.radius || 10000);
         setSelectedCity(payload.cities[0]?.name ?? "");
         setGrowthStatus("ready");
@@ -229,7 +333,14 @@ function App() {
     if (!activeCity) return;
     setServices(discoveryFromDump(activeCity.freeSources?.services));
     setRentals(discoveryFromDump(activeCity.freeSources?.rentals));
-  }, [activeCity?.place]);
+    setGoogleServices(discoveryFromDump(activeCity.paidSources?.googleServices));
+    setGoogleRentals(discoveryFromDump(activeCity.paidSources?.googleRentals));
+    setSerpServices(discoveryFromDump(activeCity.paidSources?.serpServices));
+    setSerpRentals(discoveryFromDump(activeCity.paidSources?.serpRentals));
+    const manualCity = manualDump?.states?.[state.abbr]?.[activeCity.name];
+    setManualServices(discoveryFromManual(manualCity?.services, "services"));
+    setManualRentals(discoveryFromManual(manualCity?.rentals, "rentals"));
+  }, [activeCity?.place, manualDump, state.abbr]);
 
   if (!authed) return <LoginScreen onLogin={() => setAuthed(true)} />;
 
@@ -290,7 +401,7 @@ function App() {
               <h2>Top places</h2>
             </div>
             <span className={`live-status ${growthStatus}`}>
-              {growthStatus === "ready" ? "Live ACS" : growthStatus === "loading" ? "Loading" : "Error"}
+              {growthStatus === "ready" ? "Static dump" : growthStatus === "loading" ? "Loading" : "Error"}
             </span>
           </div>
           <div className="source-note compact-note">Top 10 are visible at a glance; scroll for the rest.</div>
@@ -310,6 +421,12 @@ function App() {
                   setSelectedCity(city.name);
                   setServices(emptyDiscovery());
                   setRentals(emptyDiscovery());
+                  setGoogleServices(emptyDiscovery());
+                  setGoogleRentals(emptyDiscovery());
+                  setSerpServices(emptyDiscovery());
+                  setSerpRentals(emptyDiscovery());
+                  setManualServices(emptyDiscovery());
+                  setManualRentals(emptyDiscovery());
                 }}
               >
                 <span className="rank-num">{city.rank}</span>
@@ -337,6 +454,8 @@ function App() {
             <Metric title="Free-source radius" value={`${Math.round(radius / 1000)} km`} note="OSM search radius" source="OSM" trend={radiusTrend(radius)} />
           </section>
 
+          {summary && <AnswerStrip city={activeCity} summary={summary} />}
+
           <section className="detail-grid">
             <div className="panel services-panel">
               <div className="panel-head">
@@ -344,9 +463,17 @@ function App() {
                   <p className="eyebrow">{activeCity.name}</p>
                   <h2>Local service companies</h2>
                 </div>
-                <SourceBadge label="OSM" />
+                <div className="source-wrap">
+                  <SourceBadge label="Google" />
+                  <SourceBadge label="SerpAPI" />
+                  <SourceBadge label="Public Web" />
+                  <SourceBadge label="OSM" />
+                </div>
               </div>
-              <DiscoveryPanel result={services} emptyLabel="No free-source service matches yet." />
+              <DiscoveryPanel result={manualServices} emptyLabel="No manual public-web service matches in the dump yet." source="Public Web" sourceKind="free-source" />
+              <DiscoveryPanel result={serpServices} emptyLabel="No SerpAPI service matches in the dump." source="SerpAPI" sourceKind="paid-source" />
+              <DiscoveryPanel result={googleServices} emptyLabel="No Google Places service matches in the dump." source="Google" sourceKind="paid-source" />
+              <DiscoveryPanel result={services} emptyLabel="No free OSM service matches in the dump." source="OSM" sourceKind="free-source" />
             </div>
 
             <div className="panel housing-panel">
@@ -355,12 +482,27 @@ function App() {
                   <p className="eyebrow">For-rent housing</p>
                   <h2>Rental/community matches</h2>
                 </div>
-                <SourceBadge label="OSM" />
+                <div className="source-wrap">
+                  <SourceBadge label="Google" />
+                  <SourceBadge label="SerpAPI" />
+                  <SourceBadge label="Public Web" />
+                  <SourceBadge label="OSM" />
+                </div>
               </div>
-              <DiscoveryPanel result={rentals} emptyLabel="No free-source rental/community matches yet." />
+              <DiscoveryPanel result={manualRentals} emptyLabel="No manual public-web rental/community matches in the dump yet." source="Public Web" sourceKind="free-source" />
+              <DiscoveryPanel result={serpRentals} emptyLabel="No SerpAPI rental/community matches in the dump." source="SerpAPI" sourceKind="paid-source" />
+              <DiscoveryPanel result={googleRentals} emptyLabel="No Google Places rental/community matches in the dump." source="Google" sourceKind="paid-source" />
+              <DiscoveryPanel result={rentals} emptyLabel="No free OSM rental/community matches in the dump." source="OSM" sourceKind="free-source" />
               <div className="source-note">
-                <strong>Management companies:</strong> free OSM records may include an <code>operator</code> tag or website, but full ownership and management coverage usually requires community websites or licensed multifamily data.
+                <strong>Management companies:</strong> OSM records may include an <code>operator</code> tag and Google results may point to a Maps listing, but full ownership and management coverage usually requires community websites or licensed multifamily data.
               </div>
+              {summary.managerSignals.length > 0 && (
+                <div className="manager-list">
+                  {summary.managerSignals.map((item) => (
+                    <span key={`${item.source}-${item.name}`}>{item.name} <SourceBadge label={item.source} /></span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="panel source-panel">
@@ -551,46 +693,206 @@ function radiusTrend(radius: number): TrendSeries {
   };
 }
 
-function DiscoveryPanel({ result, emptyLabel }: { result: DiscoveryResult; emptyLabel: string }) {
+function DiscoveryPanel({
+  result,
+  emptyLabel,
+  source,
+  sourceKind,
+}: {
+  result: DiscoveryResult;
+  emptyLabel: string;
+  source: string;
+  sourceKind: "free-source" | "paid-source";
+}) {
   if (result.status === "loading") {
-    return <div className="free-probe loading"><strong>Loading dumped data...</strong><span>The dashboard reads static JSON generated from free sources.</span></div>;
+    return <div className="free-probe loading"><strong>Loading dumped data...</strong><span>The dashboard reads static JSON generated offline.</span></div>;
   }
 
   if (result.status === "error") {
-    return <div className="free-probe error"><strong>Search failed</strong><span>{result.message}</span><SourceBadge label="OSM" /></div>;
+    return <div className="free-probe error"><strong>{source} gather failed</strong><span>{result.message}</span><SourceBadge label={source} /></div>;
   }
 
   if (result.status !== "ready") {
-    return <div className="free-probe"><strong>{emptyLabel}</strong><span>Use the search button to query OpenStreetMap/Overpass around the selected city.</span><SourceBadge label="OSM" /></div>;
+    return <div className="free-probe"><strong>{emptyLabel}</strong><span>This panel reads only the pre-gathered static dump.</span><SourceBadge label={source} /></div>;
   }
 
   return (
     <div className="company-list">
       <div className="free-probe ready">
-        <strong>{result.count} pre-gathered free-source matches</strong>
+        <strong>{result.count} pre-gathered {sourceKind} matches</strong>
         <span>{result.message}</span>
-        <SourceBadge label="OSM" />
+        <SourceBadge label={source} />
       </div>
       {result.items.length === 0 ? (
-        <div className="source-note">No free-source matches found. This means OSM has no matching records in the search radius, not that the market has no companies or communities.</div>
+        <div className="source-note">No {source} matches found in the dump. That does not prove the market has no companies or communities; it only reflects this source and query.</div>
       ) : (
         result.items.map((item) => (
           <article className="company-card" key={item.id}>
             <div>
               <strong>{item.name}</strong>
-              <small>{item.category || "mapped place"}</small>
+              <small>{item.address || item.category || "mapped place"}</small>
             </div>
             <div className="source-wrap">
-              {item.website && <span>website</span>}
+              {item.website && <a href={item.website} target="_blank" rel="noreferrer">website</a>}
+              {item.sourceUrl && <a href={item.sourceUrl} target="_blank" rel="noreferrer">map</a>}
               {item.phone && <span>phone</span>}
               {item.operator && <span>operator: {item.operator}</span>}
-              <SourceBadge label="OSM" />
+              {item.status && <span>{item.status.replaceAll("_", " ").toLowerCase()}</span>}
+              {item.rating && <span>{item.rating.toFixed(1)} rating</span>}
+              {item.reviews && <span>{num(item.reviews)} reviews</span>}
+              <span>{classifyMarket(item).label}</span>
+              <SourceBadge label={source} />
             </div>
+            {(item.tags?.evidence || item.tags?.evidenceNote) && <p className="evidence-note">{item.tags.evidence || item.tags.evidenceNote}</p>}
           </article>
         ))
       )}
     </div>
   );
+}
+
+type MarketSummary = {
+  serviceCandidates: number;
+  rentalCandidates: number;
+  local: number;
+  regional: number;
+  chain: number;
+  unknown: number;
+  managerSignals: Array<{ name: string; source: string }>;
+};
+
+function AnswerStrip({ city, summary }: { city: City; summary: MarketSummary }) {
+  return (
+    <section className="answer-strip">
+      <article className="answer-card">
+        <span>Layer 1</span>
+        <strong>{city.name} ranks #{city.rank}</strong>
+        <small>{pct(city.incomeGrowth)} income growth and {pct(city.employedGrowth)} employed-resident growth from ACS.</small>
+        <SourceBadge label="ACS" />
+      </article>
+      <article className="answer-card">
+        <span>Layer 2</span>
+        <strong>{summary.serviceCandidates} service candidates</strong>
+        <div className="breakdown">
+          <i>{summary.local} local</i>
+          <i>{summary.regional} regional</i>
+          <i>{summary.chain} chain</i>
+          {summary.unknown > 0 && <i>{summary.unknown} unknown</i>}
+        </div>
+        <SourceBadge label="SerpAPI" />
+        <SourceBadge label="Google" />
+        <SourceBadge label="Public Web" />
+        <SourceBadge label="OSM" />
+      </article>
+      <article className="answer-card">
+        <span>Layer 3</span>
+        <strong>{summary.rentalCandidates} for-rent candidates</strong>
+        <small>{summary.managerSignals.length} management/operator signals found in the current dump.</small>
+        <SourceBadge label="Google" />
+        <SourceBadge label="Public Web" />
+        <SourceBadge label="OSM" />
+      </article>
+    </section>
+  );
+}
+
+function summarizeMarket(
+  city: City,
+  results: {
+    services: DiscoveryResult;
+    rentals: DiscoveryResult;
+    manualServices: DiscoveryResult;
+    manualRentals: DiscoveryResult;
+    googleServices: DiscoveryResult;
+    googleRentals: DiscoveryResult;
+    serpServices: DiscoveryResult;
+    serpRentals: DiscoveryResult;
+  },
+): MarketSummary {
+  const serviceItems = dedupeItems([
+    ...results.manualServices.items,
+    ...results.serpServices.items,
+    ...results.googleServices.items,
+    ...results.services.items,
+  ]);
+  const rentalGroups = [
+    { source: "SerpAPI", result: results.serpRentals },
+    { source: "Google", result: results.googleRentals },
+    { source: "Public Web", result: results.manualRentals },
+    { source: "OSM", result: results.rentals },
+  ];
+  const managerSignals = rentalGroups.flatMap(({ source, result }) =>
+    result.items
+      .map((item) => ({ name: managerName(item), source }))
+      .filter((item): item is { name: string; source: string } => Boolean(item.name)),
+  );
+
+  const classes = serviceItems.map((item) => classifyMarket(item, city.name).className);
+  return {
+    serviceCandidates: serviceItems.length,
+    rentalCandidates: Math.max(...rentalGroups.map(({ result }) => result.count || result.items.length || 0), 0),
+    local: classes.filter((item) => item === "local").length,
+    regional: classes.filter((item) => item === "regional").length,
+    chain: classes.filter((item) => item === "chain").length,
+    unknown: classes.filter((item) => item === "unknown").length,
+    managerSignals: dedupeManagers(managerSignals).slice(0, 8),
+  };
+}
+
+function dedupeItems(items: DiscoveryItem[]) {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = item.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function classifyMarket(item: DiscoveryItem, cityName = "") {
+  if (item.marketClass) return { className: item.marketClass, label: item.marketClass };
+  const name = item.name.toLowerCase();
+  const website = item.website?.toLowerCase() || "";
+  const chainPatterns = [
+    "aire serv",
+    "benjamin franklin",
+    "mr. electric",
+    "mister sparky",
+    "mr. rooter",
+    "one hour",
+    "orkin",
+    "roto-rooter",
+    "terminix",
+    "trugreen",
+  ];
+  if (chainPatterns.some((brand) => name.includes(brand) || website.includes(brand.replace(/[^a-z]/g, "")))) {
+    return { className: "chain" as const, label: "chain" };
+  }
+  if (/\b(southern|southeast|metro|statewide|tri-state|regional|alabama|georgia)\b/i.test(item.name)) {
+    return { className: "regional" as const, label: "regional" };
+  }
+  if (/\b(inc|llc|services|heating|cooling|plumbing|electric|pest|landscap|roofing)\b/i.test(item.name)) {
+    return { className: "local" as const, label: cityName && name.includes(cityName.toLowerCase()) ? "local" : "local/regional" };
+  }
+  return { className: "unknown" as const, label: "unclassified" };
+}
+
+function managerName(item: DiscoveryItem) {
+  if (item.managementCompany) return item.managementCompany;
+  if (item.operator) return item.operator;
+  const haystack = [item.name, item.category, item.address, item.tags?.formattedAddress].filter(Boolean).join(" ");
+  if (/\b(management|property|properties|realty|residential|apartments)\b/i.test(haystack)) return item.name;
+  return "";
+}
+
+function dedupeManagers(items: Array<{ name: string; source: string }>) {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = item.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function SourceStack() {

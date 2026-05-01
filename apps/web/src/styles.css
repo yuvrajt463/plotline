@@ -552,6 +552,57 @@ h2 {
   margin: 16px 0;
 }
 
+.answer-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.answer-card {
+  display: grid;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.answer-card > span {
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.answer-card strong {
+  font-size: 1.18rem;
+}
+
+.answer-card small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.breakdown {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.breakdown i,
+.manager-list span {
+  border-radius: 999px;
+  background: #edf2f3;
+  color: #46555b;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 800;
+  padding: 4px 7px;
+}
+
 .metric {
   position: relative;
   overflow: hidden;
@@ -752,7 +803,7 @@ h2 {
 .company-card,
 .community-row {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) minmax(150px, 0.85fr) 96px;
+  grid-template-columns: minmax(180px, 1fr) minmax(150px, 0.85fr);
   gap: 12px;
   align-items: center;
   padding: 12px;
@@ -764,9 +815,14 @@ h2 {
 
 .company-card strong,
 .company-card small,
+.company-card p,
 .community-row strong,
 .community-row small {
   display: block;
+}
+
+.company-card p {
+  grid-column: 1 / -1;
 }
 
 .type-dot {
@@ -799,6 +855,30 @@ h2 {
   font-size: 0.72rem;
   font-weight: 800;
   padding: 4px 7px;
+}
+
+.source-wrap a:not(.source-badge) {
+  border-radius: 999px;
+  background: #edf2f3;
+  color: #46555b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 7px;
+  text-decoration: none;
+}
+
+.manager-list {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.evidence-note {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
 }
 
 .source-badge {
@@ -938,7 +1018,8 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .stat-strip {
+  .stat-strip,
+  .answer-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
@@ -978,7 +1059,8 @@ h2 {
 
   .map-wrap,
   .rank-list,
-  .stat-strip {
+  .stat-strip,
+  .answer-strip {
     grid-template-columns: 1fr;
   }
 

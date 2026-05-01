@@ -1,0 +1,1057 @@
+{
+  "generatedAt": "2026-05-01T00:00:00.000Z",
+  "method": "Manual public-web research only. No Google Places key, no SerpAPI key, and no paid API calls were used for this dump.",
+  "states": {
+    "AL": {
+      "Rainsville": {
+        "services": [
+          {
+            "id": "al-rainsville-safe-solutions",
+            "name": "Safe Solutions Plus Pest & Termite",
+            "category": "pest control",
+            "address": "934 Main St W, Rainsville, AL 35986",
+            "marketClass": "local",
+            "sourceUrl": "https://pestwizards.com/pest-control/safe-solutions-plus-pest-termite-pest-control-rainsville-alabama/68720",
+            "evidence": "Directory listing places the pest-control business in Rainsville, Alabama."
+          },
+          {
+            "id": "al-rainsville-terminix",
+            "name": "Terminix",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.pests.org/Terminix/AL/Rainsville.html",
+            "evidence": "City-specific Terminix page for Rainsville, AL."
+          },
+          {
+            "id": "al-rainsville-smiths-hvac",
+            "name": "Smith's Heating & Cooling",
+            "category": "HVAC",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.smithsheatingandcoolingtn.com/contact/hvac-company-service-area/rainsville-al",
+            "evidence": "Company service-area page says it is an HVAC company serving Rainsville, AL and surrounding areas."
+          },
+          {
+            "id": "al-rainsville-plumbing-ditch",
+            "name": "Rainsville Plumbing Ditch",
+            "category": "plumbing",
+            "address": "2583 Co Rd 90, Rainsville, AL 35986",
+            "marketClass": "local",
+            "sourceUrl": "https://plumbersofamerica.com/al/rainsville/300--rainsville-plumbing-ditch",
+            "evidence": "Public directory listing places the plumbing service in Rainsville, AL."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-rainsville-zillow-pm",
+            "name": "Zillow property manager directory",
+            "category": "property management directory",
+            "managementCompany": "Vantage Management and individual managers shown by Zillow",
+            "sourceUrl": "https://www.zillow.com/professionals/property-manager-reviews/rainsville-al/",
+            "evidence": "Zillow directory lists property managers in Rainsville, AL."
+          },
+          {
+            "id": "al-rainsville-apartments-condos",
+            "name": "Apartments.com Rainsville condo/rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/condos/rainsville-al/",
+            "evidence": "Apartments.com page reports 84 rentals available after expanding the search area."
+          },
+          {
+            "id": "al-rainsville-zillow-rentals",
+            "name": "Sherwood Knoll Apartments / Sandy Creek Apartments",
+            "category": "rental listing signal",
+            "sourceUrl": "https://www.zillow.com/rainsville-al/rentals/",
+            "evidence": "Zillow rental page lists Rainsville rentals including Sherwood Knoll Apartments and Sandy Creek Apartments."
+          }
+        ]
+      },
+      "Semmes": {
+        "services": [
+          {
+            "id": "al-semmes-reliance-plumbing",
+            "name": "Reliance Plumbing Sewer & Drain Cleaning Company",
+            "category": "plumbing",
+            "address": "Semmes, AL 36575",
+            "marketClass": "local",
+            "sourceUrl": "https://relianceplumbingal.com/",
+            "evidence": "Official site says the plumbing company is based in Semmes, AL."
+          },
+          {
+            "id": "al-semmes-pest-control",
+            "name": "Semmes Pest Control",
+            "category": "pest control",
+            "address": "9545 Vickers Rd, Semmes, AL 36575",
+            "marketClass": "local",
+            "sourceUrl": "https://www.chamberofcommerce.com/business-directory/alabama/semmes/pest-control-service/689535-semmes-pest-control",
+            "evidence": "Chamber listing locates Semmes Pest Control in Semmes, Alabama."
+          },
+          {
+            "id": "al-semmes-batchelors",
+            "name": "Batchelor's Service",
+            "category": "HVAC and plumbing",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.batchelorsservice.com/webapp/p/677/semmes",
+            "evidence": "Service-area page says Batchelor's provides HVAC, generator, and plumbing services in Semmes, AL."
+          },
+          {
+            "id": "al-semmes-peaden",
+            "name": "Peaden Air Conditioning, Plumbing & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.peaden.com/service-areas/semmes-al",
+            "evidence": "Peaden service-area page covers Semmes, AL."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-semmes-apartments",
+            "name": "Apartments.com Semmes rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/semmes-al/",
+            "evidence": "Apartments.com page reports 10 rentals available in Semmes, AL."
+          },
+          {
+            "id": "al-semmes-zillow-pm",
+            "name": "Zillow property manager directory",
+            "category": "property management directory",
+            "sourceUrl": "https://www.zillow.com/professionals/property-manager-reviews/semmes-al/",
+            "evidence": "Zillow directory page covers property managers for Semmes, AL."
+          },
+          {
+            "id": "al-semmes-candice-cove",
+            "name": "Candice Cove",
+            "category": "apartment community",
+            "managementCompany": "Olympia Management",
+            "address": "7745 Salem Road, Semmes, AL",
+            "sourceUrl": "https://olympiamanagement.net/property/candice-cove/",
+            "evidence": "Property page lists Candice Cove in Semmes, Alabama and describes apartment layouts."
+          }
+        ]
+      },
+      "Robertsdale": {
+        "services": [
+          {
+            "id": "al-robertsdale-roberts",
+            "name": "Roberts Cooling, Heating, Plumbing & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://robertsac.com/locations/",
+            "evidence": "Official locations page lists nearby Baldwin County service areas including Foley, Elberta, Summerdale, Gulf Shores, and Orange Beach."
+          },
+          {
+            "id": "al-robertsdale-hansen",
+            "name": "Hansen Super Techs",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://hansensupertechs.com/robertsdale/",
+            "evidence": "Official page is titled Robertsdale, AL 5 Star Electric, HVAC & Plumbing and describes services for Robertsdale homeowners."
+          },
+          {
+            "id": "al-robertsdale-prewett",
+            "name": "Prewett Pest Control & Termite",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.prewettpestcontrol.com/robertsdale-al-pest-control/",
+            "evidence": "Company page is dedicated to Robertsdale, AL pest control and says it serves Robertsdale properties."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-robertsdale-hilltop",
+            "name": "Hilltop Apartments",
+            "category": "apartment community",
+            "address": "19619 Wilters Street, Robertsdale, AL 36567",
+            "sourceUrl": "https://www.hilltoprobertsdaleapts.com/",
+            "evidence": "Official apartment site states Hilltop Apartments is in Robertsdale, AL."
+          },
+          {
+            "id": "al-robertsdale-baldwin-farms",
+            "name": "Baldwin Farms Apartments",
+            "category": "apartment community",
+            "managementCompany": "Baldwin Farms on-site community director",
+            "sourceUrl": "https://baldwinfarmsapts.com/about-us/",
+            "evidence": "Official page says Baldwin Farms is a 152-unit community in Robertsdale."
+          },
+          {
+            "id": "al-robertsdale-hemlane",
+            "name": "Hemlane Robertsdale property management",
+            "category": "property management directory",
+            "sourceUrl": "https://www.hemlane.com/property-management/robertsdale-al/",
+            "evidence": "Hemlane page specifically supports rentals in Robertsdale, AL."
+          },
+          {
+            "id": "al-robertsdale-landing",
+            "name": "The Landing Apartments",
+            "category": "apartment community",
+            "sourceUrl": "https://www.thelandingal.com/",
+            "evidence": "Official apartment site describes The Landing Apartments in Robertsdale, Alabama and lists a Robertsdale address."
+          }
+        ]
+      },
+      "Meridianville": {
+        "services": [
+          {
+            "id": "al-meridianville-hc-blake",
+            "name": "HC Blake",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://meridianville.hcblakeinc.com/",
+            "evidence": "Official local page says HC Blake provides plumbing, heating, cooling, and electrical services across Meridianville."
+          },
+          {
+            "id": "al-meridianville-cas",
+            "name": "Conditioned Air Solutions",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.conditionedairsolutions.com/service-areas/meridianville/",
+            "evidence": "Service-area page covers HVAC, plumbing, and electrical services in Meridianville, AL."
+          },
+          {
+            "id": "al-meridianville-mortons",
+            "name": "Morton's Pest Control",
+            "category": "pest control",
+            "marketClass": "local",
+            "sourceUrl": "https://www.mortonspestcontrol.com/meridianville-al-pest-control/",
+            "evidence": "Official page says Morton's provides pest control in Meridianville, AL."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-meridianville-rpm",
+            "name": "Real Property Management Rocket City",
+            "category": "property management",
+            "managementCompany": "RPM Rocket City",
+            "sourceUrl": "https://www.rpmrocketcity.com/areas-we-serve/meridianville",
+            "evidence": "RPM page says it manages Meridianville investment properties."
+          },
+          {
+            "id": "al-meridianville-apartments-condos",
+            "name": "Apartments.com Meridianville condo/rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/condos/meridianville-al/",
+            "evidence": "Apartments.com page reports 130 rentals available after expanding the search area."
+          }
+        ]
+      },
+      "Margaret": {
+        "services": [
+          {
+            "id": "al-margaret-terminix",
+            "name": "Terminix",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.pests.org/Terminix/AL/Margaret.html",
+            "evidence": "Public listing page references Terminix pest control for Margaret, AL."
+          },
+          {
+            "id": "al-margaret-hd-drain-pro",
+            "name": "HD Drain Pro",
+            "category": "plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.homeyou.com/hd-drain-pro-margaret-al",
+            "evidence": "Public contractor page lists HD Drain Pro as a plumber in Margaret, AL 35112."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-margaret-manual-gap",
+            "name": "Apartments.com Margaret rental listings",
+            "category": "rental listing signal",
+            "sourceUrl": "https://www.apartments.com/margaret-al/",
+            "evidence": "Apartments.com page lists apartments and houses for rent in Margaret, AL, including Margaret-address house listings."
+          }
+        ]
+      },
+      "Orange Beach": {
+        "services": [
+          {
+            "id": "al-orange-beach-gone-coastal",
+            "name": "Gone Coastal Plumbing and Air",
+            "category": "HVAC and plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.gonecoastalplumbingair.net/location/orange-beach",
+            "evidence": "Official service-area page says the company serves Orange Beach."
+          },
+          {
+            "id": "al-orange-beach-hansen",
+            "name": "Hansen Super Techs",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://hansensupertechs.com/orange-beach/",
+            "evidence": "Service-area page covers Orange Beach HVAC, electrical, and plumbing."
+          },
+          {
+            "id": "al-orange-beach-cooks",
+            "name": "Cook's Pest Control",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.cookspest.com/service-areas/orange-beach",
+            "evidence": "Cook's branch locator page lists Orange Beach pest control."
+          },
+          {
+            "id": "al-orange-beach-prewett",
+            "name": "Prewett Pest Control",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.prewettpestcontrol.com/orange-beach-al-pest-control/",
+            "evidence": "Official page covers pest control for Orange Beach properties."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-orange-beach-apartments",
+            "name": "Apartments.com Orange Beach rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/orange-beach-al/",
+            "evidence": "Apartments.com page reports 193 rentals available and lists apartment communities including Cavala, Prosper Orange Beach, Gulf Stream Townhomes, MAA Cypress Village, and Island Oaks."
+          },
+          {
+            "id": "al-orange-beach-wharf",
+            "name": "The Wharf Rental Management",
+            "category": "vacation rental management",
+            "managementCompany": "Wharf Rental Management",
+            "sourceUrl": "https://www.wharfcondos.com/",
+            "evidence": "Official site describes Wharf Rental Management as an on-site Orange Beach condo rental manager."
+          },
+          {
+            "id": "al-orange-beach-beach-getaways",
+            "name": "Beach Getaways",
+            "category": "vacation rental property management",
+            "managementCompany": "Beach Getaways",
+            "sourceUrl": "https://www.propertymanagementorangebeach.com/",
+            "evidence": "Official property-management page covers Orange Beach vacation-rental management."
+          }
+        ]
+      },
+      "Calera": {
+        "services": [
+          {
+            "id": "al-calera-dunns",
+            "name": "Dunn's Heating, Cooling, Plumbing and Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.calldunns.com/service-area/calera/",
+            "evidence": "Official Calera service-area page covers HVAC, plumbing, and electrical work."
+          },
+          {
+            "id": "al-calera-carden",
+            "name": "Carden Heating & Cooling",
+            "category": "HVAC",
+            "marketClass": "local",
+            "sourceUrl": "https://cardenhvac.com/service-area/hvac-company-in-calera-al/",
+            "evidence": "Service-area page describes Carden as an HVAC company serving Calera."
+          },
+          {
+            "id": "al-calera-plumbers",
+            "name": "The Plumbers LLC",
+            "category": "plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.theplumbersllc.com/",
+            "evidence": "Official site says The Plumbers provides plumbing services in Calera and surrounding areas."
+          },
+          {
+            "id": "al-calera-farmers",
+            "name": "Farmers Pest Control",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.farmerspestcontrol.com/service-areas/calera-al-pest-control/",
+            "evidence": "Official service-area page covers Calera pest control."
+          },
+          {
+            "id": "al-calera-connells",
+            "name": "Connell's Pest Control",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.connellspest.com/service-areas/calera-al/",
+            "evidence": "Company page is titled Calera, AL Pest Control Services and describes monthly and quarterly pest control."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-calera-apartments",
+            "name": "Apartments.com Calera rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/calera-al/",
+            "evidence": "Apartments.com page reports 63 rentals available and lists communities such as Lancaster Place, South Pointe Development, and Hill Brook Manor."
+          },
+          {
+            "id": "al-calera-hemlane",
+            "name": "Hemlane Calera property management",
+            "category": "property management directory",
+            "sourceUrl": "https://www.hemlane.com/property-management/calera-al/",
+            "evidence": "Hemlane property-management page covers Calera rentals."
+          }
+        ]
+      },
+      "Foley": {
+        "services": [
+          {
+            "id": "al-foley-roberts",
+            "name": "Roberts Cooling, Heating, Plumbing & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://robertsac.com/locations/foley/",
+            "evidence": "Official Foley service-area page covers HVAC, plumbing, and electrical services."
+          },
+          {
+            "id": "al-foley-hansen",
+            "name": "Hansen Super Techs",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://hansensupertechs.com/foley/",
+            "evidence": "Service-area page covers Foley home services."
+          },
+          {
+            "id": "al-foley-rogue",
+            "name": "Rogue Pest Solutions",
+            "category": "pest control",
+            "marketClass": "local",
+            "sourceUrl": "https://www.roguepestgulfcoast.com/",
+            "evidence": "Official site says Rogue Pest Solutions is locally operated in Foley."
+          },
+          {
+            "id": "al-foley-prewett",
+            "name": "Prewett Pest Control",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.prewettpestcontrol.com/foley-al-pest-control/",
+            "evidence": "Official service page covers pest control for Foley properties."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-foley-trio",
+            "name": "Foley Trio Apartments",
+            "category": "apartment community",
+            "sourceUrl": "https://www.foley3.com/",
+            "evidence": "Official apartment site says Foley Trio Apartments offers 1-3 bedroom apartments in Foley, Alabama."
+          }
+        ]
+      },
+      "Tallassee": {
+        "services": [
+          {
+            "id": "al-tallassee-riverside",
+            "name": "Riverside Pest Control",
+            "category": "pest control",
+            "marketClass": "local",
+            "sourceUrl": "https://www.riversidepest.net/",
+            "evidence": "Official site says Riverside Pest Control serves Tallassee, AL."
+          },
+          {
+            "id": "al-tallassee-halls",
+            "name": "Hall's Heating and Cooling",
+            "category": "HVAC",
+            "marketClass": "local",
+            "sourceUrl": "https://www.hvacrepairtallassee.com/",
+            "evidence": "Official site positions Hall's as an HVAC company in Tallassee, AL."
+          },
+          {
+            "id": "al-tallassee-cole",
+            "name": "Cole Plumbing",
+            "category": "plumbing",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.coleplumbing.com/locations/tallassee-al/",
+            "evidence": "Service-area page covers Cole Plumbing services in Tallassee."
+          }
+        ],
+        "rentals": []
+      },
+      "Satsuma": {
+        "services": [
+          {
+            "id": "al-satsuma-calvin-air",
+            "name": "Calvin Air LLC",
+            "category": "HVAC",
+            "address": "616 Vaughn Dr S, Satsuma, AL 36572",
+            "marketClass": "local",
+            "sourceUrl": "https://calvinairllc.com/contact-us/",
+            "evidence": "Official contact page lists Calvin Air in Satsuma, AL."
+          },
+          {
+            "id": "al-satsuma-peaden",
+            "name": "Peaden Air Conditioning, Plumbing & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.peaden.com/service-areas/satsuma-al",
+            "evidence": "Official service-area page names Satsuma, AL and describes HVAC, electrical, and plumbing services."
+          },
+          {
+            "id": "al-satsuma-ensec",
+            "name": "EnSec Pest & Lawn",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.ensec.net/satsuma-al-pest-control/",
+            "evidence": "Company page is titled Satsuma, AL Pest Control and says EnSec serves Satsuma residents."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "al-satsuma-arbours",
+            "name": "Arbours at Satsuma",
+            "category": "apartment community",
+            "sourceUrl": "https://www.apartments.com/satsuma-al/",
+            "evidence": "Apartments.com Satsuma page lists Arbours at Satsuma at 5259 US-43, Satsuma, AL 36572."
+          }
+        ]
+      }
+    },
+    "GA": {
+      "Lovejoy": {
+        "services": [
+          {
+            "id": "ga-lovejoy-pestnation",
+            "name": "PestNation",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.pestnation.com/lovejoy",
+            "evidence": "Company page is titled Best Pest Control Service in Lovejoy and says PestNation proudly serves Lovejoy and beyond."
+          },
+          {
+            "id": "ga-lovejoy-hammond",
+            "name": "Hammond Services",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.hammondservices.com/",
+            "evidence": "Company service-area section lists Lovejoy and describes heating, A/C, plumbing, electrical, sewer, and drain services."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-lovejoy-belong",
+            "name": "Belong Lovejoy property management",
+            "category": "property management",
+            "managementCompany": "Belong",
+            "sourceUrl": "https://belonghome.com/homeowners/lovejoy-ga-property-management",
+            "evidence": "Belong page covers Lovejoy, GA property management."
+          },
+          {
+            "id": "ga-lovejoy-lakeside-villas",
+            "name": "Lakeside Villas",
+            "category": "apartment community",
+            "address": "1992 Lovejoy Rd, Hampton, GA 30228",
+            "sourceUrl": "https://www.lakesidevillasapts.com/",
+            "evidence": "Official community site says Lakeside Villas is tucked away in Lovejoy and lists a Lovejoy Road address."
+          }
+        ]
+      },
+      "Jonesboro": {
+        "services": [
+          {
+            "id": "ga-jonesboro-johns",
+            "name": "John's HVAC and Maintenance LLC",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "local",
+            "sourceUrl": "https://johnshvacandmaintenancellc.com/jonesboro",
+            "evidence": "Official page covers HVAC, plumbing, and electrical repair in Jonesboro, GA."
+          },
+          {
+            "id": "ga-jonesboro-te-certified",
+            "name": "TE Certified",
+            "category": "electrical, plumbing, HVAC",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.tecertifiedelectricians.com/service-areas/mableton-ga-electrical-service-and-repairs/",
+            "evidence": "TE Certified page lists a Jonesboro office location and metro Atlanta electrical/plumbing/HVAC service coverage."
+          },
+          {
+            "id": "ga-jonesboro-champion",
+            "name": "Champion HVAC & Plumbing",
+            "category": "HVAC and plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://championhvacplumbing.weebly.com/",
+            "evidence": "Company page says Champion HVAC & Plumbing was founded in Jonesboro, GA and expanded across Metro Atlanta."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-jonesboro-carrington-park",
+            "name": "Carrington Park",
+            "category": "apartment community",
+            "sourceUrl": "https://www.carringtonparkjonesboro.com/",
+            "evidence": "Official apartment site is for Carrington Park apartments in Jonesboro, GA."
+          },
+          {
+            "id": "ga-jonesboro-fieldstone",
+            "name": "Fieldstone by Trion Living",
+            "category": "apartment community",
+            "managementCompany": "Trion Living",
+            "sourceUrl": "https://fieldstone.trionliving.com/",
+            "evidence": "Official community page says Fieldstone apartments are in Jonesboro, Georgia."
+          },
+          {
+            "id": "ga-jonesboro-apartments-pmc",
+            "name": "Apartments.com Jonesboro property management companies",
+            "category": "property management company count signal",
+            "sourceUrl": "https://www.apartments.com/pmc/jonesboro-ga/",
+            "evidence": "Apartments.com property-management page lists community/unit counts and named managers with communities in Jonesboro."
+          },
+          {
+            "id": "ga-jonesboro-maplewood-pointe",
+            "name": "Maplewood Pointe",
+            "category": "apartment community",
+            "managementCompany": "Peak Living",
+            "address": "221 Upper Riverdale Road SE, Jonesboro, GA 30236",
+            "sourceUrl": "https://www.maplewoodpointe.com/",
+            "evidence": "Official apartment site lists Maplewood Pointe in Jonesboro, GA and says it is managed by Peak Living."
+          },
+          {
+            "id": "ga-jonesboro-averly",
+            "name": "Averly Apartments",
+            "category": "apartment community",
+            "address": "100 Chase Lake Drive, Jonesboro, GA 30236",
+            "sourceUrl": "https://www.averlyapartments.com/",
+            "evidence": "Official community site says Averly Apartments is in Jonesboro, GA."
+          }
+        ]
+      },
+      "Jefferson": {
+        "services": [
+          {
+            "id": "ga-jefferson-gooch",
+            "name": "Gooch Electric and Plumbing",
+            "category": "electrical and plumbing",
+            "address": "999 Lee Street, Jefferson, GA",
+            "marketClass": "local",
+            "sourceUrl": "https://www.goochelectricandplumbing.com/",
+            "evidence": "Official site describes Gooch as Jefferson, GA electric and plumbing experts."
+          },
+          {
+            "id": "ga-jefferson-patriot",
+            "name": "Patriot Heating, Cooling, Plumbing, & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "local",
+            "sourceUrl": "https://gbj.com/jefferson/ga-contractors/patriot-heating-cooling-plumbing",
+            "evidence": "Business listing places Patriot in Jefferson, Georgia and describes HVAC/plumbing services."
+          },
+          {
+            "id": "ga-jefferson-thrill",
+            "name": "Thrill Mechanical Heating and Air",
+            "category": "HVAC",
+            "marketClass": "local",
+            "sourceUrl": "https://www.thrillmechanical.com/",
+            "evidence": "Official site lists Jefferson, GA in its service area and gives a Jefferson address."
+          },
+          {
+            "id": "ga-jefferson-grey-plumbing",
+            "name": "Grey Plumbing",
+            "category": "plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.grey-plumbing.com/",
+            "evidence": "Official site says Grey Plumbing serves all of the Jefferson, GA area and provides residential/light-commercial plumbing services."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-jefferson-southwind",
+            "name": "Southwind",
+            "category": "for-rent home community",
+            "sourceUrl": "https://www.livesouthwindhomes.com/",
+            "evidence": "Official site describes Southwind as modern houses for rent in Jefferson, GA."
+          },
+          {
+            "id": "ga-jefferson-hemlane",
+            "name": "Hemlane Jefferson property management",
+            "category": "property management directory",
+            "sourceUrl": "https://www.hemlane.com/property-management/jefferson-ga/",
+            "evidence": "Hemlane page covers Jefferson, GA property management."
+          }
+        ]
+      },
+      "Locust Grove": {
+        "services": [
+          {
+            "id": "ga-locust-grove-accurate",
+            "name": "Accurate Pest Solutions",
+            "category": "pest control",
+            "marketClass": "local",
+            "sourceUrl": "https://www.myaccuratepestsolutions.com/",
+            "evidence": "Official site says Accurate Pest Solutions is based out of Locust Grove."
+          },
+          {
+            "id": "ga-locust-grove-hammond",
+            "name": "Hammond Services",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.hammondservices.com/locust-grove-plumbing",
+            "evidence": "Service page covers plumbing/HVAC/electrical work for the Locust Grove area."
+          },
+          {
+            "id": "ga-locust-grove-cooks",
+            "name": "Cook's Pest Control",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.cookspest.com/service-areas/locust-grove",
+            "evidence": "Cook's branch locator page lists Locust Grove pest control."
+          },
+          {
+            "id": "ga-locust-grove-ars",
+            "name": "ARS / Rescue Rooter",
+            "category": "plumbing and HVAC",
+            "marketClass": "chain",
+            "sourceUrl": "https://ars-rr.com/locations/georgia/locust-grove-ga/",
+            "evidence": "ARS page covers plumbing and HVAC services in Locust Grove, GA."
+          },
+          {
+            "id": "ga-locust-grove-comfort-controllers",
+            "name": "Comfort Controllers",
+            "category": "HVAC",
+            "address": "105 Long Branch Dr, Locust Grove, GA 30248",
+            "marketClass": "local",
+            "sourceUrl": "https://www.comfortcontrollers.net/",
+            "evidence": "Official site lists Comfort Controllers in Locust Grove, GA and describes AC repair and furnace repair services."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-locust-grove-eagles-brooke",
+            "name": "Eagle's Brooke",
+            "category": "apartment community",
+            "sourceUrl": "https://www.eaglesbrookegeorgia.com/",
+            "evidence": "Official apartment site places Eagle's Brooke in Locust Grove, GA."
+          },
+          {
+            "id": "ga-locust-grove-springs",
+            "name": "Springs at Locust Grove",
+            "category": "apartment community",
+            "managementCompany": "Continental Properties",
+            "sourceUrl": "https://www.springsapartments.com/apartments/ga/locust-grove/springs-at-locust-grove",
+            "evidence": "Official page says Springs at Locust Grove is owned and managed by Continental Properties."
+          }
+        ]
+      },
+      "Blakely": {
+        "services": [
+          {
+            "id": "ga-blakely-wimberly",
+            "name": "Wimberly Heating & Cooling",
+            "category": "HVAC",
+            "address": "2285 South Main Street, Blakely, GA 39823",
+            "marketClass": "local",
+            "sourceUrl": "https://www.wimberlyhvac.com/",
+            "evidence": "Official site lists Blakely address and HVAC services."
+          },
+          {
+            "id": "ga-blakely-adams",
+            "name": "Adams Exterminators",
+            "category": "pest control",
+            "address": "516 S Church St, Blakely, GA 39823",
+            "marketClass": "local",
+            "sourceUrl": "https://www.adams-exterminators.com/locations/pest-control-blakely-ga/",
+            "evidence": "Official location page is for Blakely, GA pest control and says to call for service in Blakely."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-blakely-tanglewood",
+            "name": "Tanglewood Apartments",
+            "category": "apartment community",
+            "address": "468 Liberty St, Blakely, GA 39823",
+            "sourceUrl": "https://www.apartments.com/tanglewood-apartments-blakely-ga/llsph8g/",
+            "evidence": "Apartments.com page places Tanglewood Apartments in Blakely, GA."
+          },
+          {
+            "id": "ga-blakely-pm",
+            "name": "Blakely Property Management",
+            "category": "property management",
+            "managementCompany": "Blakely Property Management",
+            "sourceUrl": "https://www.blakelypm.com/",
+            "evidence": "Official property-management site offers managed rentals in Blakely."
+          }
+        ]
+      },
+      "Mableton": {
+        "services": [
+          {
+            "id": "ga-mableton-estes",
+            "name": "Estes Services",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.estesair.com/mableton-ga",
+            "evidence": "Official page covers HVAC, plumbing, and electrical service in Mableton, GA."
+          },
+          {
+            "id": "ga-mableton-ragsdale",
+            "name": "Ragsdale Heating, Air, Plumbing & Electrical",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.ragsdaleair.com/mableton",
+            "evidence": "Official page covers Mableton HVAC, plumbing, and electrical services."
+          },
+          {
+            "id": "ga-mableton-massey",
+            "name": "Massey Services",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.masseyservices.com/mableton/pest-control/",
+            "evidence": "Massey page covers pest control in Mableton."
+          },
+          {
+            "id": "ga-mableton-cooks",
+            "name": "Cook's Pest Control",
+            "category": "pest control",
+            "marketClass": "chain",
+            "sourceUrl": "https://www.cookspest.com/service-areas/mableton",
+            "evidence": "Cook's branch page says the Mableton branch provides residential pest control and termite protection services for Mableton."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-mableton-apartments",
+            "name": "Apartments.com Mableton rental search",
+            "category": "rental count signal",
+            "sourceUrl": "https://www.apartments.com/mableton-ga/",
+            "evidence": "Apartments.com page reports 755 rentals available and lists Mableton-area communities."
+          },
+          {
+            "id": "ga-mableton-ridge",
+            "name": "Mableton Ridge",
+            "category": "apartment community",
+            "sourceUrl": "https://www.mabletonridge.com/",
+            "evidence": "Official community site describes Mableton Ridge apartments in Mableton, GA."
+          },
+          {
+            "id": "ga-mableton-millery",
+            "name": "The Millery",
+            "category": "apartment community",
+            "sourceUrl": "https://www.themilleryapts.com/",
+            "evidence": "Official community site says The Millery offers luxury apartments in Mableton, GA."
+          },
+          {
+            "id": "ga-mableton-vision",
+            "name": "Vision Realty & Management",
+            "category": "property management",
+            "managementCompany": "Vision Realty & Management",
+            "sourceUrl": "https://www.atlantaproperty.management/mableton-property-management",
+            "evidence": "Property-management page says Vision manages properties in the Greater Mableton area."
+          }
+        ]
+      },
+      "Cumming": {
+        "services": [
+          {
+            "id": "ga-cumming-cheeky",
+            "name": "Cheeky Heating, Cooling & Plumbing",
+            "category": "HVAC and plumbing",
+            "address": "245 Castleberry Industrial Dr, Cumming, GA 30040",
+            "marketClass": "local",
+            "sourceUrl": "https://www.cheeksac.com/",
+            "evidence": "Official site covers HVAC and plumbing services in Cumming and North Georgia."
+          },
+          {
+            "id": "ga-cumming-kennon",
+            "name": "Kennon Heating, Air & Plumbing",
+            "category": "HVAC and plumbing",
+            "marketClass": "regional",
+            "sourceUrl": "https://kennonhvac.com/",
+            "evidence": "Official site covers heating, air conditioning, and plumbing services in Cumming and surrounding areas."
+          },
+          {
+            "id": "ga-cumming-fox-pros",
+            "name": "Fox Pros HVAC",
+            "category": "HVAC",
+            "marketClass": "local",
+            "sourceUrl": "https://www.foxproshvac.com/",
+            "evidence": "Official site says Fox Pros serves Cumming, Alpharetta, and Roswell."
+          },
+          {
+            "id": "ga-cumming-active-pest",
+            "name": "Active Pest Control",
+            "category": "pest control",
+            "marketClass": "regional",
+            "sourceUrl": "https://activepestcontrol.com/locations/cumming/",
+            "evidence": "Company location page is for Active Pest Control's Cumming service area and says it supports homeowners and businesses throughout Cumming, GA."
+          },
+          {
+            "id": "ga-cumming-rs-andrews",
+            "name": "R.S. Andrews",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.rsandrews.com/service-area/cumming-ga/plumbing/",
+            "evidence": "Company page is titled HVAC, Plumbing & Electrical Contractor in Cumming, GA and describes installation, repair, and maintenance services."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-cumming-home-pm",
+            "name": "Cumming Home Property Management",
+            "category": "property management",
+            "managementCompany": "Cumming Home Property Management",
+            "sourceUrl": "https://www.cumminghomepm.com/",
+            "evidence": "Official site offers property management and rental services in Cumming."
+          },
+          {
+            "id": "ga-cumming-apartments-pmc",
+            "name": "Apartments.com Cumming property management companies",
+            "category": "property management company count signal",
+            "sourceUrl": "https://www.apartments.com/pmc/cumming-ga/",
+            "evidence": "Apartments.com page lists property-management companies and communities with Cumming presence."
+          }
+        ]
+      },
+      "Perry": {
+        "services": [
+          {
+            "id": "ga-perry-kings",
+            "name": "King's Heating & Cooling",
+            "category": "HVAC",
+            "marketClass": "local",
+            "sourceUrl": "https://www.kingsheatingac.com/",
+            "evidence": "Official site says King's serves Perry and Warner Robins with HVAC services."
+          },
+          {
+            "id": "ga-perry-rescue-plumbing",
+            "name": "Rescue Plumbing",
+            "category": "plumbing",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.rescueplumb.com/",
+            "evidence": "Official site says Rescue Plumbing serves Perry, Macon, Warner Robins, and Central Georgia."
+          },
+          {
+            "id": "ga-perry-we-care",
+            "name": "We Care Heating, Cooling, Plumbing & Electric",
+            "category": "HVAC, plumbing, electrical",
+            "marketClass": "regional",
+            "sourceUrl": "https://wecareheatandair.com/georgia/perry-ga/",
+            "evidence": "Official Perry page covers HVAC company services in Perry, GA."
+          },
+          {
+            "id": "ga-perry-ingram",
+            "name": "Ingram Plumbing Company",
+            "category": "plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.ingramplumbingcompany.com/",
+            "evidence": "Official site says Ingram Plumbing serves Houston County, GA and surrounding areas; Perry is in Houston County."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-perry-the-grove",
+            "name": "The Grove by Asteri",
+            "category": "for-rent home community",
+            "managementCompany": "Asteri Management Inc.",
+            "address": "2141 Houston Lake Rd, Perry, GA 31069",
+            "sourceUrl": "https://asterimgt.com/the-grove/",
+            "evidence": "Official Asteri page describes The Grove as a Perry rental-home community."
+          },
+          {
+            "id": "ga-perry-berkshire",
+            "name": "Berkshire Court",
+            "category": "apartment community",
+            "address": "1820 Macon Road, Perry, GA 31069",
+            "sourceUrl": "https://www.berkshireofperry.com/",
+            "evidence": "Official community page says Berkshire Court is a 72-unit affordable multifamily property in Perry."
+          },
+          {
+            "id": "ga-perry-landmark",
+            "name": "Landmark Realty",
+            "category": "property management",
+            "managementCompany": "Landmark Realty",
+            "sourceUrl": "https://landmarkperry.com/property-management/",
+            "evidence": "Landmark Realty page lists full-service property-management offerings in Perry."
+          },
+          {
+            "id": "ga-perry-timberwood",
+            "name": "Timberwood",
+            "category": "apartment community",
+            "address": "710 Mason Terrace, Perry, GA 31069",
+            "sourceUrl": "https://www.timberwoodbyelon.com/",
+            "evidence": "Official apartment site lists Timberwood in Perry, GA and describes studio, one-, and two-bedroom apartments."
+          }
+        ]
+      },
+      "Fort Valley": {
+        "services": [
+          {
+            "id": "ga-fort-valley-premier",
+            "name": "Premier Heating and Air",
+            "category": "HVAC",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.premierishere.com/service-areas/fort-valley-ga-hvac",
+            "evidence": "Official service-area page covers HVAC in Fort Valley, GA."
+          },
+          {
+            "id": "ga-fort-valley-kings",
+            "name": "King's Heating & Cooling",
+            "category": "HVAC",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.kingsheatingac.com/",
+            "evidence": "Official service-area text includes Fort Valley among communities served."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-fort-valley-vallihi",
+            "name": "Vallihi Apartments",
+            "category": "senior apartment community",
+            "address": "523 Vineville Street, Fort Valley, GA 31030",
+            "sourceUrl": "https://vallihiapartments.com/",
+            "evidence": "Official site says Vallihi Apartments is a senior living community in Fort Valley, GA."
+          },
+          {
+            "id": "ga-fort-valley-housing-authority",
+            "name": "Fort Valley Housing Authority",
+            "category": "affordable housing authority",
+            "managementCompany": "Fort Valley Housing Authority",
+            "sourceUrl": "https://ftvalleyha.com/",
+            "evidence": "Official housing authority site says it is located in Fort Valley, Georgia and provides decent, safe, affordable housing."
+          }
+        ]
+      },
+      "Swainsboro": {
+        "services": [
+          {
+            "id": "ga-swainsboro-quality-air",
+            "name": "Quality Air",
+            "category": "HVAC",
+            "address": "323 Scott Ave, Swainsboro, GA 30401",
+            "marketClass": "local",
+            "sourceUrl": "https://qualityairtechs.com/",
+            "evidence": "Official site says Quality Air provides HVAC repair and installation in Swainsboro."
+          },
+          {
+            "id": "ga-swainsboro-sweet-georgia",
+            "name": "Sweet Georgia Heating and Air",
+            "category": "HVAC",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.sweetgaheatingandair.com/",
+            "evidence": "Official site says it serves Swainsboro and surrounding Georgia communities."
+          },
+          {
+            "id": "ga-swainsboro-mcgee",
+            "name": "Mc Gee Plumbing & Electric",
+            "category": "electrical and plumbing",
+            "marketClass": "local",
+            "sourceUrl": "https://www.manta.com/c/mbsy1ng/mc-gee-plumbing-electric",
+            "evidence": "Manta listing locates Mc Gee Plumbing & Electric in Swainsboro, GA."
+          },
+          {
+            "id": "ga-swainsboro-southern-infrastructure",
+            "name": "Southern Infrastructure & Construction",
+            "category": "plumbing and septic",
+            "marketClass": "regional",
+            "sourceUrl": "https://www.southerninfrastructurellc.com/",
+            "evidence": "Official site says it provides septic and plumbing service in Adrian, Swainsboro, Dublin, GA and surrounding areas."
+          }
+        ],
+        "rentals": [
+          {
+            "id": "ga-swainsboro-quail-ridge",
+            "name": "Quail Ridge Living",
+            "category": "apartment community",
+            "address": "1064 GA Highway 56, Swainsboro, GA 30401",
+            "sourceUrl": "https://www.apartments.com/quail-ridge-living-swainsboro-ga/78ggxqz/",
+            "evidence": "Apartments.com listing identifies Quail Ridge Living in Swainsboro with two- and three-bedroom apartments."
+          },
+          {
+            "id": "ga-swainsboro-presbyterian",
+            "name": "Swainsboro Presbyterian Apartments",
+            "category": "apartment community",
+            "address": "310 Mary Ann St, Swainsboro, GA 30401",
+            "sourceUrl": "https://www.apartments.com/swainsboro-presbyterian-apartments-swainsboro-ga/3dympge/",
+            "evidence": "Apartments.com listing identifies Swainsboro Presbyterian Apartments and shows on-site property-management amenities."
+          }
+        ]
+      }
+    }
+  }
+}

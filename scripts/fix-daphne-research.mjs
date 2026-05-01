@@ -21,18 +21,15 @@ const services = [
 ];
 
 const rentals = [
-  rental("daphne-rental-grande-pointe", "Grande Pointe Apartment Homes", "apartment community", null, "133 Lake Front Drive, Daphne, AL 36526", "https://www.grandepointeapts.com/", "Official site says Grande Pointe is an apartment community in Daphne and lists 133 Lake Front Drive."),
-  rental("daphne-rental-palladian", "Palladian at Daphne Apartment Homes", "apartment community", null, "27821 AL-181, Daphne, AL 36526", "https://www.palladianatdaphne.com/", "Official site says Palladian at Daphne Apartment Homes is in Daphne and lists apartment floor plans and amenities."),
-  rental("daphne-rental-windscape", "Windscape at Daphne", "apartment community", null, "27670 US-98, Daphne, AL 36526", "https://www.windscapeatdaphne.com/", "Official site lists one- and two-bedroom apartments in Daphne and gives the 27670 US-98 address."),
-  rental("daphne-rental-arbors-by-the-bay", "Arbors By The Bay", "apartment community", "SPM", "27642 US Highway 98, Daphne, AL 36526", "https://spm.net/properties/arbors-by-the-bay/", "SPM property page lists Arbors By The Bay in Daphne with one-, two- and three-bedroom apartments."),
-  rental("daphne-rental-colonnade-eastern-shore", "Colonnade at Eastern Shore", "apartment community", null, "830 Highway 98, Daphne, AL 36526", "https://www.daphneapartments.com/", "Official site lists Colonnade at Eastern Shore as pet-friendly one-, two- and three-bedroom apartments in Daphne."),
-  rental("daphne-rental-park-whispering-pines", "The Park at Whispering Pines", "apartment community", null, "26920 Pollard Road, Daphne, AL 36526", "https://www.whisperingpinesal.com/", "Official site lists one-, two- and three-bedroom apartments at 26920 Pollard Road in Daphne."),
-  rental("daphne-rental-belforest-villas", "Belforest Villas", "apartment community", null, "8964 Rand Ave, Daphne, AL 36526", "https://www.belforestvillas.com/", "Official site says Belforest Villas offers one-, two- and three-bedroom apartments for rent in Daphne and lists 8964 Rand Ave."),
-  rental("daphne-rental-east-bay", "East Bay Apartments", "apartment community", null, "2200 East Bay Drive, Daphne, AL 36526", "https://eastbayapartmenthomes.com/", "Official site lists East Bay Apartments at 2200 East Bay Drive in Daphne."),
-  rental("daphne-rental-bay-breeze", "Bay Breeze Apartment Homes", "apartment community", null, "29150 Lake Forest Blvd, Daphne, AL 36526", "https://www.apartments.com/bay-breeze-apartment-homes-daphne-al/g1b6mjz/", "Apartments.com verified listing places Bay Breeze Apartment Homes at 29150 Lake Forest Blvd in Daphne."),
-  rental("daphne-rental-shamrock", "Shamrock Rentals", "property manager", "Shamrock Properties", "Baldwin County / Daphne service area", "https://www.shamrockrentals.com/", "Company rental page says Shamrock is a property-management company serving Baldwin and Mobile Counties, including Daphne-area rentals."),
-  rental("daphne-rental-1-south", "1 South Property Management Rentals", "property manager", "1 South Property Management", "Daphne, AL rental inventory", "https://1southpropertymanagement.managebuilding.com/Resident/public/rentals", "Property-management rental portal includes Daphne rental inventory such as Citation Loop."),
-  rental("daphne-rental-level-pmg", "Level Property Management Group", "property manager", "Level Property Management Group", "Daphne / Eastern Shore service area", "https://levelpmg.com/", "Property-management company page covers the Eastern Shore rental market used for Daphne-area rental management.")
+  rental("daphne-rental-grande-pointe", "Grande Pointe Apartment Homes", "apartment community", "Management source", "https://www.grandepointeapts.com/", "133 Lake Front Drive, Daphne, AL 36526", "https://www.grandepointeapts.com/", "Official site says Grande Pointe is an apartment community in Daphne and lists 133 Lake Front Drive."),
+  rental("daphne-rental-palladian", "Palladian at Daphne Apartment Homes", "apartment community", "Management source", "https://www.palladianatdaphne.com/", "27821 AL-181, Daphne, AL 36526", "https://www.palladianatdaphne.com/", "Official site says Palladian at Daphne Apartment Homes is in Daphne and lists apartment floor plans and amenities."),
+  rental("daphne-rental-windscape", "Windscape at Daphne", "apartment community", "Management source", "https://www.windscapeatdaphne.com/", "27670 US-98, Daphne, AL 36526", "https://www.windscapeatdaphne.com/", "Official site lists one- and two-bedroom apartments in Daphne and gives the 27670 US-98 address."),
+  rental("daphne-rental-arbors-by-the-bay", "Arbors By The Bay", "apartment community", "SPM", "https://spm.net/", "27642 US Highway 98, Daphne, AL 36526", "https://spm.net/properties/arbors-by-the-bay/", "SPM property page lists Arbors By The Bay in Daphne with one-, two- and three-bedroom apartments."),
+  rental("daphne-rental-colonnade-eastern-shore", "Colonnade at Eastern Shore", "apartment community", "Management source", "https://www.daphneapartments.com/", "830 Highway 98, Daphne, AL 36526", "https://www.daphneapartments.com/", "Official site lists Colonnade at Eastern Shore as pet-friendly one-, two- and three-bedroom apartments in Daphne."),
+  rental("daphne-rental-park-whispering-pines", "The Park at Whispering Pines", "apartment community", "Management source", "https://www.whisperingpinesal.com/", "26920 Pollard Road, Daphne, AL 36526", "https://www.whisperingpinesal.com/", "Official site lists one-, two- and three-bedroom apartments at 26920 Pollard Road in Daphne."),
+  rental("daphne-rental-belforest-villas", "Belforest Villas", "apartment community", "Management source", "https://www.belforestvillas.com/", "8964 Rand Ave, Daphne, AL 36526", "https://www.belforestvillas.com/", "Official site says Belforest Villas offers one-, two- and three-bedroom apartments for rent in Daphne and lists 8964 Rand Ave."),
+  rental("daphne-rental-east-bay", "East Bay Apartments", "apartment community", "Management source", "https://eastbayapartmenthomes.com/", "2200 East Bay Drive, Daphne, AL 36526", "https://eastbayapartmenthomes.com/", "Official site lists East Bay Apartments at 2200 East Bay Drive in Daphne."),
+  rental("daphne-rental-bay-breeze", "Bay Breeze Apartment Homes", "apartment community", "Management source", "https://www.apartments.com/bay-breeze-apartment-homes-daphne-al/g1b6mjz/", "29150 Lake Forest Blvd, Daphne, AL 36526", "https://www.apartments.com/bay-breeze-apartment-homes-daphne-al/g1b6mjz/", "Apartments.com verified listing places Bay Breeze Apartment Homes at 29150 Lake Forest Blvd in Daphne.")
 ];
 
 async function main() {
@@ -65,8 +62,8 @@ function service(id, name, category, marketClass, address, sourceUrl, evidence) 
   return { id, name, category, serviceTags: inferServiceTags({ name, category, evidence, sourceUrl }), marketClass, address, sourceUrl, evidence, source: "Manual Daphne verification" };
 }
 
-function rental(id, name, category, managementCompany, address, sourceUrl, evidence) {
-  return { id, name, category, managementCompany, address, sourceUrl, evidence, source: "Manual Daphne verification" };
+function rental(id, name, category, managementCompany, managementCompanyUrl, address, sourceUrl, evidence) {
+  return { id, name, category, managementCompany, managementCompanyUrl, locationUrl: sourceUrl, address, sourceUrl, evidence, source: "Manual Daphne verification" };
 }
 
 function inferServiceTags(service) {

@@ -62,6 +62,7 @@ type DiscoveryItem = {
   category?: string | null;
   serviceTags?: ServiceTag[];
   website?: string | null;
+  locationUrl?: string | null;
   phone?: string | null;
   operator?: string | null;
   address?: string | null;
@@ -71,6 +72,7 @@ type DiscoveryItem = {
   reviews?: number | null;
   marketClass?: "local" | "regional" | "chain" | "unknown";
   managementCompany?: string | null;
+  managementCompanyUrl?: string | null;
   lat?: number | null;
   lon?: number | null;
   tags?: Record<string, string>;
@@ -400,6 +402,7 @@ function App() {
               <ExecutiveList
                 items={dedupeItems([...manualRentals.items, ...serpRentals.items, ...googleRentals.items, ...rentals.items])}
                 emptyLabel="No for-rent communities verified yet."
+                showManagementTag
               />
               {summary.managerSignals.length > 0 && (
                 <div className="manager-list">
@@ -638,17 +641,35 @@ function InfoTip({ text }: { text: string }) {
   );
 }
 
-function ExecutiveList({ items, emptyLabel, showServiceTags = false }: { items: DiscoveryItem[]; emptyLabel: string; showServiceTags?: boolean }) {
+function ExecutiveList({
+  items,
+  emptyLabel,
+  showServiceTags = false,
+  showManagementTag = false,
+}: {
+  items: DiscoveryItem[];
+  emptyLabel: string;
+  showServiceTags?: boolean;
+  showManagementTag?: boolean;
+}) {
   if (items.length === 0) return <div className="empty-list">{emptyLabel}</div>;
   return (
     <div className="executive-list">
       {items.map((item) => {
-        const href = item.sourceUrl || item.website || "#";
-        const descriptor = item.managementCompany || item.address || item.category || "Verified listing";
+        const href = item.locationUrl || item.sourceUrl || item.website || "#";
+        const managerHref = item.managementCompanyUrl || item.sourceUrl || item.website || "#";
+        const descriptor = showManagementTag ? item.address || item.category || "For-rent housing" : item.managementCompany || item.address || item.category || "Verified listing";
         const serviceTags = showServiceTags ? tagsForService(item) : [];
+        const managementLabel = item.managementCompany || "Management source";
         const content = (
           <>
-            <strong>{item.name}</strong>
+            {showManagementTag && href !== "#" ? (
+              <a className="listing-title" href={href} target="_blank" rel="noreferrer">
+                <strong>{item.name}</strong>
+              </a>
+            ) : (
+              <strong>{item.name}</strong>
+            )}
             {serviceTags.length > 0 && (
               <span className="service-tags" aria-label={`Service tags: ${serviceTags.join(", ")}`}>
                 {serviceTags.map((tag) => (
@@ -658,9 +679,15 @@ function ExecutiveList({ items, emptyLabel, showServiceTags = false }: { items: 
                 ))}
               </span>
             )}
+            {showManagementTag && (
+              <a className="manager-chip" href={managerHref} target="_blank" rel="noreferrer">
+                {managementLabel}
+              </a>
+            )}
             <small>{descriptor}</small>
           </>
         );
+        if (showManagementTag) return <article className="listing-card" key={item.id}>{content}</article>;
         return href === "#" ? (
           <article className="listing-card" key={item.id}>{content}</article>
         ) : (
@@ -838,7 +865,7 @@ function classifyMarket(item: DiscoveryItem, cityName = "") {
 }
 
 function managerName(item: DiscoveryItem) {
-  if (item.managementCompany) return item.managementCompany;
+  if (item.managementCompany && item.managementCompany !== "Management source") return item.managementCompany;
   if (item.operator) return item.operator;
   const haystack = [item.name, item.category, item.address, item.tags?.formattedAddress].filter(Boolean).join(" ");
   if (/\b(management|property|properties|realty|residential|apartments)\b/i.test(haystack)) return item.name;

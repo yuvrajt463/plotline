@@ -999,19 +999,30 @@ h2 {
   background: #f8fbfa;
 }
 
+.listing-title {
+  color: inherit;
+  text-decoration: none;
+}
+
+.listing-title:hover strong {
+  color: var(--accent-dark);
+}
+
 .listing-card strong,
 .listing-card small,
 .empty-list {
   overflow-wrap: anywhere;
 }
 
-.service-tags {
+.service-tags,
+.manager-chip {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
 }
 
-.service-tags i {
+.service-tags i,
+.manager-chip {
   width: fit-content;
   border-radius: 999px;
   background: rgba(47, 111, 115, 0.1);
@@ -1021,6 +1032,17 @@ h2 {
   font-weight: 900;
   line-height: 1;
   padding: 4px 7px;
+}
+
+.manager-chip {
+  border: 1px solid rgba(185, 139, 54, 0.28);
+  background: rgba(185, 139, 54, 0.12);
+  color: #6d5119;
+  text-decoration: none;
+}
+
+.manager-chip:hover {
+  background: rgba(185, 139, 54, 0.18);
 }
 
 .service-tags i.tag-other {

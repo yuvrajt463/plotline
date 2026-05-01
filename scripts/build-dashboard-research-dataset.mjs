@@ -136,11 +136,14 @@ function toDashboardService(item) {
 }
 
 function toDashboardRental(item) {
+  const manager = normalizeRentalManager(item.marketClassOrManager, item.sourceUrl);
   return {
     id: `manual-crosscheck-${slug(item.state)}-${slug(item.city)}-${slug(item.name)}`,
     name: item.name,
     category: item.category,
-    managementCompany: item.marketClassOrManager === "not visible" ? null : item.marketClassOrManager,
+    managementCompany: manager.name,
+    managementCompanyUrl: manager.url,
+    locationUrl: item.sourceUrl,
     address: item.address,
     sourceUrl: item.sourceUrl,
     evidence: item.evidence,
@@ -157,6 +160,7 @@ function sanitizeRecords(records, kind) {
       id: item.id || `${kind}-${slug(item.name)}`,
       category: normalizeCategory(item.category || (kind === "service" ? "home services" : "rental housing")),
       ...(kind === "service" ? { serviceTags: inferServiceTags(item) } : {}),
+      ...(kind === "rental" ? normalizeRentalFields(item) : {}),
       marketClass: kind === "service" ? normalizeMarketClass(item.marketClass) : item.marketClass,
       source: item.source || "Verified web"
     }));
@@ -169,15 +173,32 @@ function isCoreService(item) {
 }
 
 function isHousingRental(item) {
-  const text = `${item.name || ""} ${item.category || ""}`.toLowerCase();
-  return /(apartment|townhome|home rental|house rental|single-family|single family|rental-home|rental home|senior|condo rental|vacation rental|property manager|property management|cottages|villas)/.test(text) &&
-    !/(self-storage|storage unit|equipment rental|truck rental|dumpster|porta potty|portable toilet|facility rental|field rental|event center)/.test(text) &&
-    !isGenericRentalSearch(item);
+  const rawName = String(item.name || "").replace(/\s+/g, " ").trim();
+  const name = rawName.toLowerCase();
+  const category = String(item.category || "").toLowerCase();
+  const text = `${name} ${category} ${item.sourceUrl || ""}`;
+  if (/^(manager|alabama|georgia|[a-z\s]+,\s*(al|ga))$/i.test(rawName)) return false;
+  if (/^(apartments in|apartment communities in|communities\s*-|property listings\b)/i.test(rawName)) return false;
+  if (/\bin\s+pendergrass\b/i.test(rawName)) return false;
+  if (isGenericRentalSearch(item)) return false;
+
+  const propertyNameSignal = /(apartment|apartments|townhome|townhomes|condo|condos|cottage|cottages|villas|commons|manor|landing|pointe|point|place|park|ridge|run|cove|woods|gardens|village|square|trail|presbyterian|quail|arbours|arbors|springs|reserve|heights|foundry|lofts|crossing|creek|court|estates|farm|farms|knoll|pines|towers|terrace|brook|brooke|stream|wharf|valley|mill|millery)/i.test(name);
+  const categorySignal = /(apartment community|townhome community|apartment and townhome|single-family|single family|home rental|house rental|rental home|rental-home|senior apartment|55\+ apartment|rental community|cottage-style rental|manufactured-home|vacation condo rentals)/i.test(category);
+  const managerOnly = /(property manager|property management|management directory|management company count signal|rental count signal|association management|hoa)/i.test(category);
+  const businessOnlyName = /(management|property management|association|realty company|realty\b|properties\b|enterprises\b|property listings|communities\s*-|apartments in\b|apartment communities in\b)/i.test(name);
+  const businessOnlyCategory = /(vacation rental property manager|condo rentals and sales)/i.test(category);
+
+  return !/(self-storage|storage unit|equipment rental|truck rental|dumpster|porta potty|portable toilet|facility rental|field rental|event center)/.test(text) &&
+    !(managerOnly && !propertyNameSignal) &&
+    !((businessOnlyName || businessOnlyCategory) && !propertyNameSignal) &&
+    !(categorySignal && !propertyNameSignal && /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(rawName)) &&
+    !(categorySignal && !propertyNameSignal && /\b(management|realty|association|company|grounds)\b/i.test(rawName)) &&
+    (propertyNameSignal || categorySignal);
 }
 
 function isGenericRentalSearch(item) {
   const text = `${item.name || ""} ${item.sourceUrl || ""}`.toLowerCase();
-  return /(apartments for rent|homes for rent|houses for rent|daily updates|best 10 apartments|near me|search results)/.test(text);
+  return /(for rent by private owner|\d+\s+rentals?\s+in|apartments for rent|homes for rent|houses for rent|daily updates|best 10 apartments|near me|search results|top\s+.+property management companies|property management near|community association|hoa property|our locations|rental count signal|property management company count signal|property management directory|apartment association|action community management|all-in-one community management|professional property management)/.test(text);
 }
 
 function normalizeCategory(value) {
@@ -190,6 +211,66 @@ function normalizeMarketClass(value) {
   if (text.includes("regional")) return "regional";
   if (text.includes("local")) return "local";
   return "regional";
+}
+
+function normalizeRentalFields(item) {
+  const locationUrl = canonicalUrl(item.sourceUrl || item.locationUrl || item.website) || item.sourceUrl;
+  const manager = normalizeRentalManager(item.managementCompany, locationUrl);
+  return {
+    locationUrl,
+    managementCompany: manager.name,
+    managementCompanyUrl: manager.url
+  };
+}
+
+function normalizeRentalManager(name, sourceUrl) {
+  const existing = String(name || "").replace(/\s+/g, " ").trim();
+  const domain = managerFromUrl(sourceUrl);
+  const label = existing && existing.toLowerCase() !== "not visible" ? existing : domain.name || "Management source";
+  return {
+    name: label,
+    url: managerUrlForName(label) || domain.url || sourceUrl
+  };
+}
+
+function managerFromUrl(value) {
+  let host = "";
+  try {
+    host = new URL(value).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return {};
+  }
+  const domains = [
+    ["advenirliving.com", "Advenir Azora Living", "https://www.advenirliving.com/"],
+    ["cahecmanagement.com", "CAHEC Management", "https://cahecmanagement.com/"],
+    ["equityapartments.com", "Equity Residential", "https://www.equityapartments.com/"],
+    ["fairwaymanagement.com", "Fairway Management", "https://fairwaymanagement.com/"],
+    ["greystar.com", "Greystar", "https://www.greystar.com/"],
+    ["maac.com", "MAA", "https://www.maac.com/"],
+    ["olympiamanagement.net", "Olympia Management", "https://olympiamanagement.net/"],
+    ["peakliving.com", "Peak Living", "https://www.peakliving.com/"],
+    ["spm.net", "SPM", "https://spm.net/"],
+    ["wilhoitproperties.com", "Wilhoit Properties Inc.", "https://www.wilhoitproperties.com/"]
+  ];
+  const match = domains.find(([domain]) => host === domain || host.endsWith(`.${domain}`));
+  return match ? { name: match[1], url: match[2] } : {};
+}
+
+function managerUrlForName(name) {
+  const text = String(name || "").toLowerCase();
+  const urls = [
+    ["advenir azora", "https://www.advenirliving.com/"],
+    ["fairway management", "https://fairwaymanagement.com/"],
+    ["firstkey homes", "https://www.firstkeyhomes.com/"],
+    ["greystar", "https://www.greystar.com/"],
+    ["maa", "https://www.maac.com/"],
+    ["main street renewal", "https://www.msrenewal.com/"],
+    ["olympia management", "https://olympiamanagement.net/"],
+    ["peak living", "https://www.peakliving.com/"],
+    ["spm", "https://spm.net/"],
+    ["wilhoit", "https://www.wilhoitproperties.com/"]
+  ];
+  return urls.find(([key]) => text.includes(key))?.[1] || "";
 }
 
 function limitWithCategoryBalance(records, max) {

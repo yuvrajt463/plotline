@@ -186,7 +186,7 @@ select,
 }
 
 .detail-grid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
 }
 
@@ -332,7 +332,7 @@ h2 {
 .rank-list {
   display: grid;
   gap: 8px;
-  max-height: 760px;
+  max-height: 590px;
   overflow-y: auto;
   padding-right: 4px;
 }
@@ -374,7 +374,8 @@ h2 {
 .state-shape {
   fill: #edf4f0;
   stroke: #8fa79d;
-  stroke-width: 1.2;
+  stroke-width: 0.65;
+  vector-effect: non-scaling-stroke;
 }
 
 .rank-dot-group {
@@ -389,6 +390,14 @@ h2 {
 .rank-dot.active {
   stroke: var(--text);
   stroke-width: 1.8;
+}
+
+.rank-dot.special {
+  fill: var(--gold);
+}
+
+.rank-dot.special.active {
+  stroke: #6e4b10;
 }
 
 .rank-dot-group text {
@@ -507,6 +516,16 @@ h2 {
   background: #fff5ef;
 }
 
+.rank-row.special {
+  border-color: rgba(185, 139, 54, 0.35);
+  background: #fffaf0;
+}
+
+.rank-row.special.active {
+  border-color: rgba(185, 139, 54, 0.7);
+  background: #fff2cf;
+}
+
 .rank-num {
   display: grid;
   width: 30px;
@@ -516,6 +535,11 @@ h2 {
   background: #e7eeee;
   color: var(--accent-dark);
   font-weight: 900;
+}
+
+.rank-row.special .rank-num {
+  background: var(--gold);
+  color: #fff;
 }
 
 .rank-main {
@@ -547,7 +571,7 @@ h2 {
 
 .stat-strip {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin: 16px 0;
 }
@@ -631,6 +655,40 @@ h2 {
   position: relative;
   z-index: 1;
   margin-top: 8px;
+}
+
+.metric-context {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 3;
+  display: grid;
+  gap: 3px;
+  opacity: 0;
+  transform: translateY(6px);
+  border: 1px solid rgba(47, 111, 115, 0.18);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 26px rgba(31, 43, 50, 0.12);
+  padding: 9px 10px;
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.metric:hover .metric-context,
+.metric:focus-within .metric-context {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.metric-context strong {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.metric-context span {
+  font-size: 0.72rem;
 }
 
 .metric-spark {
@@ -872,6 +930,86 @@ h2 {
   gap: 6px;
   flex-wrap: wrap;
   margin-top: 12px;
+}
+
+.info-tip {
+  position: relative;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(47, 111, 115, 0.24);
+  border-radius: 50%;
+  background: rgba(47, 111, 115, 0.08);
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.info-tip span {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  z-index: 5;
+  width: min(260px, 70vw);
+  opacity: 0;
+  transform: translateY(-4px);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding: 10px 11px;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.info-tip:hover span,
+.info-tip:focus span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.executive-list {
+  display: grid;
+  gap: 8px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.listing-card,
+.empty-list {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--text);
+  padding: 11px 12px;
+  text-decoration: none;
+}
+
+.listing-card:hover {
+  border-color: rgba(47, 111, 115, 0.36);
+  background: #f8fbfa;
+}
+
+.listing-card strong,
+.listing-card small,
+.empty-list {
+  overflow-wrap: anywhere;
+}
+
+.listing-card small,
+.empty-list {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
 }
 
 .evidence-note {

@@ -4,7 +4,7 @@
     "stateName": "Georgia",
     "abbr": "GA"
   },
-  "gatheredAt": "2026-05-01T03:09:36.404Z",
+  "gatheredAt": "2026-05-01T03:54:12.483Z",
   "radius": 5000,
   "sourceNotes": {
     "growth": "Census ACS 5-Year API. Average household income = B19025_001E / B11001_001E. Employed residents = B23025_004E.",
@@ -1912,6 +1912,4056 @@
           "items": []
         }
       }
+    },
+    {
+      "name": "Loganville",
+      "kind": "City",
+      "rawName": "Loganville city",
+      "fullName": "Loganville city, Georgia",
+      "place": "47196",
+      "state": "13",
+      "population": 15527,
+      "avgHouseholdIncome": 124472,
+      "incomeGrowth": 63,
+      "employedGrowth": 34,
+      "score": 97,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 76369
+            },
+            {
+              "year": 2020,
+              "value": 84869
+            },
+            {
+              "year": 2021,
+              "value": 91926
+            },
+            {
+              "year": 2022,
+              "value": 114170
+            },
+            {
+              "year": 2023,
+              "value": 122530
+            },
+            {
+              "year": 2024,
+              "value": 124472
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 134092.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5533
+            },
+            {
+              "year": 2020,
+              "value": 6305
+            },
+            {
+              "year": 2021,
+              "value": 6981
+            },
+            {
+              "year": 2022,
+              "value": 7445
+            },
+            {
+              "year": 2023,
+              "value": 7709
+            },
+            {
+              "year": 2024,
+              "value": 7416
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 7792.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 12010
+            },
+            {
+              "year": 2020,
+              "value": 12490
+            },
+            {
+              "year": 2021,
+              "value": 13810
+            },
+            {
+              "year": 2022,
+              "value": 14287
+            },
+            {
+              "year": 2023,
+              "value": 14878
+            },
+            {
+              "year": 2024,
+              "value": 15527
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 16230.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 25.1
+            },
+            {
+              "year": 2021,
+              "value": 46.5
+            },
+            {
+              "year": 2022,
+              "value": 84.1
+            },
+            {
+              "year": 2023,
+              "value": 99.8
+            },
+            {
+              "year": 2024,
+              "value": 97
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 116.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.8365021,
+      "lon": -83.8961347,
+      "rank": 11
+    },
+    {
+      "name": "Byron",
+      "kind": "City",
+      "rawName": "Byron city",
+      "fullName": "Byron city, Georgia",
+      "place": "12260",
+      "state": "13",
+      "population": 5971,
+      "avgHouseholdIncome": 104694,
+      "incomeGrowth": 54.3,
+      "employedGrowth": 42.3,
+      "score": 96.6,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 67851
+            },
+            {
+              "year": 2020,
+              "value": 68328
+            },
+            {
+              "year": 2021,
+              "value": 71331
+            },
+            {
+              "year": 2022,
+              "value": 87297
+            },
+            {
+              "year": 2023,
+              "value": 95872
+            },
+            {
+              "year": 2024,
+              "value": 104694
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 112062.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2251
+            },
+            {
+              "year": 2020,
+              "value": 2221
+            },
+            {
+              "year": 2021,
+              "value": 2442
+            },
+            {
+              "year": 2022,
+              "value": 2822
+            },
+            {
+              "year": 2023,
+              "value": 2976
+            },
+            {
+              "year": 2024,
+              "value": 3203
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3393.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5149
+            },
+            {
+              "year": 2020,
+              "value": 5170
+            },
+            {
+              "year": 2021,
+              "value": 5554
+            },
+            {
+              "year": 2022,
+              "value": 5687
+            },
+            {
+              "year": 2023,
+              "value": 5839
+            },
+            {
+              "year": 2024,
+              "value": 5971
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6135.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -0.6
+            },
+            {
+              "year": 2021,
+              "value": 13.6
+            },
+            {
+              "year": 2022,
+              "value": 54
+            },
+            {
+              "year": 2023,
+              "value": 73.5
+            },
+            {
+              "year": 2024,
+              "value": 96.6
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 115.9,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.6494971,
+      "lon": -83.7479538,
+      "rank": 12
+    },
+    {
+      "name": "Flowery Branch",
+      "kind": "City",
+      "rawName": "Flowery Branch city",
+      "fullName": "Flowery Branch city, Georgia",
+      "place": "30340",
+      "state": "13",
+      "population": 10925,
+      "avgHouseholdIncome": 128904,
+      "incomeGrowth": 54.8,
+      "employedGrowth": 41,
+      "score": 95.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 83257
+            },
+            {
+              "year": 2020,
+              "value": 100211
+            },
+            {
+              "year": 2021,
+              "value": 104129
+            },
+            {
+              "year": 2022,
+              "value": 114377
+            },
+            {
+              "year": 2023,
+              "value": 115318
+            },
+            {
+              "year": 2024,
+              "value": 128904
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 138033.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4254
+            },
+            {
+              "year": 2020,
+              "value": 4861
+            },
+            {
+              "year": 2021,
+              "value": 5617
+            },
+            {
+              "year": 2022,
+              "value": 5482
+            },
+            {
+              "year": 2023,
+              "value": 5869
+            },
+            {
+              "year": 2024,
+              "value": 6000
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6349.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7497
+            },
+            {
+              "year": 2020,
+              "value": 7896
+            },
+            {
+              "year": 2021,
+              "value": 9194
+            },
+            {
+              "year": 2022,
+              "value": 9700
+            },
+            {
+              "year": 2023,
+              "value": 10286
+            },
+            {
+              "year": 2024,
+              "value": 10925
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11610.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 34.6
+            },
+            {
+              "year": 2021,
+              "value": 57.1
+            },
+            {
+              "year": 2022,
+              "value": 66.2
+            },
+            {
+              "year": 2023,
+              "value": 76.5
+            },
+            {
+              "year": 2024,
+              "value": 95.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 115.1,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.1713033,
+      "lon": -83.9187463,
+      "rank": 13
+    },
+    {
+      "name": "Fairburn",
+      "kind": "City",
+      "rawName": "Fairburn city",
+      "fullName": "Fairburn city, Georgia",
+      "place": "28380",
+      "state": "13",
+      "population": 16831,
+      "avgHouseholdIncome": 100669,
+      "incomeGrowth": 71.4,
+      "employedGrowth": 18.7,
+      "score": 90.2,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 58723
+            },
+            {
+              "year": 2020,
+              "value": 65897
+            },
+            {
+              "year": 2021,
+              "value": 67919
+            },
+            {
+              "year": 2022,
+              "value": 83502
+            },
+            {
+              "year": 2023,
+              "value": 96415
+            },
+            {
+              "year": 2024,
+              "value": 100669
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 109058.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7443
+            },
+            {
+              "year": 2020,
+              "value": 7364
+            },
+            {
+              "year": 2021,
+              "value": 7340
+            },
+            {
+              "year": 2022,
+              "value": 8149
+            },
+            {
+              "year": 2023,
+              "value": 9009
+            },
+            {
+              "year": 2024,
+              "value": 8837
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 9115.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 15295
+            },
+            {
+              "year": 2020,
+              "value": 15956
+            },
+            {
+              "year": 2021,
+              "value": 16215
+            },
+            {
+              "year": 2022,
+              "value": 16469
+            },
+            {
+              "year": 2023,
+              "value": 16609
+            },
+            {
+              "year": 2024,
+              "value": 16831
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 17138.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 11.2
+            },
+            {
+              "year": 2021,
+              "value": 14.3
+            },
+            {
+              "year": 2022,
+              "value": 51.7
+            },
+            {
+              "year": 2023,
+              "value": 85.2
+            },
+            {
+              "year": 2024,
+              "value": 90.2
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 108.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.5477982,
+      "lon": -84.5872655,
+      "rank": 14
+    },
+    {
+      "name": "Eatonton",
+      "kind": "City",
+      "rawName": "Eatonton city",
+      "fullName": "Eatonton city, Georgia",
+      "place": "26084",
+      "state": "13",
+      "population": 6515,
+      "avgHouseholdIncome": 101092,
+      "incomeGrowth": 100,
+      "employedGrowth": -10.1,
+      "score": 89.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 50537
+            },
+            {
+              "year": 2020,
+              "value": 48463
+            },
+            {
+              "year": 2021,
+              "value": 60676
+            },
+            {
+              "year": 2022,
+              "value": 78160
+            },
+            {
+              "year": 2023,
+              "value": 70299
+            },
+            {
+              "year": 2024,
+              "value": 101092
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 111203,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3079
+            },
+            {
+              "year": 2020,
+              "value": 2528
+            },
+            {
+              "year": 2021,
+              "value": 2399
+            },
+            {
+              "year": 2022,
+              "value": 2586
+            },
+            {
+              "year": 2023,
+              "value": 2624
+            },
+            {
+              "year": 2024,
+              "value": 2767
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2704.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6603
+            },
+            {
+              "year": 2020,
+              "value": 6661
+            },
+            {
+              "year": 2021,
+              "value": 6278
+            },
+            {
+              "year": 2022,
+              "value": 6369
+            },
+            {
+              "year": 2023,
+              "value": 6430
+            },
+            {
+              "year": 2024,
+              "value": 6515
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6497.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -22
+            },
+            {
+              "year": 2021,
+              "value": -2
+            },
+            {
+              "year": 2022,
+              "value": 38.6
+            },
+            {
+              "year": 2023,
+              "value": 24.3
+            },
+            {
+              "year": 2024,
+              "value": 89.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 107.9,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.3258215,
+      "lon": -83.3888623,
+      "rank": 15
+    },
+    {
+      "name": "Holly Springs",
+      "kind": "City",
+      "rawName": "Holly Springs city",
+      "fullName": "Holly Springs city, Georgia",
+      "place": "39524",
+      "state": "13",
+      "population": 18627,
+      "avgHouseholdIncome": 124386,
+      "incomeGrowth": 23.7,
+      "employedGrowth": 65.8,
+      "score": 89.5,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 100574
+            },
+            {
+              "year": 2020,
+              "value": 98800
+            },
+            {
+              "year": 2021,
+              "value": 101988
+            },
+            {
+              "year": 2022,
+              "value": 112794
+            },
+            {
+              "year": 2023,
+              "value": 115376
+            },
+            {
+              "year": 2024,
+              "value": 124386
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 129148.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6166
+            },
+            {
+              "year": 2020,
+              "value": 6703
+            },
+            {
+              "year": 2021,
+              "value": 7928
+            },
+            {
+              "year": 2022,
+              "value": 8931
+            },
+            {
+              "year": 2023,
+              "value": 9269
+            },
+            {
+              "year": 2024,
+              "value": 10224
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11035.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 12509
+            },
+            {
+              "year": 2020,
+              "value": 13682
+            },
+            {
+              "year": 2021,
+              "value": 15784
+            },
+            {
+              "year": 2022,
+              "value": 16675
+            },
+            {
+              "year": 2023,
+              "value": 17693
+            },
+            {
+              "year": 2024,
+              "value": 18627
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 19850.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 6.9
+            },
+            {
+              "year": 2021,
+              "value": 30
+            },
+            {
+              "year": 2022,
+              "value": 57
+            },
+            {
+              "year": 2023,
+              "value": 65
+            },
+            {
+              "year": 2024,
+              "value": 89.5
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 107.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.1672344,
+      "lon": -84.4844687,
+      "rank": 16
+    },
+    {
+      "name": "Austell",
+      "kind": "City",
+      "rawName": "Austell city",
+      "fullName": "Austell city, Georgia",
+      "place": "04252",
+      "state": "13",
+      "population": 8447,
+      "avgHouseholdIncome": 103034,
+      "incomeGrowth": 73,
+      "employedGrowth": 14,
+      "score": 86.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 59567
+            },
+            {
+              "year": 2020,
+              "value": 59523
+            },
+            {
+              "year": 2021,
+              "value": 68461
+            },
+            {
+              "year": 2022,
+              "value": 78557
+            },
+            {
+              "year": 2023,
+              "value": 98917
+            },
+            {
+              "year": 2024,
+              "value": 103034
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 111727.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3978
+            },
+            {
+              "year": 2020,
+              "value": 3978
+            },
+            {
+              "year": 2021,
+              "value": 4297
+            },
+            {
+              "year": 2022,
+              "value": 4211
+            },
+            {
+              "year": 2023,
+              "value": 4463
+            },
+            {
+              "year": 2024,
+              "value": 4534
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4645.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7205
+            },
+            {
+              "year": 2020,
+              "value": 7783
+            },
+            {
+              "year": 2021,
+              "value": 8194
+            },
+            {
+              "year": 2022,
+              "value": 8109
+            },
+            {
+              "year": 2023,
+              "value": 8351
+            },
+            {
+              "year": 2024,
+              "value": 8447
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8695.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -0.1
+            },
+            {
+              "year": 2021,
+              "value": 23
+            },
+            {
+              "year": 2022,
+              "value": 37.7
+            },
+            {
+              "year": 2023,
+              "value": 78.3
+            },
+            {
+              "year": 2024,
+              "value": 86.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 104.3,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.8197659,
+      "lon": -84.6437742,
+      "rank": 17
+    },
+    {
+      "name": "Cartersville",
+      "kind": "City",
+      "rawName": "Cartersville city",
+      "fullName": "Cartersville city, Georgia",
+      "place": "13688",
+      "state": "13",
+      "population": 24074,
+      "avgHouseholdIncome": 111683,
+      "incomeGrowth": 48.2,
+      "employedGrowth": 38.7,
+      "score": 86.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 75347
+            },
+            {
+              "year": 2020,
+              "value": 78625
+            },
+            {
+              "year": 2021,
+              "value": 85048
+            },
+            {
+              "year": 2022,
+              "value": 99940
+            },
+            {
+              "year": 2023,
+              "value": 100954
+            },
+            {
+              "year": 2024,
+              "value": 111683
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 118950.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 8793
+            },
+            {
+              "year": 2020,
+              "value": 9741
+            },
+            {
+              "year": 2021,
+              "value": 10675
+            },
+            {
+              "year": 2022,
+              "value": 11116
+            },
+            {
+              "year": 2023,
+              "value": 11559
+            },
+            {
+              "year": 2024,
+              "value": 12195
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 12875.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 20870
+            },
+            {
+              "year": 2020,
+              "value": 21331
+            },
+            {
+              "year": 2021,
+              "value": 22626
+            },
+            {
+              "year": 2022,
+              "value": 23103
+            },
+            {
+              "year": 2023,
+              "value": 23617
+            },
+            {
+              "year": 2024,
+              "value": 24074
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 24714.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 15.1
+            },
+            {
+              "year": 2021,
+              "value": 34.3
+            },
+            {
+              "year": 2022,
+              "value": 59.1
+            },
+            {
+              "year": 2023,
+              "value": 65.4
+            },
+            {
+              "year": 2024,
+              "value": 86.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 104.3,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.1645791,
+      "lon": -84.8017036,
+      "rank": 18
+    },
+    {
+      "name": "Hapeville",
+      "kind": "City",
+      "rawName": "Hapeville city",
+      "fullName": "Hapeville city, Georgia",
+      "place": "36472",
+      "state": "13",
+      "population": 6630,
+      "avgHouseholdIncome": 100362,
+      "incomeGrowth": 82.1,
+      "employedGrowth": 2.2,
+      "score": 84.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 55118
+            },
+            {
+              "year": 2020,
+              "value": 69378
+            },
+            {
+              "year": 2021,
+              "value": 76788
+            },
+            {
+              "year": 2022,
+              "value": 77268
+            },
+            {
+              "year": 2023,
+              "value": 82789
+            },
+            {
+              "year": 2024,
+              "value": 100362
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 109410.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3658
+            },
+            {
+              "year": 2020,
+              "value": 3884
+            },
+            {
+              "year": 2021,
+              "value": 3721
+            },
+            {
+              "year": 2022,
+              "value": 3770
+            },
+            {
+              "year": 2023,
+              "value": 3586
+            },
+            {
+              "year": 2024,
+              "value": 3738
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3754,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6577
+            },
+            {
+              "year": 2020,
+              "value": 6576
+            },
+            {
+              "year": 2021,
+              "value": 6553
+            },
+            {
+              "year": 2022,
+              "value": 6566
+            },
+            {
+              "year": 2023,
+              "value": 6590
+            },
+            {
+              "year": 2024,
+              "value": 6630
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6640.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 32.1
+            },
+            {
+              "year": 2021,
+              "value": 41
+            },
+            {
+              "year": 2022,
+              "value": 43.2
+            },
+            {
+              "year": 2023,
+              "value": 48.2
+            },
+            {
+              "year": 2024,
+              "value": 84.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 101.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.6608651,
+      "lon": -84.4094129,
+      "rank": 19
+    },
+    {
+      "name": "Oakwood",
+      "kind": "City",
+      "rawName": "Oakwood city",
+      "fullName": "Oakwood city, Georgia",
+      "place": "57260",
+      "state": "13",
+      "population": 5862,
+      "avgHouseholdIncome": 85080,
+      "incomeGrowth": 29.3,
+      "employedGrowth": 54.6,
+      "score": 83.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 65783
+            },
+            {
+              "year": 2020,
+              "value": 60854
+            },
+            {
+              "year": 2021,
+              "value": 70147
+            },
+            {
+              "year": 2022,
+              "value": 77465
+            },
+            {
+              "year": 2023,
+              "value": 77082
+            },
+            {
+              "year": 2024,
+              "value": 85080
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 88939.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2232
+            },
+            {
+              "year": 2020,
+              "value": 2294
+            },
+            {
+              "year": 2021,
+              "value": 2570
+            },
+            {
+              "year": 2022,
+              "value": 2911
+            },
+            {
+              "year": 2023,
+              "value": 2991
+            },
+            {
+              "year": 2024,
+              "value": 3450
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3693.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4143
+            },
+            {
+              "year": 2020,
+              "value": 4191
+            },
+            {
+              "year": 2021,
+              "value": 4853
+            },
+            {
+              "year": 2022,
+              "value": 5132
+            },
+            {
+              "year": 2023,
+              "value": 5499
+            },
+            {
+              "year": 2024,
+              "value": 5862
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6205.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -4.7
+            },
+            {
+              "year": 2021,
+              "value": 21.8
+            },
+            {
+              "year": 2022,
+              "value": 48.2
+            },
+            {
+              "year": 2023,
+              "value": 51.2
+            },
+            {
+              "year": 2024,
+              "value": 83.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 100.7,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.2221327,
+      "lon": -83.8848559,
+      "rank": 20
+    },
+    {
+      "name": "Union City",
+      "kind": "City",
+      "rawName": "Union City city",
+      "fullName": "Union City city, Georgia",
+      "place": "78324",
+      "state": "13",
+      "population": 27728,
+      "avgHouseholdIncome": 73123,
+      "incomeGrowth": 43.9,
+      "employedGrowth": 39.9,
+      "score": 83.8,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 50811
+            },
+            {
+              "year": 2020,
+              "value": 49546
+            },
+            {
+              "year": 2021,
+              "value": 55778
+            },
+            {
+              "year": 2022,
+              "value": 61403
+            },
+            {
+              "year": 2023,
+              "value": 67101
+            },
+            {
+              "year": 2024,
+              "value": 73123
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 77585.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 9648
+            },
+            {
+              "year": 2020,
+              "value": 10373
+            },
+            {
+              "year": 2021,
+              "value": 13424
+            },
+            {
+              "year": 2022,
+              "value": 13229
+            },
+            {
+              "year": 2023,
+              "value": 13591
+            },
+            {
+              "year": 2024,
+              "value": 13496
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 14265.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 21396
+            },
+            {
+              "year": 2020,
+              "value": 21976
+            },
+            {
+              "year": 2021,
+              "value": 26273
+            },
+            {
+              "year": 2022,
+              "value": 26869
+            },
+            {
+              "year": 2023,
+              "value": 27300
+            },
+            {
+              "year": 2024,
+              "value": 27728
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 28994.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 5
+            },
+            {
+              "year": 2021,
+              "value": 48.9
+            },
+            {
+              "year": 2022,
+              "value": 58
+            },
+            {
+              "year": 2023,
+              "value": 72.9
+            },
+            {
+              "year": 2024,
+              "value": 83.8
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 100.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.5938373,
+      "lon": -84.5626301,
+      "rank": 21
+    },
+    {
+      "name": "LaFayette",
+      "kind": "City",
+      "rawName": "LaFayette city",
+      "fullName": "LaFayette city, Georgia",
+      "place": "44312",
+      "state": "13",
+      "population": 6967,
+      "avgHouseholdIncome": 56982,
+      "incomeGrowth": 51.3,
+      "employedGrowth": 29.7,
+      "score": 81,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 37672
+            },
+            {
+              "year": 2020,
+              "value": 37650
+            },
+            {
+              "year": 2021,
+              "value": 37195
+            },
+            {
+              "year": 2022,
+              "value": 40875
+            },
+            {
+              "year": 2023,
+              "value": 49037
+            },
+            {
+              "year": 2024,
+              "value": 56982
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 60844,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2528
+            },
+            {
+              "year": 2020,
+              "value": 2566
+            },
+            {
+              "year": 2021,
+              "value": 2522
+            },
+            {
+              "year": 2022,
+              "value": 2573
+            },
+            {
+              "year": 2023,
+              "value": 3064
+            },
+            {
+              "year": 2024,
+              "value": 3279
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3429.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7237
+            },
+            {
+              "year": 2020,
+              "value": 7310
+            },
+            {
+              "year": 2021,
+              "value": 6928
+            },
+            {
+              "year": 2022,
+              "value": 6929
+            },
+            {
+              "year": 2023,
+              "value": 6944
+            },
+            {
+              "year": 2024,
+              "value": 6967
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6913,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 1.4
+            },
+            {
+              "year": 2021,
+              "value": -1.5
+            },
+            {
+              "year": 2022,
+              "value": 10.3
+            },
+            {
+              "year": 2023,
+              "value": 51.4
+            },
+            {
+              "year": 2024,
+              "value": 81
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 97.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.7088481,
+      "lon": -85.2814941,
+      "rank": 22
+    },
+    {
+      "name": "Dublin",
+      "kind": "City",
+      "rawName": "Dublin city",
+      "fullName": "Dublin city, Georgia",
+      "place": "24376",
+      "state": "13",
+      "population": 16136,
+      "avgHouseholdIncome": 85766,
+      "incomeGrowth": 66.1,
+      "employedGrowth": 14.2,
+      "score": 80.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 51629
+            },
+            {
+              "year": 2020,
+              "value": 65672
+            },
+            {
+              "year": 2021,
+              "value": 65893
+            },
+            {
+              "year": 2022,
+              "value": 71139
+            },
+            {
+              "year": 2023,
+              "value": 75877
+            },
+            {
+              "year": 2024,
+              "value": 85766
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 92593.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5242
+            },
+            {
+              "year": 2020,
+              "value": 5214
+            },
+            {
+              "year": 2021,
+              "value": 5337
+            },
+            {
+              "year": 2022,
+              "value": 5368
+            },
+            {
+              "year": 2023,
+              "value": 5390
+            },
+            {
+              "year": 2024,
+              "value": 5986
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6134.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 15828
+            },
+            {
+              "year": 2020,
+              "value": 15762
+            },
+            {
+              "year": 2021,
+              "value": 16067
+            },
+            {
+              "year": 2022,
+              "value": 15985
+            },
+            {
+              "year": 2023,
+              "value": 16023
+            },
+            {
+              "year": 2024,
+              "value": 16136
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 16197.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 26.7
+            },
+            {
+              "year": 2021,
+              "value": 29.4
+            },
+            {
+              "year": 2022,
+              "value": 40.2
+            },
+            {
+              "year": 2023,
+              "value": 49.8
+            },
+            {
+              "year": 2024,
+              "value": 80.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 96.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.5354711,
+      "lon": -82.9288071,
+      "rank": 23
+    },
+    {
+      "name": "Fitzgerald",
+      "kind": "City",
+      "rawName": "Fitzgerald city",
+      "fullName": "Fitzgerald city, Georgia",
+      "place": "29528",
+      "state": "13",
+      "population": 8918,
+      "avgHouseholdIncome": 49968,
+      "incomeGrowth": 36.8,
+      "employedGrowth": 43.4,
+      "score": 80.2,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 36522
+            },
+            {
+              "year": 2020,
+              "value": 39467
+            },
+            {
+              "year": 2021,
+              "value": 44136
+            },
+            {
+              "year": 2022,
+              "value": 47590
+            },
+            {
+              "year": 2023,
+              "value": 50250
+            },
+            {
+              "year": 2024,
+              "value": 49968
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 52657.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2743
+            },
+            {
+              "year": 2020,
+              "value": 3235
+            },
+            {
+              "year": 2021,
+              "value": 3741
+            },
+            {
+              "year": 2022,
+              "value": 3747
+            },
+            {
+              "year": 2023,
+              "value": 3739
+            },
+            {
+              "year": 2024,
+              "value": 3933
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4171,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 8812
+            },
+            {
+              "year": 2020,
+              "value": 8747
+            },
+            {
+              "year": 2021,
+              "value": 9028
+            },
+            {
+              "year": 2022,
+              "value": 8972
+            },
+            {
+              "year": 2023,
+              "value": 8962
+            },
+            {
+              "year": 2024,
+              "value": 8918
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8939.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 26
+            },
+            {
+              "year": 2021,
+              "value": 57.2
+            },
+            {
+              "year": 2022,
+              "value": 66.9
+            },
+            {
+              "year": 2023,
+              "value": 73.9
+            },
+            {
+              "year": 2024,
+              "value": 80.2
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 96.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 31.7130431,
+      "lon": -83.2522144,
+      "rank": 24
+    },
+    {
+      "name": "Richmond Hill",
+      "kind": "City",
+      "rawName": "Richmond Hill city",
+      "fullName": "Richmond Hill city, Georgia",
+      "place": "65044",
+      "state": "13",
+      "population": 18181,
+      "avgHouseholdIncome": 105695,
+      "incomeGrowth": 28.1,
+      "employedGrowth": 51.5,
+      "score": 79.6,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 82512
+            },
+            {
+              "year": 2020,
+              "value": 81431
+            },
+            {
+              "year": 2021,
+              "value": 88790
+            },
+            {
+              "year": 2022,
+              "value": 92912
+            },
+            {
+              "year": 2023,
+              "value": 103123
+            },
+            {
+              "year": 2024,
+              "value": 105695
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 110331.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5378
+            },
+            {
+              "year": 2020,
+              "value": 5526
+            },
+            {
+              "year": 2021,
+              "value": 6845
+            },
+            {
+              "year": 2022,
+              "value": 7408
+            },
+            {
+              "year": 2023,
+              "value": 7532
+            },
+            {
+              "year": 2024,
+              "value": 8148
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8702,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 12720
+            },
+            {
+              "year": 2020,
+              "value": 13250
+            },
+            {
+              "year": 2021,
+              "value": 15900
+            },
+            {
+              "year": 2022,
+              "value": 16703
+            },
+            {
+              "year": 2023,
+              "value": 17408
+            },
+            {
+              "year": 2024,
+              "value": 18181
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 19273.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 1.4
+            },
+            {
+              "year": 2021,
+              "value": 34.9
+            },
+            {
+              "year": 2022,
+              "value": 50.4
+            },
+            {
+              "year": 2023,
+              "value": 65
+            },
+            {
+              "year": 2024,
+              "value": 79.6
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 95.5,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 31.9001909,
+      "lon": -81.3100775,
+      "rank": 25
+    },
+    {
+      "name": "Rockmart",
+      "kind": "City",
+      "rawName": "Rockmart city",
+      "fullName": "Rockmart city, Georgia",
+      "place": "66276",
+      "state": "13",
+      "population": 5204,
+      "avgHouseholdIncome": 72240,
+      "incomeGrowth": 58.4,
+      "employedGrowth": 18.4,
+      "score": 76.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 45615
+            },
+            {
+              "year": 2020,
+              "value": 50054
+            },
+            {
+              "year": 2021,
+              "value": 50695
+            },
+            {
+              "year": 2022,
+              "value": 57422
+            },
+            {
+              "year": 2023,
+              "value": 67090
+            },
+            {
+              "year": 2024,
+              "value": 72240
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 77565,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1896
+            },
+            {
+              "year": 2020,
+              "value": 1973
+            },
+            {
+              "year": 2021,
+              "value": 2047
+            },
+            {
+              "year": 2022,
+              "value": 1933
+            },
+            {
+              "year": 2023,
+              "value": 2027
+            },
+            {
+              "year": 2024,
+              "value": 2244
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2313.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4305
+            },
+            {
+              "year": 2020,
+              "value": 4359
+            },
+            {
+              "year": 2021,
+              "value": 4673
+            },
+            {
+              "year": 2022,
+              "value": 5113
+            },
+            {
+              "year": 2023,
+              "value": 5142
+            },
+            {
+              "year": 2024,
+              "value": 5204
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5383.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 13.8
+            },
+            {
+              "year": 2021,
+              "value": 19.1
+            },
+            {
+              "year": 2022,
+              "value": 27.8
+            },
+            {
+              "year": 2023,
+              "value": 54
+            },
+            {
+              "year": 2024,
+              "value": 76.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 92,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.0083064,
+      "lon": -85.0449784,
+      "rank": 26
+    },
+    {
+      "name": "Grovetown",
+      "kind": "City",
+      "rawName": "Grovetown city",
+      "fullName": "Grovetown city, Georgia",
+      "place": "35716",
+      "state": "13",
+      "population": 17014,
+      "avgHouseholdIncome": 105333,
+      "incomeGrowth": 48.4,
+      "employedGrowth": 27.3,
+      "score": 75.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 70985
+            },
+            {
+              "year": 2020,
+              "value": 67192
+            },
+            {
+              "year": 2021,
+              "value": 72397
+            },
+            {
+              "year": 2022,
+              "value": 85030
+            },
+            {
+              "year": 2023,
+              "value": 90097
+            },
+            {
+              "year": 2024,
+              "value": 105333
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 112202.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6114
+            },
+            {
+              "year": 2020,
+              "value": 5283
+            },
+            {
+              "year": 2021,
+              "value": 6785
+            },
+            {
+              "year": 2022,
+              "value": 8441
+            },
+            {
+              "year": 2023,
+              "value": 7929
+            },
+            {
+              "year": 2024,
+              "value": 7786
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8120.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 14053
+            },
+            {
+              "year": 2020,
+              "value": 14777
+            },
+            {
+              "year": 2021,
+              "value": 15608
+            },
+            {
+              "year": 2022,
+              "value": 16049
+            },
+            {
+              "year": 2023,
+              "value": 16516
+            },
+            {
+              "year": 2024,
+              "value": 17014
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 17606.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -18.9
+            },
+            {
+              "year": 2021,
+              "value": 13
+            },
+            {
+              "year": 2022,
+              "value": 57.8
+            },
+            {
+              "year": 2023,
+              "value": 56.6
+            },
+            {
+              "year": 2024,
+              "value": 75.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 90.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.4497691,
+      "lon": -82.2079657,
+      "rank": 27
+    },
+    {
+      "name": "Senoia",
+      "kind": "City",
+      "rawName": "Senoia city",
+      "fullName": "Senoia city, Georgia",
+      "place": "69672",
+      "state": "13",
+      "population": 5589,
+      "avgHouseholdIncome": 142720,
+      "incomeGrowth": 41.2,
+      "employedGrowth": 33.2,
+      "score": 74.4,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 101064
+            },
+            {
+              "year": 2020,
+              "value": 102902
+            },
+            {
+              "year": 2021,
+              "value": 114817
+            },
+            {
+              "year": 2022,
+              "value": 123611
+            },
+            {
+              "year": 2023,
+              "value": 139894
+            },
+            {
+              "year": 2024,
+              "value": 142720
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 151051.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2152
+            },
+            {
+              "year": 2020,
+              "value": 2364
+            },
+            {
+              "year": 2021,
+              "value": 2647
+            },
+            {
+              "year": 2022,
+              "value": 2700
+            },
+            {
+              "year": 2023,
+              "value": 2903
+            },
+            {
+              "year": 2024,
+              "value": 2867
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3010,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4256
+            },
+            {
+              "year": 2020,
+              "value": 4386
+            },
+            {
+              "year": 2021,
+              "value": 4862
+            },
+            {
+              "year": 2022,
+              "value": 5115
+            },
+            {
+              "year": 2023,
+              "value": 5353
+            },
+            {
+              "year": 2024,
+              "value": 5589
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5855.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 11.7
+            },
+            {
+              "year": 2021,
+              "value": 36.6
+            },
+            {
+              "year": 2022,
+              "value": 47.8
+            },
+            {
+              "year": 2023,
+              "value": 73.3
+            },
+            {
+              "year": 2024,
+              "value": 74.4
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 89.3,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.3076642,
+      "lon": -84.5547586,
+      "rank": 28
+    },
+    {
+      "name": "Bremen",
+      "kind": "City",
+      "rawName": "Bremen city",
+      "fullName": "Bremen city, Georgia",
+      "place": "10132",
+      "state": "13",
+      "population": 7488,
+      "avgHouseholdIncome": 126399,
+      "incomeGrowth": 48.9,
+      "employedGrowth": 25.5,
+      "score": 74.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 84899
+            },
+            {
+              "year": 2020,
+              "value": 104735
+            },
+            {
+              "year": 2021,
+              "value": 100834
+            },
+            {
+              "year": 2022,
+              "value": 117195
+            },
+            {
+              "year": 2023,
+              "value": 114326
+            },
+            {
+              "year": 2024,
+              "value": 126399
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 134699,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3079
+            },
+            {
+              "year": 2020,
+              "value": 3817
+            },
+            {
+              "year": 2021,
+              "value": 3706
+            },
+            {
+              "year": 2022,
+              "value": 4004
+            },
+            {
+              "year": 2023,
+              "value": 3895
+            },
+            {
+              "year": 2024,
+              "value": 3863
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4019.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6394
+            },
+            {
+              "year": 2020,
+              "value": 7057
+            },
+            {
+              "year": 2021,
+              "value": 7066
+            },
+            {
+              "year": 2022,
+              "value": 7209
+            },
+            {
+              "year": 2023,
+              "value": 7364
+            },
+            {
+              "year": 2024,
+              "value": 7488
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 7706.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 47.3
+            },
+            {
+              "year": 2021,
+              "value": 39.1
+            },
+            {
+              "year": 2022,
+              "value": 68.1
+            },
+            {
+              "year": 2023,
+              "value": 61.2
+            },
+            {
+              "year": 2024,
+              "value": 74.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 89.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.7107648,
+      "lon": -85.1518967,
+      "rank": 29
+    },
+    {
+      "name": "Monroe",
+      "kind": "City",
+      "rawName": "Monroe city",
+      "fullName": "Monroe city, Georgia",
+      "place": "52192",
+      "state": "13",
+      "population": 15648,
+      "avgHouseholdIncome": 69079,
+      "incomeGrowth": 57.1,
+      "employedGrowth": 17.2,
+      "score": 74.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 43983
+            },
+            {
+              "year": 2020,
+              "value": 45662
+            },
+            {
+              "year": 2021,
+              "value": 47435
+            },
+            {
+              "year": 2022,
+              "value": 56551
+            },
+            {
+              "year": 2023,
+              "value": 63333
+            },
+            {
+              "year": 2024,
+              "value": 69079
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 74098.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5022
+            },
+            {
+              "year": 2020,
+              "value": 4979
+            },
+            {
+              "year": 2021,
+              "value": 5418
+            },
+            {
+              "year": 2022,
+              "value": 5229
+            },
+            {
+              "year": 2023,
+              "value": 5583
+            },
+            {
+              "year": 2024,
+              "value": 5888
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6061.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 13418
+            },
+            {
+              "year": 2020,
+              "value": 13568
+            },
+            {
+              "year": 2021,
+              "value": 14675
+            },
+            {
+              "year": 2022,
+              "value": 15036
+            },
+            {
+              "year": 2023,
+              "value": 15336
+            },
+            {
+              "year": 2024,
+              "value": 15648
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 16094,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 3
+            },
+            {
+              "year": 2021,
+              "value": 15.7
+            },
+            {
+              "year": 2022,
+              "value": 32.7
+            },
+            {
+              "year": 2023,
+              "value": 55.2
+            },
+            {
+              "year": 2024,
+              "value": 74.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 89.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.797481,
+      "lon": -83.7187281,
+      "rank": 30
+    },
+    {
+      "name": "Auburn",
+      "kind": "City",
+      "rawName": "Auburn city",
+      "fullName": "Auburn city, Georgia",
+      "place": "04140",
+      "state": "13",
+      "population": 8711,
+      "avgHouseholdIncome": 85754,
+      "incomeGrowth": 38.9,
+      "employedGrowth": 32.8,
+      "score": 71.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 61748
+            },
+            {
+              "year": 2020,
+              "value": 65931
+            },
+            {
+              "year": 2021,
+              "value": 74633
+            },
+            {
+              "year": 2022,
+              "value": 83025
+            },
+            {
+              "year": 2023,
+              "value": 82592
+            },
+            {
+              "year": 2024,
+              "value": 85754
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 90555.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3469
+            },
+            {
+              "year": 2020,
+              "value": 3691
+            },
+            {
+              "year": 2021,
+              "value": 3662
+            },
+            {
+              "year": 2022,
+              "value": 4060
+            },
+            {
+              "year": 2023,
+              "value": 4031
+            },
+            {
+              "year": 2024,
+              "value": 4606
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4833.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7481
+            },
+            {
+              "year": 2020,
+              "value": 7519
+            },
+            {
+              "year": 2021,
+              "value": 7424
+            },
+            {
+              "year": 2022,
+              "value": 7794
+            },
+            {
+              "year": 2023,
+              "value": 8222
+            },
+            {
+              "year": 2024,
+              "value": 8711
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8957,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 13.2
+            },
+            {
+              "year": 2021,
+              "value": 26.4
+            },
+            {
+              "year": 2022,
+              "value": 51.5
+            },
+            {
+              "year": 2023,
+              "value": 50
+            },
+            {
+              "year": 2024,
+              "value": 71.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 86,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.0151863,
+      "lon": -83.8337409,
+      "rank": 31
+    },
+    {
+      "name": "Port Wentworth",
+      "kind": "City",
+      "rawName": "Port Wentworth city",
+      "fullName": "Port Wentworth city, Georgia",
+      "place": "62328",
+      "state": "13",
+      "population": 12892,
+      "avgHouseholdIncome": 84924,
+      "incomeGrowth": -9.5,
+      "employedGrowth": 80.8,
+      "score": 71.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 93804
+            },
+            {
+              "year": 2020,
+              "value": 86213
+            },
+            {
+              "year": 2021,
+              "value": 93659
+            },
+            {
+              "year": 2022,
+              "value": 68245
+            },
+            {
+              "year": 2023,
+              "value": 81416
+            },
+            {
+              "year": 2024,
+              "value": 84924
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 83148,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4115
+            },
+            {
+              "year": 2020,
+              "value": 4021
+            },
+            {
+              "year": 2021,
+              "value": 6149
+            },
+            {
+              "year": 2022,
+              "value": 5720
+            },
+            {
+              "year": 2023,
+              "value": 6702
+            },
+            {
+              "year": 2024,
+              "value": 7438
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8102.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 8463
+            },
+            {
+              "year": 2020,
+              "value": 8886
+            },
+            {
+              "year": 2021,
+              "value": 10502
+            },
+            {
+              "year": 2022,
+              "value": 11103
+            },
+            {
+              "year": 2023,
+              "value": 11997
+            },
+            {
+              "year": 2024,
+              "value": 12892
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 13777.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -10.4
+            },
+            {
+              "year": 2021,
+              "value": 49.3
+            },
+            {
+              "year": 2022,
+              "value": 11.8
+            },
+            {
+              "year": 2023,
+              "value": 49.7
+            },
+            {
+              "year": 2024,
+              "value": 71.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 85.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.1920148,
+      "lon": -81.2057253,
+      "rank": 32
+    },
+    {
+      "name": "Milledgeville",
+      "kind": "City",
+      "rawName": "Milledgeville city",
+      "fullName": "Milledgeville city, Georgia",
+      "place": "51492",
+      "state": "13",
+      "population": 16748,
+      "avgHouseholdIncome": 83519,
+      "incomeGrowth": 82.6,
+      "employedGrowth": -12.1,
+      "score": 70.5,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 45743
+            },
+            {
+              "year": 2020,
+              "value": 74723
+            },
+            {
+              "year": 2021,
+              "value": 84031
+            },
+            {
+              "year": 2022,
+              "value": 89830
+            },
+            {
+              "year": 2023,
+              "value": 89084
+            },
+            {
+              "year": 2024,
+              "value": 83519
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 91074.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6396
+            },
+            {
+              "year": 2020,
+              "value": 6838
+            },
+            {
+              "year": 2021,
+              "value": 6327
+            },
+            {
+              "year": 2022,
+              "value": 6149
+            },
+            {
+              "year": 2023,
+              "value": 5691
+            },
+            {
+              "year": 2024,
+              "value": 5625
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5470.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 18738
+            },
+            {
+              "year": 2020,
+              "value": 18526
+            },
+            {
+              "year": 2021,
+              "value": 17278
+            },
+            {
+              "year": 2022,
+              "value": 17021
+            },
+            {
+              "year": 2023,
+              "value": 16873
+            },
+            {
+              "year": 2024,
+              "value": 16748
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 16350,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 70.3
+            },
+            {
+              "year": 2021,
+              "value": 82.6
+            },
+            {
+              "year": 2022,
+              "value": 92.5
+            },
+            {
+              "year": 2023,
+              "value": 83.7
+            },
+            {
+              "year": 2024,
+              "value": 70.5
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 84.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.0879449,
+      "lon": -83.2406135,
+      "rank": 33
+    },
+    {
+      "name": "Dacula",
+      "kind": "City",
+      "rawName": "Dacula city",
+      "fullName": "Dacula city, Georgia",
+      "place": "21184",
+      "state": "13",
+      "population": 7444,
+      "avgHouseholdIncome": 107944,
+      "incomeGrowth": 31.2,
+      "employedGrowth": 38.9,
+      "score": 70.1,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 82280
+            },
+            {
+              "year": 2020,
+              "value": 69988
+            },
+            {
+              "year": 2021,
+              "value": 87754
+            },
+            {
+              "year": 2022,
+              "value": 85485
+            },
+            {
+              "year": 2023,
+              "value": 92753
+            },
+            {
+              "year": 2024,
+              "value": 107944
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 113076.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2534
+            },
+            {
+              "year": 2020,
+              "value": 2389
+            },
+            {
+              "year": 2021,
+              "value": 2689
+            },
+            {
+              "year": 2022,
+              "value": 2929
+            },
+            {
+              "year": 2023,
+              "value": 3182
+            },
+            {
+              "year": 2024,
+              "value": 3520
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3717.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5919
+            },
+            {
+              "year": 2020,
+              "value": 6175
+            },
+            {
+              "year": 2021,
+              "value": 6696
+            },
+            {
+              "year": 2022,
+              "value": 6906
+            },
+            {
+              "year": 2023,
+              "value": 7135
+            },
+            {
+              "year": 2024,
+              "value": 7444
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 7749,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": -20.7
+            },
+            {
+              "year": 2021,
+              "value": 12.8
+            },
+            {
+              "year": 2022,
+              "value": 19.5
+            },
+            {
+              "year": 2023,
+              "value": 38.3
+            },
+            {
+              "year": 2024,
+              "value": 70.1
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 84.1,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.9819673,
+      "lon": -83.9010803,
+      "rank": 34
+    },
+    {
+      "name": "Hiram",
+      "kind": "City",
+      "rawName": "Hiram city",
+      "fullName": "Hiram city, Georgia",
+      "place": "39076",
+      "state": "13",
+      "population": 5231,
+      "avgHouseholdIncome": 108593,
+      "incomeGrowth": 42.9,
+      "employedGrowth": 26.9,
+      "score": 69.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 76018
+            },
+            {
+              "year": 2020,
+              "value": 84087
+            },
+            {
+              "year": 2021,
+              "value": 90655
+            },
+            {
+              "year": 2022,
+              "value": 88844
+            },
+            {
+              "year": 2023,
+              "value": 95335
+            },
+            {
+              "year": 2024,
+              "value": 108593
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 115108,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2246
+            },
+            {
+              "year": 2020,
+              "value": 2311
+            },
+            {
+              "year": 2021,
+              "value": 2537
+            },
+            {
+              "year": 2022,
+              "value": 2491
+            },
+            {
+              "year": 2023,
+              "value": 2449
+            },
+            {
+              "year": 2024,
+              "value": 2850
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2970.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4001
+            },
+            {
+              "year": 2020,
+              "value": 4021
+            },
+            {
+              "year": 2021,
+              "value": 4763
+            },
+            {
+              "year": 2022,
+              "value": 4911
+            },
+            {
+              "year": 2023,
+              "value": 5073
+            },
+            {
+              "year": 2024,
+              "value": 5231
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5477,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 13.5
+            },
+            {
+              "year": 2021,
+              "value": 32.2
+            },
+            {
+              "year": 2022,
+              "value": 27.8
+            },
+            {
+              "year": 2023,
+              "value": 34.4
+            },
+            {
+              "year": 2024,
+              "value": 69.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 83.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.890794,
+      "lon": -84.7505493,
+      "rank": 35
     }
   ]
 }

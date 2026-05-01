@@ -5,14 +5,6 @@ import "./styles.css";
 type StateCode = "01" | "13";
 type DiscoveryType = "services" | "rentals";
 
-type SourceRef = {
-  label: string;
-  name: string;
-  url: string;
-  method: string;
-  coverage: string;
-};
-
 type City = {
   rank: number;
   name: string;
@@ -37,6 +29,8 @@ type City = {
     serpRentals?: DiscoveryDump;
   };
   source?: unknown;
+  specialCity?: boolean;
+  specialLabel?: string;
 };
 
 type TrendPoint = { year: number; value: number | null };
@@ -49,6 +43,16 @@ type CityTrends = {
   employedResidents?: TrendSeries;
   population?: TrendSeries;
   compositeScore?: TrendSeries;
+};
+
+type StateBoundary = {
+  abbr: string;
+  name: string;
+  rings: Array<Array<[number, number]>>;
+};
+
+type BoundaryDump = {
+  states: Partial<Record<StateCode, StateBoundary>>;
 };
 
 type DiscoveryItem = {
@@ -99,14 +103,6 @@ type ManualResearchDump = {
   states: Record<string, Record<string, { services?: ManualRecord[]; rentals?: ManualRecord[] }>>;
 };
 
-type ResearchDump = {
-  state: { state: StateCode; stateName: string; abbr: string };
-  gatheredAt: string;
-  radius: number;
-  sourceNotes: Record<string, string>;
-  cities: City[];
-};
-
 const STATES: Record<StateCode, { code: StateCode; name: string; abbr: string }> = {
   "01": { code: "01", name: "Alabama", abbr: "AL" },
   "13": { code: "13", name: "Georgia", abbr: "GA" },
@@ -116,83 +112,6 @@ const STATE_BOUNDS: Record<StateCode, { minLat: number; maxLat: number; minLon: 
   "01": { minLat: 30.1, maxLat: 35.1, minLon: -88.6, maxLon: -84.7 },
   "13": { minLat: 30.3, maxLat: 35.1, minLon: -85.7, maxLon: -80.6 },
 };
-
-const STATE_OUTLINES: Record<StateCode, string> = {
-  "01": "M38 4 L72 4 L78 27 L73 58 L84 85 L64 96 L25 93 L16 73 L23 42 L30 22 Z",
-  "13": "M38 4 L75 10 L87 44 L77 84 L58 96 L25 89 L14 58 L25 28 Z",
-};
-
-const SOURCES: SourceRef[] = [
-  {
-    label: "ACS",
-    name: "Census ACS 5-Year Detailed Tables",
-    url: "https://api.census.gov/data/2024/acs/acs5.html",
-    method:
-      "Ranks places by average household income growth and employed-resident growth between ACS 2019 and ACS 2024.",
-    coverage: "Pre-gathered for Alabama and Georgia places with population above the selected threshold.",
-  },
-  {
-    label: "OSM",
-    name: "OpenStreetMap via Overpass",
-    url: "https://wiki.openstreetmap.org/wiki/Overpass_API",
-    method:
-      "Pre-gathered search of mapped businesses and apartment/rental-like places around the selected city using tags and name patterns.",
-    coverage:
-      "Pre-gathered but incomplete. OSM is free and useful for public POIs, but it undercounts contractors, apartment managers, ownership, and weak-web businesses.",
-  },
-  {
-    label: "Public Web",
-    name: "Manual Public Web Research",
-    url: "/data/manual-research.json",
-    method:
-      "Human-readable public web research dump using official service-area pages, apartment/community pages, and public directories. No paid API keys are used.",
-    coverage:
-      "Seed coverage for Alabama and Georgia top-10 cities. Every service/community record carries its own source URL and evidence note.",
-  },
-  {
-    label: "Google",
-    name: "Google Places Text Search",
-    url: "https://developers.google.com/maps/documentation/places/web-service/text-search",
-    method:
-      "Pre-gathered offline for the top 10 city list only, with a limited field mask and local response cache to reduce API use.",
-    coverage:
-      "Better service-company and rental-community discovery than OSM, but still a discovery layer. The API key is used only during local data gathering and is not shipped to the frontend.",
-  },
-  {
-    label: "SerpAPI",
-    name: "SerpAPI Google Local API",
-    url: "https://serpapi.com/google-local-api",
-    method:
-      "Pre-gathered offline using one broad Google Local query per top city/category, with both local cache and SerpAPI provider cache enabled.",
-    coverage:
-      "Good for visible digital footprint, ratings, reviews, and local-result presence. Free tier should be treated as a scarce monthly budget.",
-  },
-  {
-    label: "Nominatim",
-    name: "OpenStreetMap Nominatim",
-    url: "https://nominatim.org/release-docs/latest/api/Search/",
-    method: "Geocodes the selected city before Overpass radius searches.",
-    coverage: "Used only by the offline OSM gather script for city centers; rate-limited and intended for light use.",
-  },
-  {
-    label: "HUD LIHTC",
-    name: "HUD Low-Income Housing Tax Credit database",
-    url: "https://www.huduser.gov/portal/datasets/lihtc/property.html",
-    method:
-      "Public affordable-housing property database with address, units, low-income units, geocoding, and placed-in-service year.",
-    coverage:
-      "Free and authoritative for LIHTC affordable communities. It does not cover all market-rate apartment communities or property managers.",
-  },
-  {
-    label: "BLS QCEW",
-    name: "BLS Quarterly Census of Employment and Wages",
-    url: "https://www.bls.gov/cew/downloadable-data-files.htm",
-    method:
-      "Free establishment-employment data by county/metro/state. Best used as a validation layer because city-level jobs are not cleanly available.",
-    coverage:
-      "Not shown as a city KPI yet; ACS employed residents remain the live city-level proxy in this free version.",
-  },
-];
 
 function money(value: number) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(value);
@@ -248,8 +167,7 @@ function App() {
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [cityFilter, setCityFilter] = useState("");
-  const [radius, setRadius] = useState(10000);
-  const [dumpMeta, setDumpMeta] = useState<ResearchDump | null>(null);
+  const [boundaries, setBoundaries] = useState<BoundaryDump | null>(null);
   const [manualDump, setManualDump] = useState<ManualResearchDump | null>(null);
   const [growthStatus, setGrowthStatus] = useState<"loading" | "ready" | "error">("loading");
   const [growthError, setGrowthError] = useState("");
@@ -300,18 +218,19 @@ function App() {
       setManualServices(emptyDiscovery());
       setManualRentals(emptyDiscovery());
       try {
-        const [response, manualResponse] = await Promise.all([
+        const [response, manualResponse, boundaryResponse] = await Promise.all([
           fetch(`/data/${state.abbr.toLowerCase()}-free-research.json`),
           fetch("/data/manual-research.json"),
+          fetch("/data/state-boundaries.json"),
         ]);
         const payload = await response.json();
         const manualPayload = await manualResponse.json();
+        const boundaryPayload = boundaryResponse.ok ? await boundaryResponse.json() : null;
         if (!response.ok) throw new Error(payload.error || "Could not load dumped research data.");
         if (cancelled) return;
         setCities(payload.cities);
-        setDumpMeta(payload);
         setManualDump(manualResponse.ok ? manualPayload : null);
-        setRadius(payload.radius || 10000);
+        setBoundaries(boundaryPayload);
         setSelectedCity(payload.cities[0]?.name ?? "");
         setGrowthStatus("ready");
       } catch (error) {
@@ -319,7 +238,7 @@ function App() {
         setCities([]);
         setSelectedCity("");
         setGrowthStatus("error");
-        setDumpMeta(null);
+        setBoundaries(null);
         setGrowthError(error instanceof Error ? error.message : "Could not load dumped research data.");
       }
     }
@@ -350,7 +269,7 @@ function App() {
         <a className="brand" href="/" aria-label="City Growth Dashboard">
           <span>
             <strong>City Growth Dashboard</strong>
-            <small>Pre-gathered free-source research for Alabama and Georgia</small>
+            <small>Alabama and Georgia market intelligence</small>
           </span>
         </a>
         <div className="toolbar">
@@ -359,14 +278,6 @@ function App() {
             <select value={stateCode} onChange={(event) => setStateCode(event.target.value as StateCode)}>
               <option value="01">Alabama</option>
               <option value="13">Georgia</option>
-            </select>
-          </label>
-          <label>
-            Radius
-            <select value={radius} onChange={(event) => setRadius(Number(event.target.value))}>
-              <option value={5000}>5 km</option>
-              <option value={10000}>10 km</option>
-              <option value={15000}>15 km</option>
             </select>
           </label>
           <button
@@ -389,9 +300,15 @@ function App() {
               <p className="eyebrow">Live growth screen</p>
               <h1>{state.name} city markets ranked by income and employment momentum</h1>
             </div>
-            <SourceBadge label="ACS" />
           </div>
-          <StateRankMap stateCode={stateCode} cities={cities.slice(0, 10)} selected={activeCity?.name} onSelect={setSelectedCity} />
+          <StateRankMap
+            stateCode={stateCode}
+            boundary={boundaries?.states?.[stateCode]}
+            cities={cities.filter((city) => !city.specialCity).slice(0, 10)}
+            specialCities={cities.filter((city) => city.specialCity)}
+            selected={activeCity?.name}
+            onSelect={setSelectedCity}
+          />
         </div>
 
         <aside className="panel rank-panel">
@@ -401,10 +318,10 @@ function App() {
               <h2>Top places</h2>
             </div>
             <span className={`live-status ${growthStatus}`}>
-              {growthStatus === "ready" ? "Static dump" : growthStatus === "loading" ? "Loading" : "Error"}
+              {growthStatus === "ready" ? "Ready" : growthStatus === "loading" ? "Loading" : "Error"}
             </span>
           </div>
-          <div className="source-note compact-note">Top 10 are visible at a glance; scroll for the rest.</div>
+          <div className="source-note compact-note">Top 10 markets are deeply researched. Additional ranked cities are searchable below.</div>
           <input
             className="search-input"
             value={cityFilter}
@@ -415,7 +332,7 @@ function App() {
           <div className="rank-list">
             {filteredCities.map((city) => (
               <button
-                className={city.name === activeCity?.name ? "rank-row active" : "rank-row"}
+                className={`${city.name === activeCity?.name ? "rank-row active" : "rank-row"} ${city.specialCity ? "special" : ""}`}
                 key={city.place}
                 onClick={() => {
                   setSelectedCity(city.name);
@@ -429,15 +346,12 @@ function App() {
                   setManualRentals(emptyDiscovery());
                 }}
               >
-                <span className="rank-num">{city.rank}</span>
+                <span className="rank-num">{city.specialCity ? "*" : city.rank}</span>
                 <span className="rank-main">
                   <strong>{city.name}</strong>
-                  <small>
-                    {city.kind} · pop {num(city.population)}
-                  </small>
-                  <SourceBadge label="ACS" />
+                  <small>{city.specialCity ? city.specialLabel || "Star city" : `${city.kind} - pop ${num(city.population)}`}</small>
                 </span>
-                <span className="rank-score">{city.score.toFixed(1)}</span>
+                <span className="rank-score">{city.specialCity ? "Pinned" : city.score.toFixed(1)}</span>
               </button>
             ))}
           </div>
@@ -447,11 +361,10 @@ function App() {
       {activeCity && (
         <>
           <section className="stat-strip">
-            <Metric title="Avg household income" value={money(activeCity.avgHouseholdIncome)} note="ACS aggregate income / households" source="ACS" trend={activeCity.trends?.avgHouseholdIncome} />
-            <Metric title="Income growth" value={pct(activeCity.incomeGrowth)} note="ACS 2019 to ACS 2024" source="ACS" trend={growthTrend(activeCity.trends?.avgHouseholdIncome)} />
-            <Metric title="Employed-resident growth" value={pct(activeCity.employedGrowth)} note="City-level jobs proxy" source="ACS" trend={activeCity.trends?.employedResidents} />
-            <Metric title="Composite score" value={activeCity.score.toFixed(1)} note="income growth + employed growth" source="ACS" trend={activeCity.trends?.compositeScore} />
-            <Metric title="Free-source radius" value={`${Math.round(radius / 1000)} km`} note="OSM search radius" source="OSM" trend={radiusTrend(radius)} />
+            <Metric title="Avg household income" value={money(activeCity.avgHouseholdIncome)} note="Household income momentum" source="Census ACS public tables" trend={activeCity.trends?.avgHouseholdIncome} />
+            <Metric title="Income growth" value={pct(activeCity.incomeGrowth)} note="Five-year change" source="Census ACS public tables, 2019 to 2024" trend={growthTrend(activeCity.trends?.avgHouseholdIncome)} />
+            <Metric title="Resident employment" value={pct(activeCity.employedGrowth)} note="Five-year change" source="Census ACS employed-resident table" trend={activeCity.trends?.employedResidents} />
+            <Metric title="Market score" value={activeCity.score.toFixed(1)} note="Growth momentum" source="Income growth plus employed-resident growth" trend={activeCity.trends?.compositeScore} />
           </section>
 
           {summary && <AnswerStrip city={activeCity} summary={summary} />}
@@ -461,63 +374,35 @@ function App() {
               <div className="panel-head">
                 <div>
                   <p className="eyebrow">{activeCity.name}</p>
-                  <h2>Local service companies</h2>
+                  <h2>Service companies</h2>
                 </div>
-                <div className="source-wrap">
-                  <SourceBadge label="Google" />
-                  <SourceBadge label="SerpAPI" />
-                  <SourceBadge label="Public Web" />
-                  <SourceBadge label="OSM" />
-                </div>
+                <InfoTip text="Public company pages and directories. Listings open to the page where the city was referenced." />
               </div>
-              <DiscoveryPanel result={manualServices} emptyLabel="No manual public-web service matches in the dump yet." source="Public Web" sourceKind="free-source" />
-              <DiscoveryPanel result={serpServices} emptyLabel="No SerpAPI service matches in the dump." source="SerpAPI" sourceKind="paid-source" />
-              <DiscoveryPanel result={googleServices} emptyLabel="No Google Places service matches in the dump." source="Google" sourceKind="paid-source" />
-              <DiscoveryPanel result={services} emptyLabel="No free OSM service matches in the dump." source="OSM" sourceKind="free-source" />
+              <ExecutiveList
+                items={dedupeItems([...manualServices.items, ...serpServices.items, ...googleServices.items, ...services.items])}
+                emptyLabel="No service companies verified yet."
+              />
             </div>
 
             <div className="panel housing-panel">
               <div className="panel-head">
                 <div>
                   <p className="eyebrow">For-rent housing</p>
-                  <h2>Rental/community matches</h2>
+                  <h2>For-rent communities</h2>
                 </div>
-                <div className="source-wrap">
-                  <SourceBadge label="Google" />
-                  <SourceBadge label="SerpAPI" />
-                  <SourceBadge label="Public Web" />
-                  <SourceBadge label="OSM" />
-                </div>
+                <InfoTip text="Apartment sites, rental marketplaces, and property manager pages. Listings open to the evidence page." />
               </div>
-              <DiscoveryPanel result={manualRentals} emptyLabel="No manual public-web rental/community matches in the dump yet." source="Public Web" sourceKind="free-source" />
-              <DiscoveryPanel result={serpRentals} emptyLabel="No SerpAPI rental/community matches in the dump." source="SerpAPI" sourceKind="paid-source" />
-              <DiscoveryPanel result={googleRentals} emptyLabel="No Google Places rental/community matches in the dump." source="Google" sourceKind="paid-source" />
-              <DiscoveryPanel result={rentals} emptyLabel="No free OSM rental/community matches in the dump." source="OSM" sourceKind="free-source" />
-              <div className="source-note">
-                <strong>Management companies:</strong> OSM records may include an <code>operator</code> tag and Google results may point to a Maps listing, but full ownership and management coverage usually requires community websites or licensed multifamily data.
-              </div>
+              <ExecutiveList
+                items={dedupeItems([...manualRentals.items, ...serpRentals.items, ...googleRentals.items, ...rentals.items])}
+                emptyLabel="No for-rent communities verified yet."
+              />
               {summary.managerSignals.length > 0 && (
                 <div className="manager-list">
                   {summary.managerSignals.map((item) => (
-                    <span key={`${item.source}-${item.name}`}>{item.name} <SourceBadge label={item.source} /></span>
+                    <span key={`${item.source}-${item.name}`}>{item.name}</span>
                   ))}
                 </div>
               )}
-            </div>
-
-            <div className="panel source-panel">
-              <div className="panel-head">
-                <div>
-                  <p className="eyebrow">Data sources</p>
-                  <h2>What is in the dump</h2>
-                </div>
-              </div>
-              {dumpMeta && (
-                <div className="source-note compact-note">
-                  Dataset gathered {new Date(dumpMeta.gatheredAt).toLocaleString()} at {Math.round(dumpMeta.radius / 1000)} km radius.
-                </div>
-              )}
-              <SourceStack />
             </div>
           </section>
         </>
@@ -550,7 +435,7 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
         <div className="brand login-brand">
           <span>
             <strong>City Growth Dashboard</strong>
-            <small>Pre-gathered free-source research for Alabama and Georgia</small>
+            <small>Alabama and Georgia market intelligence</small>
           </span>
         </div>
         <div>
@@ -572,18 +457,44 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   );
 }
 
-function StateRankMap({ stateCode, cities, selected, onSelect }: { stateCode: StateCode; cities: City[]; selected?: string; onSelect: (city: string) => void }) {
-  const bounds = STATE_BOUNDS[stateCode];
-  const project = (city: City) => {
-    const x = city.lon == null ? 50 : ((city.lon - bounds.minLon) / (bounds.maxLon - bounds.minLon)) * 100;
-    const y = city.lat == null ? 50 : 100 - ((city.lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * 100;
-    return { x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) };
+function StateRankMap({
+  stateCode,
+  boundary,
+  cities,
+  specialCities,
+  selected,
+  onSelect,
+}: {
+  stateCode: StateCode;
+  boundary?: StateBoundary;
+  cities: City[];
+  specialCities: City[];
+  selected?: string;
+  onSelect: (city: string) => void;
+}) {
+  const bounds = useMemo(() => boundaryBounds(boundary) || STATE_BOUNDS[stateCode], [boundary, stateCode]);
+  const projectLonLat = (lon?: number | null, lat?: number | null) => {
+    const x = lon == null ? 50 : 5 + ((lon - bounds.minLon) / (bounds.maxLon - bounds.minLon)) * 90;
+    const y = lat == null ? 50 : 95 - ((lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * 90;
+    return { x: Math.max(3, Math.min(97, x)), y: Math.max(3, Math.min(97, y)) };
+  };
+  const project = (city: City) => projectLonLat(city.lon, city.lat);
+  const pathForRing = (ring: Array<[number, number]>) => {
+    if (!ring.length) return "";
+    return ring
+      .map(([lon, lat], index) => {
+        const { x, y } = projectLonLat(lon, lat);
+        return `${index === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
+      })
+      .join(" ") + " Z";
   };
 
   return (
     <div className="state-rank-map">
       <svg viewBox="0 0 100 100" role="img" aria-label="State map with top ranked cities">
-        <path className="state-shape" d={STATE_OUTLINES[stateCode]} />
+        {(boundary?.rings?.length ? boundary.rings : []).map((ring, index) => (
+          <path className="state-shape" d={pathForRing(ring)} key={index} />
+        ))}
         {cities.map((city) => {
           const { x, y } = project(city);
           const active = city.name === selected;
@@ -596,13 +507,41 @@ function StateRankMap({ stateCode, cities, selected, onSelect }: { stateCode: St
             </g>
           );
         })}
+        {specialCities.map((city) => {
+          const { x, y } = project(city);
+          const active = city.name === selected;
+          return (
+            <g key={city.place} className="rank-dot-group special-star" onClick={() => onSelect(city.name)}>
+              <circle className={`rank-dot special ${active ? "active" : ""}`} cx={x} cy={y} r={active ? 6.7 : 5.6} />
+              <text x={x} y={y + 1.6}>
+                *
+              </text>
+            </g>
+          );
+        })}
       </svg>
       <div className="map-legend">
         <strong>{selected}</strong>
-        <span>Top 10 cities are shaded from dark green at rank 1 to light green at rank 10.</span>
+        <span>Top 10 ranked cities are green. Starred strategic cities are gold.</span>
       </div>
     </div>
   );
+}
+
+function boundaryBounds(boundary?: StateBoundary) {
+  const points = boundary?.rings?.flat() || [];
+  if (!points.length) return null;
+  const lons = points.map(([lon]) => lon).filter(Number.isFinite);
+  const lats = points.map(([, lat]) => lat).filter(Number.isFinite);
+  if (!lons.length || !lats.length) return null;
+  const padLon = (Math.max(...lons) - Math.min(...lons)) * 0.04;
+  const padLat = (Math.max(...lats) - Math.min(...lats)) * 0.04;
+  return {
+    minLon: Math.min(...lons) - padLon,
+    maxLon: Math.max(...lons) + padLon,
+    minLat: Math.min(...lats) - padLat,
+    maxLat: Math.max(...lats) + padLat,
+  };
 }
 
 function GrowthMap({ cities, selected, onSelect }: { cities: City[]; selected?: string; onSelect: (city: string) => void }) {
@@ -626,7 +565,10 @@ function Metric({ title, value, note, source, trend }: { title: string; value: s
       <span>{title}</span>
       <strong>{value}</strong>
       <small>{note}</small>
-      <SourceBadge label={source} />
+      <div className="metric-context">
+        <strong>{source}</strong>
+        <span>{note}</span>
+      </div>
     </article>
   );
 }
@@ -682,71 +624,36 @@ function growthTrend(trend?: TrendSeries): TrendSeries | undefined {
   };
 }
 
-function radiusTrend(radius: number): TrendSeries {
-  return {
-    actual: [
-      { year: 1, value: 5000 },
-      { year: 2, value: 10000 },
-      { year: 3, value: radius },
-    ],
-    projection: null,
-  };
+function InfoTip({ text }: { text: string }) {
+  return (
+    <span className="info-tip" tabIndex={0} aria-label={text}>
+      i
+      <span>{text}</span>
+    </span>
+  );
 }
 
-function DiscoveryPanel({
-  result,
-  emptyLabel,
-  source,
-  sourceKind,
-}: {
-  result: DiscoveryResult;
-  emptyLabel: string;
-  source: string;
-  sourceKind: "free-source" | "paid-source";
-}) {
-  if (result.status === "loading") {
-    return <div className="free-probe loading"><strong>Loading dumped data...</strong><span>The dashboard reads static JSON generated offline.</span></div>;
-  }
-
-  if (result.status === "error") {
-    return <div className="free-probe error"><strong>{source} gather failed</strong><span>{result.message}</span><SourceBadge label={source} /></div>;
-  }
-
-  if (result.status !== "ready") {
-    return <div className="free-probe"><strong>{emptyLabel}</strong><span>This panel reads only the pre-gathered static dump.</span><SourceBadge label={source} /></div>;
-  }
-
+function ExecutiveList({ items, emptyLabel }: { items: DiscoveryItem[]; emptyLabel: string }) {
+  if (items.length === 0) return <div className="empty-list">{emptyLabel}</div>;
   return (
-    <div className="company-list">
-      <div className="free-probe ready">
-        <strong>{result.count} pre-gathered {sourceKind} matches</strong>
-        <span>{result.message}</span>
-        <SourceBadge label={source} />
-      </div>
-      {result.items.length === 0 ? (
-        <div className="source-note">No {source} matches found in the dump. That does not prove the market has no companies or communities; it only reflects this source and query.</div>
-      ) : (
-        result.items.map((item) => (
-          <article className="company-card" key={item.id}>
-            <div>
-              <strong>{item.name}</strong>
-              <small>{item.address || item.category || "mapped place"}</small>
-            </div>
-            <div className="source-wrap">
-              {item.website && <a href={item.website} target="_blank" rel="noreferrer">website</a>}
-              {item.sourceUrl && <a href={item.sourceUrl} target="_blank" rel="noreferrer">map</a>}
-              {item.phone && <span>phone</span>}
-              {item.operator && <span>operator: {item.operator}</span>}
-              {item.status && <span>{item.status.replaceAll("_", " ").toLowerCase()}</span>}
-              {item.rating && <span>{item.rating.toFixed(1)} rating</span>}
-              {item.reviews && <span>{num(item.reviews)} reviews</span>}
-              <span>{classifyMarket(item).label}</span>
-              <SourceBadge label={source} />
-            </div>
-            {(item.tags?.evidence || item.tags?.evidenceNote) && <p className="evidence-note">{item.tags.evidence || item.tags.evidenceNote}</p>}
-          </article>
-        ))
-      )}
+    <div className="executive-list">
+      {items.map((item) => {
+        const href = item.sourceUrl || item.website || "#";
+        const descriptor = item.managementCompany || item.address || item.category || "Verified listing";
+        const content = (
+          <>
+            <strong>{item.name}</strong>
+            <small>{descriptor}</small>
+          </>
+        );
+        return href === "#" ? (
+          <article className="listing-card" key={item.id}>{content}</article>
+        ) : (
+          <a className="listing-card" href={href} target="_blank" rel="noreferrer" key={item.id}>
+            {content}
+          </a>
+        );
+      })}
     </div>
   );
 }
@@ -762,16 +669,20 @@ type MarketSummary = {
 };
 
 function AnswerStrip({ city, summary }: { city: City; summary: MarketSummary }) {
+  const cityHeadline = city.specialCity ? `${city.name} is pinned for review` : `${city.name} ranks #${city.rank}`;
+  const cityDetail = city.specialCity
+    ? `${pct(city.incomeGrowth)} income growth and ${pct(city.employedGrowth)} employed-resident growth, shown alongside the ranked markets.`
+    : `${pct(city.incomeGrowth)} income growth and ${pct(city.employedGrowth)} employed-resident growth.`;
+
   return (
     <section className="answer-strip">
       <article className="answer-card">
-        <span>Layer 1</span>
-        <strong>{city.name} ranks #{city.rank}</strong>
-        <small>{pct(city.incomeGrowth)} income growth and {pct(city.employedGrowth)} employed-resident growth from ACS.</small>
-        <SourceBadge label="ACS" />
+        <span>Growth</span>
+        <strong>{cityHeadline}</strong>
+        <small>{cityDetail}</small>
       </article>
       <article className="answer-card">
-        <span>Layer 2</span>
+        <span>Services</span>
         <strong>{summary.serviceCandidates} service candidates</strong>
         <div className="breakdown">
           <i>{summary.local} local</i>
@@ -779,18 +690,11 @@ function AnswerStrip({ city, summary }: { city: City; summary: MarketSummary }) 
           <i>{summary.chain} chain</i>
           {summary.unknown > 0 && <i>{summary.unknown} unknown</i>}
         </div>
-        <SourceBadge label="SerpAPI" />
-        <SourceBadge label="Google" />
-        <SourceBadge label="Public Web" />
-        <SourceBadge label="OSM" />
       </article>
       <article className="answer-card">
-        <span>Layer 3</span>
+        <span>For Rent</span>
         <strong>{summary.rentalCandidates} for-rent candidates</strong>
-        <small>{summary.managerSignals.length} management/operator signals found in the current dump.</small>
-        <SourceBadge label="Google" />
-        <SourceBadge label="Public Web" />
-        <SourceBadge label="OSM" />
+        <small>{summary.managerSignals.length} management or operator names identified.</small>
       </article>
     </section>
   );
@@ -893,32 +797,6 @@ function dedupeManagers(items: Array<{ name: string; source: string }>) {
     seen.add(key);
     return true;
   });
-}
-
-function SourceStack() {
-  return (
-    <div className="source-list">
-      {SOURCES.map((source) => (
-        <article key={source.label}>
-          <strong>{source.name}</strong>
-          <span>{source.method}</span>
-          <small>{source.coverage}</small>
-          <a href={source.url} target="_blank" rel="noreferrer">
-            Source documentation
-          </a>
-        </article>
-      ))}
-    </div>
-  );
-}
-
-function SourceBadge({ label }: { label: string }) {
-  const source = SOURCES.find((item) => item.label === label);
-  return (
-    <a className="source-badge live-public" href={source?.url || "#"} target="_blank" rel="noreferrer" title={source?.method}>
-      {label}
-    </a>
-  );
 }
 
 createRoot(document.getElementById("root")!).render(

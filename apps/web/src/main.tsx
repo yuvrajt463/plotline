@@ -736,7 +736,9 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [expectedUser, expectedPassword] = String(import.meta.env.VITE_DEMO_CREDENTIALS || "").split(":");
+  const [combinedUser, combinedPassword] = String(import.meta.env.VITE_DEMO_CREDENTIALS || "").split(":");
+  const expectedUser = String(import.meta.env.VITE_DEMO_USER || combinedUser || "");
+  const expectedPassword = String(import.meta.env.VITE_DEMO_PASSWORD || combinedPassword || "");
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

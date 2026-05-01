@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "build": "npm -w apps/web run build",
+    "dev": "npm -w apps/web run dev",
+    "preview": "npm -w apps/web run preview"
+  }
+}

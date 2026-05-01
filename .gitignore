@@ -1,0 +1,36 @@
+node_modules/
+dist/
+apps/web/dist/
+.vercel/
+.env
+.env.local
+npm-debug.log*
+*.tsbuildinfo
+
+# Local archives and generated/runtime artifacts
+plotline-archive/
+.venv/
+__pycache__/
+.claude/
+cache.sqlite
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.pyc
+
+# Legacy local prototype kept out of the public Vercel repo
+app.py
+fetch_geo.py
+ingest_alabama.py
+prefetch.py
+probe_alabama.py
+probe_sources.py
+requirements.txt
+run.bat
+run_server.py
+static/
+blueprint.md
+memory.md
+plan.md
+todo.md

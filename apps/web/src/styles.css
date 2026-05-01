@@ -1005,6 +1005,29 @@ h2 {
   overflow-wrap: anywhere;
 }
 
+.service-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.service-tags i {
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(47, 111, 115, 0.1);
+  color: var(--accent-dark);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  padding: 4px 7px;
+}
+
+.service-tags i.tag-other {
+  background: #edf2f3;
+  color: #566165;
+}
+
 .listing-card small,
 .empty-list {
   color: var(--muted);

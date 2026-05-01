@@ -4,6 +4,7 @@ import "./styles.css";
 
 type StateCode = "01" | "13";
 type DiscoveryType = "services" | "rentals";
+type ServiceTag = "HVAC" | "Electrical" | "Plumbing" | "Pest" | "Other";
 
 type City = {
   rank: number;
@@ -59,6 +60,7 @@ type DiscoveryItem = {
   id: string;
   name: string;
   category?: string | null;
+  serviceTags?: ServiceTag[];
   website?: string | null;
   phone?: string | null;
   operator?: string | null;
@@ -107,6 +109,8 @@ const STATES: Record<StateCode, { code: StateCode; name: string; abbr: string }>
   "01": { code: "01", name: "Alabama", abbr: "AL" },
   "13": { code: "13", name: "Georgia", abbr: "GA" },
 };
+
+const SERVICE_TAG_ORDER: ServiceTag[] = ["HVAC", "Electrical", "Plumbing", "Pest", "Other"];
 
 const STATE_BOUNDS: Record<StateCode, { minLat: number; maxLat: number; minLon: number; maxLon: number }> = {
   "01": { minLat: 30.1, maxLat: 35.1, minLon: -88.6, maxLon: -84.7 },
@@ -381,6 +385,7 @@ function App() {
               <ExecutiveList
                 items={dedupeItems([...manualServices.items, ...serpServices.items, ...googleServices.items, ...services.items])}
                 emptyLabel="No service companies verified yet."
+                showServiceTags
               />
             </div>
 
@@ -633,16 +638,26 @@ function InfoTip({ text }: { text: string }) {
   );
 }
 
-function ExecutiveList({ items, emptyLabel }: { items: DiscoveryItem[]; emptyLabel: string }) {
+function ExecutiveList({ items, emptyLabel, showServiceTags = false }: { items: DiscoveryItem[]; emptyLabel: string; showServiceTags?: boolean }) {
   if (items.length === 0) return <div className="empty-list">{emptyLabel}</div>;
   return (
     <div className="executive-list">
       {items.map((item) => {
         const href = item.sourceUrl || item.website || "#";
         const descriptor = item.managementCompany || item.address || item.category || "Verified listing";
+        const serviceTags = showServiceTags ? tagsForService(item) : [];
         const content = (
           <>
             <strong>{item.name}</strong>
+            {serviceTags.length > 0 && (
+              <span className="service-tags" aria-label={`Service tags: ${serviceTags.join(", ")}`}>
+                {serviceTags.map((tag) => (
+                  <i className={`tag-${tag.toLowerCase()}`} key={tag}>
+                    {tag}
+                  </i>
+                ))}
+              </span>
+            )}
             <small>{descriptor}</small>
           </>
         );
@@ -656,6 +671,47 @@ function ExecutiveList({ items, emptyLabel }: { items: DiscoveryItem[]; emptyLab
       })}
     </div>
   );
+}
+
+function tagsForService(item: DiscoveryItem): ServiceTag[] {
+  const normalized = new Set<ServiceTag>();
+  for (const tag of item.serviceTags || []) {
+    if (SERVICE_TAG_ORDER.includes(tag)) normalized.add(tag);
+  }
+  for (const tag of inferServiceTags(item)) normalized.add(tag);
+  const coreTags = SERVICE_TAG_ORDER.filter((tag) => tag !== "Other" && normalized.has(tag));
+  return coreTags.length ? coreTags : ["Other"];
+}
+
+function inferServiceTags(item: DiscoveryItem): ServiceTag[] {
+  const haystack = [
+    item.name,
+    item.category,
+    item.tags?.evidence,
+    item.tags?.description,
+    item.tags?.name,
+    item.website,
+    item.sourceUrl,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  const tags = new Set<ServiceTag>();
+  if (/\b(hvac|h\.?v\.?a\.?c\.?|heating|cooling|air conditioning|air-conditioning|a\/c|ac repair|furnace|heat pump|refrigeration)\b/.test(haystack)) {
+    tags.add("HVAC");
+  }
+  if (/\b(electric|electrical|electrician|lighting|generator|panel|ev charger)\b/.test(haystack)) {
+    tags.add("Electrical");
+  }
+  if (/\b(plumb\w*|sewer|drain|water heater|septic)\b/.test(haystack)) {
+    tags.add("Plumbing");
+  }
+  if (/\b(pest|termite|exterminat\w*|mosquito|rodent|wildlife|bed bug|bug control|ant control)\b/.test(haystack)) {
+    tags.add("Pest");
+  }
+
+  return SERVICE_TAG_ORDER.filter((tag) => tags.has(tag));
 }
 
 type MarketSummary = {

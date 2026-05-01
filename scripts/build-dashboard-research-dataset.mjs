@@ -126,6 +126,7 @@ function toDashboardService(item) {
     id: `manual-crosscheck-${slug(item.state)}-${slug(item.city)}-${slug(item.name)}`,
     name: item.name,
     category: item.category,
+    serviceTags: inferServiceTags(item),
     marketClass: normalizeMarketClass(item.marketClassOrManager),
     address: item.address,
     sourceUrl: item.sourceUrl,
@@ -155,6 +156,7 @@ function sanitizeRecords(records, kind) {
       ...item,
       id: item.id || `${kind}-${slug(item.name)}`,
       category: normalizeCategory(item.category || (kind === "service" ? "home services" : "rental housing")),
+      ...(kind === "service" ? { serviceTags: inferServiceTags(item) } : {}),
       marketClass: kind === "service" ? normalizeMarketClass(item.marketClass) : item.marketClass,
       source: item.source || "Verified web"
     }));
@@ -237,6 +239,16 @@ function primaryCategory(category) {
   if (text.includes("single") || text.includes("house")) return "single-family";
   if (text.includes("senior")) return "senior";
   return "apartment";
+}
+
+function inferServiceTags(item) {
+  const text = [item.name, item.category, item.evidence, item.evidenceNote, item.sourceUrl].filter(Boolean).join(" ").toLowerCase();
+  const tags = [];
+  if (/\b(hvac|h\.?v\.?a\.?c\.?|heating|cooling|air conditioning|air-conditioning|a\/c|ac repair|furnace|heat pump|refrigeration)\b/i.test(text)) tags.push("HVAC");
+  if (/\b(electric|electrical|electrician|lighting|generator|panel|ev charger)\b/i.test(text)) tags.push("Electrical");
+  if (/\b(plumb\w*|sewer|drain|water heater|septic)\b/i.test(text)) tags.push("Plumbing");
+  if (/\b(pest|termite|exterminat\w*|mosquito|rodent|wildlife|bed bug|bug control|ant control)\b/i.test(text)) tags.push("Pest");
+  return tags.length ? tags : ["Other"];
 }
 
 function dedupeRecords(records) {

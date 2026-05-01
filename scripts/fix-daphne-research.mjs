@@ -62,11 +62,21 @@ async function main() {
 }
 
 function service(id, name, category, marketClass, address, sourceUrl, evidence) {
-  return { id, name, category, marketClass, address, sourceUrl, evidence, source: "Manual Daphne verification" };
+  return { id, name, category, serviceTags: inferServiceTags({ name, category, evidence, sourceUrl }), marketClass, address, sourceUrl, evidence, source: "Manual Daphne verification" };
 }
 
 function rental(id, name, category, managementCompany, address, sourceUrl, evidence) {
   return { id, name, category, managementCompany, address, sourceUrl, evidence, source: "Manual Daphne verification" };
+}
+
+function inferServiceTags(service) {
+  const text = [service.name, service.category, service.evidence, service.sourceUrl].filter(Boolean).join(" ").toLowerCase();
+  const tags = [];
+  if (/\b(hvac|heating|cooling|air conditioning|air-conditioning|a\/c|furnace|heat pump)\b/.test(text)) tags.push("HVAC");
+  if (/\b(electric|electrical|electrician|lighting|generator|panel|ev charger)\b/.test(text)) tags.push("Electrical");
+  if (/\b(plumb\w*|sewer|drain|water heater|septic)\b/.test(text)) tags.push("Plumbing");
+  if (/\b(pest|termite|exterminat\w*|mosquito|rodent|wildlife|bed bug)\b/.test(text)) tags.push("Pest");
+  return tags.length ? tags : ["Other"];
 }
 
 main().catch((error) => {

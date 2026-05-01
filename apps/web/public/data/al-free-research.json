@@ -1,0 +1,1917 @@
+{
+  "state": {
+    "state": "01",
+    "stateName": "Alabama",
+    "abbr": "AL"
+  },
+  "gatheredAt": "2026-05-01T03:07:35.274Z",
+  "radius": 5000,
+  "sourceNotes": {
+    "growth": "Census ACS 5-Year API. Average household income = B19025_001E / B11001_001E. Employed residents = B23025_004E.",
+    "centroids": "Census TIGERweb place centroid fields CENTLAT/CENTLON or INTPTLAT/INTPTLON.",
+    "services": "OpenStreetMap / Overpass free-source search. This is incomplete for contractors and weak-web businesses.",
+    "rentals": "OpenStreetMap / Overpass free-source search. This is incomplete for market-rate communities, ownership, and managers."
+  },
+  "cities": [
+    {
+      "name": "Rainsville",
+      "kind": "City",
+      "rawName": "Rainsville city",
+      "fullName": "Rainsville city, Alabama",
+      "place": "63336",
+      "state": "01",
+      "population": 5702,
+      "avgHouseholdIncome": 81590,
+      "incomeGrowth": 83,
+      "employedGrowth": 56,
+      "score": 138.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 44597
+            },
+            {
+              "year": 2020,
+              "value": 52777
+            },
+            {
+              "year": 2021,
+              "value": 58916
+            },
+            {
+              "year": 2022,
+              "value": 67183
+            },
+            {
+              "year": 2023,
+              "value": 72686
+            },
+            {
+              "year": 2024,
+              "value": 81590
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 88988.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1874
+            },
+            {
+              "year": 2020,
+              "value": 2189
+            },
+            {
+              "year": 2021,
+              "value": 2462
+            },
+            {
+              "year": 2022,
+              "value": 2567
+            },
+            {
+              "year": 2023,
+              "value": 2612
+            },
+            {
+              "year": 2024,
+              "value": 2923
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3132.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5041
+            },
+            {
+              "year": 2020,
+              "value": 5038
+            },
+            {
+              "year": 2021,
+              "value": 5466
+            },
+            {
+              "year": 2022,
+              "value": 5545
+            },
+            {
+              "year": 2023,
+              "value": 5613
+            },
+            {
+              "year": 2024,
+              "value": 5702
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5834.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 35.2
+            },
+            {
+              "year": 2021,
+              "value": 63.5
+            },
+            {
+              "year": 2022,
+              "value": 87.6
+            },
+            {
+              "year": 2023,
+              "value": 102.4
+            },
+            {
+              "year": 2024,
+              "value": 138.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 166.7,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.4943644,
+      "lon": -85.8365048,
+      "rank": 1,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.4942536,
+            "lon": -85.8477494,
+            "label": "Rainsville, DeKalb County, Alabama, 35986, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.4942536,
+            "lon": -85.8477494,
+            "label": "Rainsville, DeKalb County, Alabama, 35986, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Semmes",
+      "kind": "City",
+      "rawName": "Semmes city",
+      "fullName": "Semmes city, Alabama",
+      "place": "69240",
+      "state": "01",
+      "population": 5626,
+      "avgHouseholdIncome": 96299,
+      "incomeGrowth": 77.5,
+      "employedGrowth": 33.8,
+      "score": 111.3,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 54247
+            },
+            {
+              "year": 2020,
+              "value": 58583
+            },
+            {
+              "year": 2021,
+              "value": 63494
+            },
+            {
+              "year": 2022,
+              "value": 80646
+            },
+            {
+              "year": 2023,
+              "value": 99390
+            },
+            {
+              "year": 2024,
+              "value": 96299
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 104709.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1909
+            },
+            {
+              "year": 2020,
+              "value": 1911
+            },
+            {
+              "year": 2021,
+              "value": 1836
+            },
+            {
+              "year": 2022,
+              "value": 2107
+            },
+            {
+              "year": 2023,
+              "value": 2495
+            },
+            {
+              "year": 2024,
+              "value": 2554
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2683,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 5284
+            },
+            {
+              "year": 2020,
+              "value": 5780
+            },
+            {
+              "year": 2021,
+              "value": 4969
+            },
+            {
+              "year": 2022,
+              "value": 5123
+            },
+            {
+              "year": 2023,
+              "value": 5404
+            },
+            {
+              "year": 2024,
+              "value": 5626
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5694.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 8.1
+            },
+            {
+              "year": 2021,
+              "value": 13.2
+            },
+            {
+              "year": 2022,
+              "value": 59
+            },
+            {
+              "year": 2023,
+              "value": 113.9
+            },
+            {
+              "year": 2024,
+              "value": 111.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 133.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 30.7962233,
+      "lon": -88.2475899,
+      "rank": 2,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.778688,
+            "lon": -88.2588427,
+            "label": "Semmes, Mobile County, Alabama, 36663, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.778688,
+            "lon": -88.2588427,
+            "label": "Semmes, Mobile County, Alabama, 36663, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Robertsdale",
+      "kind": "City",
+      "rawName": "Robertsdale city",
+      "fullName": "Robertsdale city, Alabama",
+      "place": "65208",
+      "state": "01",
+      "population": 7194,
+      "avgHouseholdIncome": 93383,
+      "incomeGrowth": 81.7,
+      "employedGrowth": 26.2,
+      "score": 107.8,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 51401
+            },
+            {
+              "year": 2020,
+              "value": 57879
+            },
+            {
+              "year": 2021,
+              "value": 71129
+            },
+            {
+              "year": 2022,
+              "value": 91088
+            },
+            {
+              "year": 2023,
+              "value": 90192
+            },
+            {
+              "year": 2024,
+              "value": 93383
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 101779.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2751
+            },
+            {
+              "year": 2020,
+              "value": 3107
+            },
+            {
+              "year": 2021,
+              "value": 3162
+            },
+            {
+              "year": 2022,
+              "value": 3304
+            },
+            {
+              "year": 2023,
+              "value": 3370
+            },
+            {
+              "year": 2024,
+              "value": 3471
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3615,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6473
+            },
+            {
+              "year": 2020,
+              "value": 6776
+            },
+            {
+              "year": 2021,
+              "value": 6603
+            },
+            {
+              "year": 2022,
+              "value": 6793
+            },
+            {
+              "year": 2023,
+              "value": 6985
+            },
+            {
+              "year": 2024,
+              "value": 7194
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 7338.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 25.5
+            },
+            {
+              "year": 2021,
+              "value": 53.3
+            },
+            {
+              "year": 2022,
+              "value": 97.3
+            },
+            {
+              "year": 2023,
+              "value": 98
+            },
+            {
+              "year": 2024,
+              "value": 107.8
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 129.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 30.557139,
+      "lon": -87.7047227,
+      "rank": 3,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.5552959,
+            "lon": -87.7109526,
+            "label": "Robertsdale, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.5552959,
+            "lon": -87.7109526,
+            "label": "Robertsdale, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Meridianville",
+      "kind": "CDP",
+      "rawName": "Meridianville CDP",
+      "fullName": "Meridianville CDP, Alabama",
+      "place": "48112",
+      "state": "01",
+      "population": 11150,
+      "avgHouseholdIncome": 122916,
+      "incomeGrowth": 40.3,
+      "employedGrowth": 65.9,
+      "score": 106.2,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 87608
+            },
+            {
+              "year": 2020,
+              "value": 90948
+            },
+            {
+              "year": 2021,
+              "value": 94702
+            },
+            {
+              "year": 2022,
+              "value": 109091
+            },
+            {
+              "year": 2023,
+              "value": 121443
+            },
+            {
+              "year": 2024,
+              "value": 122916
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 129977.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3310
+            },
+            {
+              "year": 2020,
+              "value": 3788
+            },
+            {
+              "year": 2021,
+              "value": 3900
+            },
+            {
+              "year": 2022,
+              "value": 4684
+            },
+            {
+              "year": 2023,
+              "value": 4930
+            },
+            {
+              "year": 2024,
+              "value": 5490
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5926,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7087
+            },
+            {
+              "year": 2020,
+              "value": 7520
+            },
+            {
+              "year": 2021,
+              "value": 8344
+            },
+            {
+              "year": 2022,
+              "value": 9528
+            },
+            {
+              "year": 2023,
+              "value": 10268
+            },
+            {
+              "year": 2024,
+              "value": 11150
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11962.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 18.3
+            },
+            {
+              "year": 2021,
+              "value": 25.9
+            },
+            {
+              "year": 2022,
+              "value": 66
+            },
+            {
+              "year": 2023,
+              "value": 87.6
+            },
+            {
+              "year": 2024,
+              "value": 106.2
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 127.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.8749129,
+      "lon": -86.5805593,
+      "rank": 4,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.8703223,
+            "lon": -86.5713609,
+            "label": "Meridianville, Madison County, Alabama, 35759, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.8703223,
+            "lon": -86.5713609,
+            "label": "Meridianville, Madison County, Alabama, 35759, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Margaret",
+      "kind": "City",
+      "rawName": "Margaret city",
+      "fullName": "Margaret city, Alabama",
+      "place": "46696",
+      "state": "01",
+      "population": 5877,
+      "avgHouseholdIncome": 102155,
+      "incomeGrowth": 36.2,
+      "employedGrowth": 67.9,
+      "score": 104.1,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 75007
+            },
+            {
+              "year": 2020,
+              "value": 71255
+            },
+            {
+              "year": 2021,
+              "value": 77397
+            },
+            {
+              "year": 2022,
+              "value": 83752
+            },
+            {
+              "year": 2023,
+              "value": 96110
+            },
+            {
+              "year": 2024,
+              "value": 102155
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 107584.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1928
+            },
+            {
+              "year": 2020,
+              "value": 2122
+            },
+            {
+              "year": 2021,
+              "value": 2358
+            },
+            {
+              "year": 2022,
+              "value": 2510
+            },
+            {
+              "year": 2023,
+              "value": 2744
+            },
+            {
+              "year": 2024,
+              "value": 3237
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3498.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4819
+            },
+            {
+              "year": 2020,
+              "value": 4905
+            },
+            {
+              "year": 2021,
+              "value": 5118
+            },
+            {
+              "year": 2022,
+              "value": 5294
+            },
+            {
+              "year": 2023,
+              "value": 5538
+            },
+            {
+              "year": 2024,
+              "value": 5877
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6088.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 5.1
+            },
+            {
+              "year": 2021,
+              "value": 25.5
+            },
+            {
+              "year": 2022,
+              "value": 41.8
+            },
+            {
+              "year": 2023,
+              "value": 70.5
+            },
+            {
+              "year": 2024,
+              "value": 104.1
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 124.9,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.6728608,
+      "lon": -86.463942,
+      "rank": 5,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.6862124,
+            "lon": -86.4749838,
+            "label": "Margaret, St. Clair County, Alabama, 35112, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.6862124,
+            "lon": -86.4749838,
+            "label": "Margaret, St. Clair County, Alabama, 35112, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Orange Beach",
+      "kind": "City",
+      "rawName": "Orange Beach city",
+      "fullName": "Orange Beach city, Alabama",
+      "place": "57144",
+      "state": "01",
+      "population": 8407,
+      "avgHouseholdIncome": 131028,
+      "incomeGrowth": 29.5,
+      "employedGrowth": 58,
+      "score": 87.5,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 101211
+            },
+            {
+              "year": 2020,
+              "value": 104533
+            },
+            {
+              "year": 2021,
+              "value": 110738
+            },
+            {
+              "year": 2022,
+              "value": 118699
+            },
+            {
+              "year": 2023,
+              "value": 116290
+            },
+            {
+              "year": 2024,
+              "value": 131028
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 136991.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2955
+            },
+            {
+              "year": 2020,
+              "value": 3111
+            },
+            {
+              "year": 2021,
+              "value": 4167
+            },
+            {
+              "year": 2022,
+              "value": 4141
+            },
+            {
+              "year": 2023,
+              "value": 4380
+            },
+            {
+              "year": 2024,
+              "value": 4670
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5013,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6019
+            },
+            {
+              "year": 2020,
+              "value": 6130
+            },
+            {
+              "year": 2021,
+              "value": 7847
+            },
+            {
+              "year": 2022,
+              "value": 8048
+            },
+            {
+              "year": 2023,
+              "value": 8244
+            },
+            {
+              "year": 2024,
+              "value": 8407
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8884.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 8.6
+            },
+            {
+              "year": 2021,
+              "value": 50.4
+            },
+            {
+              "year": 2022,
+              "value": 57.4
+            },
+            {
+              "year": 2023,
+              "value": 63.1
+            },
+            {
+              "year": 2024,
+              "value": 87.5
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 105,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 30.2939866,
+      "lon": -87.5953711,
+      "rank": 6,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.2943681,
+            "lon": -87.5735935,
+            "label": "Orange Beach, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.2943681,
+            "lon": -87.5735935,
+            "label": "Orange Beach, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Calera",
+      "kind": "City",
+      "rawName": "Calera city",
+      "fullName": "Calera city, Alabama",
+      "place": "11416",
+      "state": "01",
+      "population": 17714,
+      "avgHouseholdIncome": 100196,
+      "incomeGrowth": 43.7,
+      "employedGrowth": 41.9,
+      "score": 85.6,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 69732
+            },
+            {
+              "year": 2020,
+              "value": 77025
+            },
+            {
+              "year": 2021,
+              "value": 81621
+            },
+            {
+              "year": 2022,
+              "value": 86187
+            },
+            {
+              "year": 2023,
+              "value": 95679
+            },
+            {
+              "year": 2024,
+              "value": 100196
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 106288.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6953
+            },
+            {
+              "year": 2020,
+              "value": 7782
+            },
+            {
+              "year": 2021,
+              "value": 9085
+            },
+            {
+              "year": 2022,
+              "value": 9314
+            },
+            {
+              "year": 2023,
+              "value": 9745
+            },
+            {
+              "year": 2024,
+              "value": 9867
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 10449.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 13856
+            },
+            {
+              "year": 2020,
+              "value": 14327
+            },
+            {
+              "year": 2021,
+              "value": 16126
+            },
+            {
+              "year": 2022,
+              "value": 16644
+            },
+            {
+              "year": 2023,
+              "value": 17188
+            },
+            {
+              "year": 2024,
+              "value": 17714
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 18485.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 22.4
+            },
+            {
+              "year": 2021,
+              "value": 47.7
+            },
+            {
+              "year": 2022,
+              "value": 57.6
+            },
+            {
+              "year": 2023,
+              "value": 77.4
+            },
+            {
+              "year": 2024,
+              "value": 85.6
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 102.7,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.1223194,
+      "lon": -86.7456439,
+      "rank": 7,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.1035045,
+            "lon": -86.7505733,
+            "label": "Calera, Shelby County, Alabama, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.1035045,
+            "lon": -86.7505733,
+            "label": "Calera, Shelby County, Alabama, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Foley",
+      "kind": "City",
+      "rawName": "Foley city",
+      "fullName": "Foley city, Alabama",
+      "place": "26992",
+      "state": "01",
+      "population": 24026,
+      "avgHouseholdIncome": 79867,
+      "incomeGrowth": 36.7,
+      "employedGrowth": 41.2,
+      "score": 77.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 58407
+            },
+            {
+              "year": 2020,
+              "value": 61350
+            },
+            {
+              "year": 2021,
+              "value": 64712
+            },
+            {
+              "year": 2022,
+              "value": 71674
+            },
+            {
+              "year": 2023,
+              "value": 80315
+            },
+            {
+              "year": 2024,
+              "value": 79867
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 84159,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7579
+            },
+            {
+              "year": 2020,
+              "value": 7777
+            },
+            {
+              "year": 2021,
+              "value": 8402
+            },
+            {
+              "year": 2022,
+              "value": 8435
+            },
+            {
+              "year": 2023,
+              "value": 9144
+            },
+            {
+              "year": 2024,
+              "value": 10700
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11324.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 18533
+            },
+            {
+              "year": 2020,
+              "value": 19337
+            },
+            {
+              "year": 2021,
+              "value": 20170
+            },
+            {
+              "year": 2022,
+              "value": 21113
+            },
+            {
+              "year": 2023,
+              "value": 22330
+            },
+            {
+              "year": 2024,
+              "value": 24026
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 25124.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 7.7
+            },
+            {
+              "year": 2021,
+              "value": 21.7
+            },
+            {
+              "year": 2022,
+              "value": 34
+            },
+            {
+              "year": 2023,
+              "value": 58.2
+            },
+            {
+              "year": 2024,
+              "value": 77.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 93.5,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 30.3970682,
+      "lon": -87.66846,
+      "rank": 8,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.4065868,
+            "lon": -87.6835974,
+            "label": "Foley, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.4065868,
+            "lon": -87.6835974,
+            "label": "Foley, Baldwin County, Alabama, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Tallassee",
+      "kind": "City",
+      "rawName": "Tallassee city",
+      "fullName": "Tallassee city, Alabama",
+      "place": "74688",
+      "state": "01",
+      "population": 5134,
+      "avgHouseholdIncome": 89066,
+      "incomeGrowth": 57,
+      "employedGrowth": 13.2,
+      "score": 70.2,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 56739
+            },
+            {
+              "year": 2020,
+              "value": 64974
+            },
+            {
+              "year": 2021,
+              "value": 62506
+            },
+            {
+              "year": 2022,
+              "value": 64287
+            },
+            {
+              "year": 2023,
+              "value": 78190
+            },
+            {
+              "year": 2024,
+              "value": 89066
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 95531.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1857
+            },
+            {
+              "year": 2020,
+              "value": 1757
+            },
+            {
+              "year": 2021,
+              "value": 2120
+            },
+            {
+              "year": 2022,
+              "value": 2216
+            },
+            {
+              "year": 2023,
+              "value": 1915
+            },
+            {
+              "year": 2024,
+              "value": 2102
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2151,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4743
+            },
+            {
+              "year": 2020,
+              "value": 4818
+            },
+            {
+              "year": 2021,
+              "value": 5199
+            },
+            {
+              "year": 2022,
+              "value": 5174
+            },
+            {
+              "year": 2023,
+              "value": 5056
+            },
+            {
+              "year": 2024,
+              "value": 5134
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5212.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 9.1
+            },
+            {
+              "year": 2021,
+              "value": 24.3
+            },
+            {
+              "year": 2022,
+              "value": 32.6
+            },
+            {
+              "year": 2023,
+              "value": 40.9
+            },
+            {
+              "year": 2024,
+              "value": 70.2
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 84.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.5326652,
+      "lon": -85.8919928,
+      "rank": 9,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5348568,
+            "lon": -85.8922974,
+            "label": "Tallassee, Elmore County, Alabama, 36078, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5348568,
+            "lon": -85.8922974,
+            "label": "Tallassee, Elmore County, Alabama, 36078, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Satsuma",
+      "kind": "City",
+      "rawName": "Satsuma city",
+      "fullName": "Satsuma city, Alabama",
+      "place": "68352",
+      "state": "01",
+      "population": 6822,
+      "avgHouseholdIncome": 112011,
+      "incomeGrowth": 35.4,
+      "employedGrowth": 34.2,
+      "score": 69.6,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 82700
+            },
+            {
+              "year": 2020,
+              "value": 91158
+            },
+            {
+              "year": 2021,
+              "value": 99404
+            },
+            {
+              "year": 2022,
+              "value": 103427
+            },
+            {
+              "year": 2023,
+              "value": 109358
+            },
+            {
+              "year": 2024,
+              "value": 112011
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 117873.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2390
+            },
+            {
+              "year": 2020,
+              "value": 2793
+            },
+            {
+              "year": 2021,
+              "value": 3007
+            },
+            {
+              "year": 2022,
+              "value": 3129
+            },
+            {
+              "year": 2023,
+              "value": 3129
+            },
+            {
+              "year": 2024,
+              "value": 3207
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 3370.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6159
+            },
+            {
+              "year": 2020,
+              "value": 6163
+            },
+            {
+              "year": 2021,
+              "value": 6704
+            },
+            {
+              "year": 2022,
+              "value": 6740
+            },
+            {
+              "year": 2023,
+              "value": 6784
+            },
+            {
+              "year": 2024,
+              "value": 6822
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6954.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 27.1
+            },
+            {
+              "year": 2021,
+              "value": 46
+            },
+            {
+              "year": 2022,
+              "value": 56
+            },
+            {
+              "year": 2023,
+              "value": 63.2
+            },
+            {
+              "year": 2024,
+              "value": 69.6
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 83.5,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 30.8578741,
+      "lon": -88.0633829,
+      "rank": 10,
+      "stateName": "Alabama",
+      "stateAbbr": "AL",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.853241,
+            "lon": -88.0561106,
+            "label": "Satsuma, Mobile County, Alabama, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 30.853241,
+            "lon": -88.0561106,
+            "label": "Satsuma, Mobile County, Alabama, United States"
+          },
+          "items": []
+        }
+      }
+    }
+  ]
+}

@@ -14,6 +14,9 @@ __pycache__/
 .claude/
 cache.sqlite
 data/
+!apps/web/public/
+!apps/web/public/data/
+!apps/web/public/data/*.json
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal

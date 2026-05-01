@@ -1,0 +1,1917 @@
+{
+  "state": {
+    "state": "13",
+    "stateName": "Georgia",
+    "abbr": "GA"
+  },
+  "gatheredAt": "2026-05-01T03:09:36.404Z",
+  "radius": 5000,
+  "sourceNotes": {
+    "growth": "Census ACS 5-Year API. Average household income = B19025_001E / B11001_001E. Employed residents = B23025_004E.",
+    "centroids": "Census TIGERweb place centroid fields CENTLAT/CENTLON or INTPTLAT/INTPTLON.",
+    "services": "OpenStreetMap / Overpass free-source search. This is incomplete for contractors and weak-web businesses.",
+    "rentals": "OpenStreetMap / Overpass free-source search. This is incomplete for market-rate communities, ownership, and managers."
+  },
+  "cities": [
+    {
+      "name": "Lovejoy",
+      "kind": "City",
+      "rawName": "Lovejoy city",
+      "fullName": "Lovejoy city, Georgia",
+      "place": "47616",
+      "state": "13",
+      "population": 11508,
+      "avgHouseholdIncome": 80463,
+      "incomeGrowth": 27.7,
+      "employedGrowth": 120.6,
+      "score": 148.4,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 62991
+            },
+            {
+              "year": 2020,
+              "value": 68835
+            },
+            {
+              "year": 2021,
+              "value": 72227
+            },
+            {
+              "year": 2022,
+              "value": 71182
+            },
+            {
+              "year": 2023,
+              "value": 78740
+            },
+            {
+              "year": 2024,
+              "value": 80463
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 83957.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2275
+            },
+            {
+              "year": 2020,
+              "value": 2117
+            },
+            {
+              "year": 2021,
+              "value": 3670
+            },
+            {
+              "year": 2022,
+              "value": 3779
+            },
+            {
+              "year": 2023,
+              "value": 4606
+            },
+            {
+              "year": 2024,
+              "value": 5019
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5567.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6179
+            },
+            {
+              "year": 2020,
+              "value": 6511
+            },
+            {
+              "year": 2021,
+              "value": 10208
+            },
+            {
+              "year": 2022,
+              "value": 10429
+            },
+            {
+              "year": 2023,
+              "value": 10967
+            },
+            {
+              "year": 2024,
+              "value": 11508
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 12573.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 2.3
+            },
+            {
+              "year": 2021,
+              "value": 76
+            },
+            {
+              "year": 2022,
+              "value": 79.1
+            },
+            {
+              "year": 2023,
+              "value": 127.5
+            },
+            {
+              "year": 2024,
+              "value": 148.4
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 178.1,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.4436813,
+      "lon": -84.3188626,
+      "rank": 1,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.4362245,
+            "lon": -84.3143675,
+            "label": "Lovejoy, Clayton County, Georgia, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.4362245,
+            "lon": -84.3143675,
+            "label": "Lovejoy, Clayton County, Georgia, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Jonesboro",
+      "kind": "City",
+      "rawName": "Jonesboro city",
+      "fullName": "Jonesboro city, Georgia",
+      "place": "42604",
+      "state": "13",
+      "population": 6143,
+      "avgHouseholdIncome": 74268,
+      "incomeGrowth": 71.6,
+      "employedGrowth": 60.2,
+      "score": 131.8,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 43284
+            },
+            {
+              "year": 2020,
+              "value": 46903
+            },
+            {
+              "year": 2021,
+              "value": 51893
+            },
+            {
+              "year": 2022,
+              "value": 61777
+            },
+            {
+              "year": 2023,
+              "value": 73697
+            },
+            {
+              "year": 2024,
+              "value": 74268
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 80464.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1216
+            },
+            {
+              "year": 2020,
+              "value": 1398
+            },
+            {
+              "year": 2021,
+              "value": 1108
+            },
+            {
+              "year": 2022,
+              "value": 1198
+            },
+            {
+              "year": 2023,
+              "value": 1932
+            },
+            {
+              "year": 2024,
+              "value": 1948
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2094.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4771
+            },
+            {
+              "year": 2020,
+              "value": 5428
+            },
+            {
+              "year": 2021,
+              "value": 4492
+            },
+            {
+              "year": 2022,
+              "value": 4415
+            },
+            {
+              "year": 2023,
+              "value": 6137
+            },
+            {
+              "year": 2024,
+              "value": 6143
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 6417.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 23.3
+            },
+            {
+              "year": 2021,
+              "value": 11
+            },
+            {
+              "year": 2022,
+              "value": 41.2
+            },
+            {
+              "year": 2023,
+              "value": 129.1
+            },
+            {
+              "year": 2024,
+              "value": 131.8
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 158.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.5207989,
+      "lon": -84.3547008,
+      "rank": 2,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.5215013,
+            "lon": -84.3538128,
+            "label": "Jonesboro, Clayton County, Georgia, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.5215013,
+            "lon": -84.3538128,
+            "label": "Jonesboro, Clayton County, Georgia, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Jefferson",
+      "kind": "City",
+      "rawName": "Jefferson city",
+      "fullName": "Jefferson city, Georgia",
+      "place": "41988",
+      "state": "13",
+      "population": 14990,
+      "avgHouseholdIncome": 125190,
+      "incomeGrowth": 50.4,
+      "employedGrowth": 78,
+      "score": 128.4,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 83227
+            },
+            {
+              "year": 2020,
+              "value": 97359
+            },
+            {
+              "year": 2021,
+              "value": 110073
+            },
+            {
+              "year": 2022,
+              "value": 121974
+            },
+            {
+              "year": 2023,
+              "value": 119319
+            },
+            {
+              "year": 2024,
+              "value": 125190
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 133582.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4402
+            },
+            {
+              "year": 2020,
+              "value": 5519
+            },
+            {
+              "year": 2021,
+              "value": 6028
+            },
+            {
+              "year": 2022,
+              "value": 6734
+            },
+            {
+              "year": 2023,
+              "value": 7129
+            },
+            {
+              "year": 2024,
+              "value": 7836
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8522.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 11114
+            },
+            {
+              "year": 2020,
+              "value": 11619
+            },
+            {
+              "year": 2021,
+              "value": 12727
+            },
+            {
+              "year": 2022,
+              "value": 13496
+            },
+            {
+              "year": 2023,
+              "value": 14249
+            },
+            {
+              "year": 2024,
+              "value": 14990
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 15765.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 42.4
+            },
+            {
+              "year": 2021,
+              "value": 69.2
+            },
+            {
+              "year": 2022,
+              "value": 99.5
+            },
+            {
+              "year": 2023,
+              "value": 105.3
+            },
+            {
+              "year": 2024,
+              "value": 128.4
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 154.1,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.136239,
+      "lon": -83.6021566,
+      "rank": 3,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.0380388,
+            "lon": -82.436141,
+            "label": "Jefferson County, Georgia, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.0380388,
+            "lon": -82.436141,
+            "label": "Jefferson County, Georgia, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Locust Grove",
+      "kind": "City",
+      "rawName": "Locust Grove city",
+      "fullName": "Locust Grove city, Georgia",
+      "place": "47140",
+      "state": "13",
+      "population": 10532,
+      "avgHouseholdIncome": 99151,
+      "incomeGrowth": 42.6,
+      "employedGrowth": 74.4,
+      "score": 116.9,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 69555
+            },
+            {
+              "year": 2020,
+              "value": 70103
+            },
+            {
+              "year": 2021,
+              "value": 73586
+            },
+            {
+              "year": 2022,
+              "value": 84873
+            },
+            {
+              "year": 2023,
+              "value": 101931
+            },
+            {
+              "year": 2024,
+              "value": 99151
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 105070.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3000
+            },
+            {
+              "year": 2020,
+              "value": 3699
+            },
+            {
+              "year": 2021,
+              "value": 4232
+            },
+            {
+              "year": 2022,
+              "value": 4496
+            },
+            {
+              "year": 2023,
+              "value": 5001
+            },
+            {
+              "year": 2024,
+              "value": 5231
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5677.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6954
+            },
+            {
+              "year": 2020,
+              "value": 7525
+            },
+            {
+              "year": 2021,
+              "value": 8816
+            },
+            {
+              "year": 2022,
+              "value": 9367
+            },
+            {
+              "year": 2023,
+              "value": 9931
+            },
+            {
+              "year": 2024,
+              "value": 10532
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11247.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 24.1
+            },
+            {
+              "year": 2021,
+              "value": 46.9
+            },
+            {
+              "year": 2022,
+              "value": 71.9
+            },
+            {
+              "year": 2023,
+              "value": 113.2
+            },
+            {
+              "year": 2024,
+              "value": 116.9
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 140.3,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.348125,
+      "lon": -84.1025459,
+      "rank": 4,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.3459495,
+            "lon": -84.109083,
+            "label": "Locust Grove, Henry County, Georgia, 30248, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.3459495,
+            "lon": -84.109083,
+            "label": "Locust Grove, Henry County, Georgia, 30248, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Blakely",
+      "kind": "City",
+      "rawName": "Blakely city",
+      "fullName": "Blakely city, Georgia",
+      "place": "08536",
+      "state": "13",
+      "population": 5238,
+      "avgHouseholdIncome": 66063,
+      "incomeGrowth": 81.3,
+      "employedGrowth": 33.4,
+      "score": 114.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 36438
+            },
+            {
+              "year": 2020,
+              "value": 38434
+            },
+            {
+              "year": 2021,
+              "value": 44712
+            },
+            {
+              "year": 2022,
+              "value": 54095
+            },
+            {
+              "year": 2023,
+              "value": 62430
+            },
+            {
+              "year": 2024,
+              "value": 66063
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 71988,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 1551
+            },
+            {
+              "year": 2020,
+              "value": 1593
+            },
+            {
+              "year": 2021,
+              "value": 1941
+            },
+            {
+              "year": 2022,
+              "value": 2076
+            },
+            {
+              "year": 2023,
+              "value": 1978
+            },
+            {
+              "year": 2024,
+              "value": 2069
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2172.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 4652
+            },
+            {
+              "year": 2020,
+              "value": 4605
+            },
+            {
+              "year": 2021,
+              "value": 5308
+            },
+            {
+              "year": 2022,
+              "value": 5299
+            },
+            {
+              "year": 2023,
+              "value": 5276
+            },
+            {
+              "year": 2024,
+              "value": 5238
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 5355.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 8.2
+            },
+            {
+              "year": 2021,
+              "value": 47.9
+            },
+            {
+              "year": 2022,
+              "value": 82.3
+            },
+            {
+              "year": 2023,
+              "value": 98.9
+            },
+            {
+              "year": 2024,
+              "value": 114.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 137.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 31.3809366,
+      "lon": -84.9270617,
+      "rank": 5,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 31.3773475,
+            "lon": -84.9343388,
+            "label": "Blakely, Early County, Georgia, 39823, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 31.3773475,
+            "lon": -84.9343388,
+            "label": "Blakely, Early County, Georgia, 39823, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Mableton",
+      "kind": "City",
+      "rawName": "Mableton city",
+      "fullName": "Mableton city, Georgia",
+      "place": "48288",
+      "state": "13",
+      "population": 77678,
+      "avgHouseholdIncome": 103141,
+      "incomeGrowth": 13.2,
+      "employedGrowth": 99,
+      "score": 112.2,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 91091
+            },
+            {
+              "year": 2020,
+              "value": 92924
+            },
+            {
+              "year": 2021,
+              "value": 95761
+            },
+            {
+              "year": 2022,
+              "value": 106227
+            },
+            {
+              "year": 2023,
+              "value": 110138
+            },
+            {
+              "year": 2024,
+              "value": 103141
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 105551,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 21405
+            },
+            {
+              "year": 2020,
+              "value": 21376
+            },
+            {
+              "year": 2021,
+              "value": 21432
+            },
+            {
+              "year": 2022,
+              "value": 21882
+            },
+            {
+              "year": 2023,
+              "value": 22805
+            },
+            {
+              "year": 2024,
+              "value": 42586
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 46822.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 41487
+            },
+            {
+              "year": 2020,
+              "value": 41647
+            },
+            {
+              "year": 2021,
+              "value": 41632
+            },
+            {
+              "year": 2022,
+              "value": 41647
+            },
+            {
+              "year": 2023,
+              "value": 42403
+            },
+            {
+              "year": 2024,
+              "value": 77678
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 84916.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 1.9
+            },
+            {
+              "year": 2021,
+              "value": 5.3
+            },
+            {
+              "year": 2022,
+              "value": 18.8
+            },
+            {
+              "year": 2023,
+              "value": 27.5
+            },
+            {
+              "year": 2024,
+              "value": 112.2
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 134.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 33.812998,
+      "lon": -84.5769465,
+      "rank": 6,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.8188333,
+            "lon": -84.5822632,
+            "label": "Mableton, Cobb County, Georgia, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 33.8188333,
+            "lon": -84.5822632,
+            "label": "Mableton, Cobb County, Georgia, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Cumming",
+      "kind": "City",
+      "rawName": "Cumming city",
+      "fullName": "Cumming city, Georgia",
+      "place": "20932",
+      "state": "13",
+      "population": 8469,
+      "avgHouseholdIncome": 112380,
+      "incomeGrowth": 71.8,
+      "employedGrowth": 37.8,
+      "score": 109.6,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 65428
+            },
+            {
+              "year": 2020,
+              "value": 70232
+            },
+            {
+              "year": 2021,
+              "value": 85785
+            },
+            {
+              "year": 2022,
+              "value": 93178
+            },
+            {
+              "year": 2023,
+              "value": 108201
+            },
+            {
+              "year": 2024,
+              "value": 112380
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 121770.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 3005
+            },
+            {
+              "year": 2020,
+              "value": 3324
+            },
+            {
+              "year": 2021,
+              "value": 3319
+            },
+            {
+              "year": 2022,
+              "value": 3499
+            },
+            {
+              "year": 2023,
+              "value": 3718
+            },
+            {
+              "year": 2024,
+              "value": 4142
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4369.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6309
+            },
+            {
+              "year": 2020,
+              "value": 6528
+            },
+            {
+              "year": 2021,
+              "value": 6886
+            },
+            {
+              "year": 2022,
+              "value": 7371
+            },
+            {
+              "year": 2023,
+              "value": 7869
+            },
+            {
+              "year": 2024,
+              "value": 8469
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8901,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 18
+            },
+            {
+              "year": 2021,
+              "value": 41.6
+            },
+            {
+              "year": 2022,
+              "value": 58.9
+            },
+            {
+              "year": 2023,
+              "value": 89.1
+            },
+            {
+              "year": 2024,
+              "value": 109.6
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 131.5,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 34.2060666,
+      "lon": -84.1338478,
+      "rank": 7,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.2073196,
+            "lon": -84.1401926,
+            "label": "Cumming, Forsyth County, Georgia, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 34.2073196,
+            "lon": -84.1401926,
+            "label": "Cumming, Forsyth County, Georgia, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Perry",
+      "kind": "City",
+      "rawName": "Perry city",
+      "fullName": "Perry city, Georgia",
+      "place": "60340",
+      "state": "13",
+      "population": 23001,
+      "avgHouseholdIncome": 90846,
+      "incomeGrowth": 46,
+      "employedGrowth": 60.3,
+      "score": 106.4,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 62220
+            },
+            {
+              "year": 2020,
+              "value": 68082
+            },
+            {
+              "year": 2021,
+              "value": 70032
+            },
+            {
+              "year": 2022,
+              "value": 79890
+            },
+            {
+              "year": 2023,
+              "value": 88445
+            },
+            {
+              "year": 2024,
+              "value": 90846
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 96571.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 6957
+            },
+            {
+              "year": 2020,
+              "value": 7464
+            },
+            {
+              "year": 2021,
+              "value": 9199
+            },
+            {
+              "year": 2022,
+              "value": 9881
+            },
+            {
+              "year": 2023,
+              "value": 10392
+            },
+            {
+              "year": 2024,
+              "value": 11155
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 11994.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 16595
+            },
+            {
+              "year": 2020,
+              "value": 17235
+            },
+            {
+              "year": 2021,
+              "value": 20227
+            },
+            {
+              "year": 2022,
+              "value": 21279
+            },
+            {
+              "year": 2023,
+              "value": 22243
+            },
+            {
+              "year": 2024,
+              "value": 23001
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 24282.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 16.7
+            },
+            {
+              "year": 2021,
+              "value": 44.8
+            },
+            {
+              "year": 2022,
+              "value": 70.4
+            },
+            {
+              "year": 2023,
+              "value": 91.5
+            },
+            {
+              "year": 2024,
+              "value": 106.3
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 127.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.4737077,
+      "lon": -83.727809,
+      "rank": 8,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.4586695,
+            "lon": -83.7319658,
+            "label": "Perry, Houston County, Georgia, 31069, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.4586695,
+            "lon": -83.7319658,
+            "label": "Perry, Houston County, Georgia, 31069, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Fort Valley",
+      "kind": "City",
+      "rawName": "Fort Valley city",
+      "fullName": "Fort Valley city, Georgia",
+      "place": "31096",
+      "state": "13",
+      "population": 8858,
+      "avgHouseholdIncome": 64482,
+      "incomeGrowth": 54.9,
+      "employedGrowth": 48.8,
+      "score": 103.7,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 41636
+            },
+            {
+              "year": 2020,
+              "value": 50040
+            },
+            {
+              "year": 2021,
+              "value": 56357
+            },
+            {
+              "year": 2022,
+              "value": 55305
+            },
+            {
+              "year": 2023,
+              "value": 59872
+            },
+            {
+              "year": 2024,
+              "value": 64482
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 69051.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2608
+            },
+            {
+              "year": 2020,
+              "value": 2919
+            },
+            {
+              "year": 2021,
+              "value": 3214
+            },
+            {
+              "year": 2022,
+              "value": 3267
+            },
+            {
+              "year": 2023,
+              "value": 3437
+            },
+            {
+              "year": 2024,
+              "value": 3882
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 4136.8,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 8742
+            },
+            {
+              "year": 2020,
+              "value": 8817
+            },
+            {
+              "year": 2021,
+              "value": 8829
+            },
+            {
+              "year": 2022,
+              "value": 8821
+            },
+            {
+              "year": 2023,
+              "value": 8808
+            },
+            {
+              "year": 2024,
+              "value": 8858
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 8881.2,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 32.1
+            },
+            {
+              "year": 2021,
+              "value": 58.6
+            },
+            {
+              "year": 2022,
+              "value": 58.1
+            },
+            {
+              "year": 2023,
+              "value": 75.6
+            },
+            {
+              "year": 2024,
+              "value": 103.7
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 124.4,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.5511141,
+      "lon": -83.879939,
+      "rank": 9,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5537585,
+            "lon": -83.8874084,
+            "label": "Fort Valley, Peach County, Georgia, 31030, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5537585,
+            "lon": -83.8874084,
+            "label": "Fort Valley, Peach County, Georgia, 31030, United States"
+          },
+          "items": []
+        }
+      }
+    },
+    {
+      "name": "Swainsboro",
+      "kind": "City",
+      "rawName": "Swainsboro city",
+      "fullName": "Swainsboro city, Georgia",
+      "place": "74964",
+      "state": "13",
+      "population": 7571,
+      "avgHouseholdIncome": 67173,
+      "incomeGrowth": 77.5,
+      "employedGrowth": 21.9,
+      "score": 99.4,
+      "trends": {
+        "avgHouseholdIncome": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 37850
+            },
+            {
+              "year": 2020,
+              "value": 38595
+            },
+            {
+              "year": 2021,
+              "value": 54128
+            },
+            {
+              "year": 2022,
+              "value": 66580
+            },
+            {
+              "year": 2023,
+              "value": 63281
+            },
+            {
+              "year": 2024,
+              "value": 67173
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 73037.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "employedResidents": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 2251
+            },
+            {
+              "year": 2020,
+              "value": 2382
+            },
+            {
+              "year": 2021,
+              "value": 2131
+            },
+            {
+              "year": 2022,
+              "value": 2400
+            },
+            {
+              "year": 2023,
+              "value": 2694
+            },
+            {
+              "year": 2024,
+              "value": 2744
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 2842.6,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "population": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 7396
+            },
+            {
+              "year": 2020,
+              "value": 7418
+            },
+            {
+              "year": 2021,
+              "value": 7430
+            },
+            {
+              "year": 2022,
+              "value": 7542
+            },
+            {
+              "year": 2023,
+              "value": 7561
+            },
+            {
+              "year": 2024,
+              "value": 7571
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 7606,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        },
+        "compositeScore": {
+          "actual": [
+            {
+              "year": 2019,
+              "value": 0
+            },
+            {
+              "year": 2020,
+              "value": 7.8
+            },
+            {
+              "year": 2021,
+              "value": 37.7
+            },
+            {
+              "year": 2022,
+              "value": 82.5
+            },
+            {
+              "year": 2023,
+              "value": 86.9
+            },
+            {
+              "year": 2024,
+              "value": 99.4
+            }
+          ],
+          "projection": {
+            "year": 2025,
+            "value": 119.3,
+            "method": "Linear projection from first and latest ACS points."
+          }
+        }
+      },
+      "source": {
+        "dataset": "Census ACS 5-Year Detailed Tables",
+        "endYear": 2024,
+        "startYear": 2019,
+        "variables": {
+          "aggregateHouseholdIncome": "B19025_001E",
+          "households": "B11001_001E",
+          "employedResidents": "B23025_004E",
+          "population": "B01003_001E"
+        },
+        "method": "Average household income is aggregate household income divided by households. Growth compares ACS vintages."
+      },
+      "lat": 32.5855884,
+      "lon": -82.3347836,
+      "rank": 10,
+      "stateName": "Georgia",
+      "stateAbbr": "GA",
+      "freeSources": {
+        "services": {
+          "type": "services",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5973857,
+            "lon": -82.3337376,
+            "label": "Swainsboro, Emanuel County, Georgia, 30401, United States"
+          },
+          "items": []
+        },
+        "rentals": {
+          "type": "rentals",
+          "count": 0,
+          "warning": "OpenStreetMap is a free supplemental source and is expected to undercount service companies and apartment communities.",
+          "sourceUrl": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+          "origin": {
+            "lat": 32.5973857,
+            "lon": -82.3337376,
+            "label": "Swainsboro, Emanuel County, Georgia, 30401, United States"
+          },
+          "items": []
+        }
+      }
+    }
+  ]
+}

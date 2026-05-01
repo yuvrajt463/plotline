@@ -23,7 +23,26 @@ type City = {
   employedGrowth: number;
   score: number;
   place: string;
+  lat?: number;
+  lon?: number;
+  trends?: CityTrends;
+  freeSources?: {
+    services?: DiscoveryDump;
+    rentals?: DiscoveryDump;
+  };
   source?: unknown;
+};
+
+type TrendPoint = { year: number; value: number | null };
+type TrendSeries = {
+  actual: TrendPoint[];
+  projection: { year: number; value: number; method: string } | null;
+};
+type CityTrends = {
+  avgHouseholdIncome?: TrendSeries;
+  employedResidents?: TrendSeries;
+  population?: TrendSeries;
+  compositeScore?: TrendSeries;
 };
 
 type DiscoveryItem = {
@@ -46,9 +65,36 @@ type DiscoveryResult = {
   sourceUrl?: string;
 };
 
+type DiscoveryDump = {
+  type: DiscoveryType;
+  count: number;
+  items: DiscoveryItem[];
+  warning?: string;
+  error?: string;
+  sourceUrl?: string;
+};
+
+type ResearchDump = {
+  state: { state: StateCode; stateName: string; abbr: string };
+  gatheredAt: string;
+  radius: number;
+  sourceNotes: Record<string, string>;
+  cities: City[];
+};
+
 const STATES: Record<StateCode, { code: StateCode; name: string; abbr: string }> = {
   "01": { code: "01", name: "Alabama", abbr: "AL" },
   "13": { code: "13", name: "Georgia", abbr: "GA" },
+};
+
+const STATE_BOUNDS: Record<StateCode, { minLat: number; maxLat: number; minLon: number; maxLon: number }> = {
+  "01": { minLat: 30.1, maxLat: 35.1, minLon: -88.6, maxLon: -84.7 },
+  "13": { minLat: 30.3, maxLat: 35.1, minLon: -85.7, maxLon: -80.6 },
+};
+
+const STATE_OUTLINES: Record<StateCode, string> = {
+  "01": "M38 4 L72 4 L78 27 L73 58 L84 85 L64 96 L25 93 L16 73 L23 42 L30 22 Z",
+  "13": "M38 4 L75 10 L87 44 L77 84 L58 96 L25 89 L14 58 L25 28 Z",
 };
 
 const SOURCES: SourceRef[] = [
@@ -58,16 +104,16 @@ const SOURCES: SourceRef[] = [
     url: "https://api.census.gov/data/2024/acs/acs5.html",
     method:
       "Ranks places by average household income growth and employed-resident growth between ACS 2019 and ACS 2024.",
-    coverage: "Live for Alabama and Georgia places with population above the selected threshold.",
+    coverage: "Pre-gathered for Alabama and Georgia places with population above the selected threshold.",
   },
   {
     label: "OSM",
     name: "OpenStreetMap via Overpass",
     url: "https://wiki.openstreetmap.org/wiki/Overpass_API",
     method:
-      "Searches mapped businesses and apartment/rental-like places around the selected city using tags and name patterns.",
+      "Pre-gathered search of mapped businesses and apartment/rental-like places around the selected city using tags and name patterns.",
     coverage:
-      "Live but incomplete. OSM is free and useful for public POIs, but it undercounts contractors, apartment managers, ownership, and weak-web businesses.",
+      "Pre-gathered but incomplete. OSM is free and useful for public POIs, but it undercounts contractors, apartment managers, ownership, and weak-web businesses.",
   },
   {
     label: "Nominatim",
@@ -108,8 +154,20 @@ function pct(value: number) {
   return `${value.toFixed(1)}%`;
 }
 
-function emptyDiscovery(message = "Run a free-source search for the selected city."): DiscoveryResult {
+function emptyDiscovery(message = "No dumped data loaded for this city."): DiscoveryResult {
   return { status: "idle", count: 0, items: [], message };
+}
+
+function discoveryFromDump(dump?: DiscoveryDump): DiscoveryResult {
+  if (!dump) return emptyDiscovery();
+  if (dump.error) return { status: "error", count: 0, items: [], message: dump.error, sourceUrl: dump.sourceUrl };
+  return {
+    status: "ready",
+    count: dump.count || dump.items?.length || 0,
+    items: dump.items || [],
+    message: dump.warning || "Loaded from pre-gathered free-source dataset.",
+    sourceUrl: dump.sourceUrl,
+  };
 }
 
 function App() {
@@ -121,6 +179,7 @@ function App() {
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [cityFilter, setCityFilter] = useState("");
   const [radius, setRadius] = useState(10000);
+  const [dumpMeta, setDumpMeta] = useState<ResearchDump | null>(null);
   const [growthStatus, setGrowthStatus] = useState<"loading" | "ready" | "error">("loading");
   const [growthError, setGrowthError] = useState("");
   const [services, setServices] = useState<DiscoveryResult>(emptyDiscovery());
@@ -142,11 +201,13 @@ function App() {
       setServices(emptyDiscovery());
       setRentals(emptyDiscovery());
       try {
-        const response = await fetch(`/api/growth?state=${stateCode}&startYear=2019&endYear=2024&minPopulation=5000&limit=25`);
+        const response = await fetch(`/data/${state.abbr.toLowerCase()}-free-research.json`);
         const payload = await response.json();
-        if (!response.ok) throw new Error(payload.error || "Could not load ACS growth data.");
+        if (!response.ok) throw new Error(payload.error || "Could not load dumped research data.");
         if (cancelled) return;
         setCities(payload.cities);
+        setDumpMeta(payload);
+        setRadius(payload.radius || 10000);
         setSelectedCity(payload.cities[0]?.name ?? "");
         setGrowthStatus("ready");
       } catch (error) {
@@ -154,7 +215,8 @@ function App() {
         setCities([]);
         setSelectedCity("");
         setGrowthStatus("error");
-        setGrowthError(error instanceof Error ? error.message : "Could not load ACS growth data.");
+        setDumpMeta(null);
+        setGrowthError(error instanceof Error ? error.message : "Could not load dumped research data.");
       }
     }
     loadGrowth();
@@ -163,31 +225,11 @@ function App() {
     };
   }, [stateCode]);
 
-  async function runDiscovery(type: DiscoveryType) {
+  useEffect(() => {
     if (!activeCity) return;
-    const setter = type === "services" ? setServices : setRentals;
-    setter({ status: "loading", count: 0, items: [], message: `Searching ${state.name} free sources. Public Overpass can be slow, so this request can run for several minutes.` });
-    try {
-      const url = `/api/osm?city=${encodeURIComponent(activeCity.name)}&stateName=${encodeURIComponent(state.name)}&type=${type}&radius=${radius}`;
-      const response = await fetch(url);
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Free-source search failed.");
-      setter({
-        status: "ready",
-        count: payload.count,
-        items: payload.items,
-        message: payload.warning || "Free-source search complete.",
-        sourceUrl: payload.sourceUrl,
-      });
-    } catch (error) {
-      setter({
-        status: "error",
-        count: 0,
-        items: [],
-        message: error instanceof Error ? error.message : "Free-source search failed.",
-      });
-    }
-  }
+    setServices(discoveryFromDump(activeCity.freeSources?.services));
+    setRentals(discoveryFromDump(activeCity.freeSources?.rentals));
+  }, [activeCity?.place]);
 
   if (!authed) return <LoginScreen onLogin={() => setAuthed(true)} />;
 
@@ -197,7 +239,7 @@ function App() {
         <a className="brand" href="/" aria-label="City Growth Dashboard">
           <span>
             <strong>City Growth Dashboard</strong>
-            <small>Live free-source research for Alabama and Georgia</small>
+            <small>Pre-gathered free-source research for Alabama and Georgia</small>
           </span>
         </a>
         <div className="toolbar">
@@ -238,7 +280,7 @@ function App() {
             </div>
             <SourceBadge label="ACS" />
           </div>
-          <GrowthMap cities={cities.slice(0, 10)} selected={activeCity?.name} onSelect={setSelectedCity} />
+          <StateRankMap stateCode={stateCode} cities={cities.slice(0, 10)} selected={activeCity?.name} onSelect={setSelectedCity} />
         </div>
 
         <aside className="panel rank-panel">
@@ -251,6 +293,7 @@ function App() {
               {growthStatus === "ready" ? "Live ACS" : growthStatus === "loading" ? "Loading" : "Error"}
             </span>
           </div>
+          <div className="source-note compact-note">Top 10 are visible at a glance; scroll for the rest.</div>
           <input
             className="search-input"
             value={cityFilter}
@@ -287,11 +330,11 @@ function App() {
       {activeCity && (
         <>
           <section className="stat-strip">
-            <Metric title="Avg household income" value={money(activeCity.avgHouseholdIncome)} note="ACS aggregate income / households" source="ACS" />
-            <Metric title="Income growth" value={pct(activeCity.incomeGrowth)} note="ACS 2019 to ACS 2024" source="ACS" />
-            <Metric title="Employed-resident growth" value={pct(activeCity.employedGrowth)} note="City-level jobs proxy" source="ACS" />
-            <Metric title="Composite score" value={activeCity.score.toFixed(1)} note="income growth + employed growth" source="ACS" />
-            <Metric title="Free-source radius" value={`${Math.round(radius / 1000)} km`} note="OSM search radius" source="OSM" />
+            <Metric title="Avg household income" value={money(activeCity.avgHouseholdIncome)} note="ACS aggregate income / households" source="ACS" trend={activeCity.trends?.avgHouseholdIncome} />
+            <Metric title="Income growth" value={pct(activeCity.incomeGrowth)} note="ACS 2019 to ACS 2024" source="ACS" trend={growthTrend(activeCity.trends?.avgHouseholdIncome)} />
+            <Metric title="Employed-resident growth" value={pct(activeCity.employedGrowth)} note="City-level jobs proxy" source="ACS" trend={activeCity.trends?.employedResidents} />
+            <Metric title="Composite score" value={activeCity.score.toFixed(1)} note="income growth + employed growth" source="ACS" trend={activeCity.trends?.compositeScore} />
+            <Metric title="Free-source radius" value={`${Math.round(radius / 1000)} km`} note="OSM search radius" source="OSM" trend={radiusTrend(radius)} />
           </section>
 
           <section className="detail-grid">
@@ -301,9 +344,7 @@ function App() {
                   <p className="eyebrow">{activeCity.name}</p>
                   <h2>Local service companies</h2>
                 </div>
-                <button className="action-button" onClick={() => runDiscovery("services")}>
-                  Search free sources
-                </button>
+                <SourceBadge label="OSM" />
               </div>
               <DiscoveryPanel result={services} emptyLabel="No free-source service matches yet." />
             </div>
@@ -314,9 +355,7 @@ function App() {
                   <p className="eyebrow">For-rent housing</p>
                   <h2>Rental/community matches</h2>
                 </div>
-                <button className="action-button" onClick={() => runDiscovery("rentals")}>
-                  Search free sources
-                </button>
+                <SourceBadge label="OSM" />
               </div>
               <DiscoveryPanel result={rentals} emptyLabel="No free-source rental/community matches yet." />
               <div className="source-note">
@@ -328,9 +367,14 @@ function App() {
               <div className="panel-head">
                 <div>
                   <p className="eyebrow">Data sources</p>
-                  <h2>What is live now</h2>
+                  <h2>What is in the dump</h2>
                 </div>
               </div>
+              {dumpMeta && (
+                <div className="source-note compact-note">
+                  Dataset gathered {new Date(dumpMeta.gatheredAt).toLocaleString()} at {Math.round(dumpMeta.radius / 1000)} km radius.
+                </div>
+              )}
               <SourceStack />
             </div>
           </section>
@@ -364,7 +408,7 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
         <div className="brand login-brand">
           <span>
             <strong>City Growth Dashboard</strong>
-            <small>Live free-source research for Alabama and Georgia</small>
+            <small>Pre-gathered free-source research for Alabama and Georgia</small>
           </span>
         </div>
         <div>
@@ -386,6 +430,39 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   );
 }
 
+function StateRankMap({ stateCode, cities, selected, onSelect }: { stateCode: StateCode; cities: City[]; selected?: string; onSelect: (city: string) => void }) {
+  const bounds = STATE_BOUNDS[stateCode];
+  const project = (city: City) => {
+    const x = city.lon == null ? 50 : ((city.lon - bounds.minLon) / (bounds.maxLon - bounds.minLon)) * 100;
+    const y = city.lat == null ? 50 : 100 - ((city.lat - bounds.minLat) / (bounds.maxLat - bounds.minLat)) * 100;
+    return { x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) };
+  };
+
+  return (
+    <div className="state-rank-map">
+      <svg viewBox="0 0 100 100" role="img" aria-label="State map with top ranked cities">
+        <path className="state-shape" d={STATE_OUTLINES[stateCode]} />
+        {cities.map((city) => {
+          const { x, y } = project(city);
+          const active = city.name === selected;
+          return (
+            <g key={city.place} className="rank-dot-group" onClick={() => onSelect(city.name)}>
+              <circle className={`rank-dot rank-${city.rank} ${active ? "active" : ""}`} cx={x} cy={y} r={active ? 5.8 : 4.6} />
+              <text x={x} y={y + 1.6}>
+                {city.rank}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <div className="map-legend">
+        <strong>{selected}</strong>
+        <span>Top 10 cities are shaded from dark green at rank 1 to light green at rank 10.</span>
+      </div>
+    </div>
+  );
+}
+
 function GrowthMap({ cities, selected, onSelect }: { cities: City[]; selected?: string; onSelect: (city: string) => void }) {
   return (
     <div className="live-map-grid">
@@ -400,9 +477,10 @@ function GrowthMap({ cities, selected, onSelect }: { cities: City[]; selected?: 
   );
 }
 
-function Metric({ title, value, note, source }: { title: string; value: string; note: string; source: string }) {
+function Metric({ title, value, note, source, trend }: { title: string; value: string; note: string; source: string; trend?: TrendSeries }) {
   return (
     <article className="metric">
+      {trend && <Sparkline trend={trend} />}
       <span>{title}</span>
       <strong>{value}</strong>
       <small>{note}</small>
@@ -411,9 +489,71 @@ function Metric({ title, value, note, source }: { title: string; value: string; 
   );
 }
 
+function Sparkline({ trend }: { trend: TrendSeries }) {
+  const points = [...trend.actual, ...(trend.projection ? [{ year: trend.projection.year, value: trend.projection.value }] : [])]
+    .filter((point): point is { year: number; value: number } => Number.isFinite(point.value));
+  if (points.length < 2) return null;
+
+  const min = Math.min(...points.map((point) => point.value));
+  const max = Math.max(...points.map((point) => point.value));
+  const span = max - min || 1;
+  const path = points
+    .map((point, index) => {
+      const x = (index / (points.length - 1)) * 100;
+      const y = 78 - ((point.value - min) / span) * 56;
+      return `${index === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
+    })
+    .join(" ");
+  const lastActualIndex = trend.actual.filter((point) => Number.isFinite(point.value)).length - 1;
+  const actualPath = points
+    .slice(0, lastActualIndex + 1)
+    .map((point, index, arr) => {
+      const x = (index / Math.max(1, points.length - 1)) * 100;
+      const y = 78 - ((point.value - min) / span) * 56;
+      return `${index === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
+    })
+    .join(" ");
+
+  return (
+    <svg className="metric-spark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path className="spark-area" d={`${path} L 100 100 L 0 100 Z`} />
+      <path className="spark-line" d={actualPath} />
+      {trend.projection && <path className="spark-projection" d={path} />}
+    </svg>
+  );
+}
+
+function growthTrend(trend?: TrendSeries): TrendSeries | undefined {
+  const base = trend?.actual.find((point) => Number.isFinite(point.value))?.value;
+  if (!trend || !base) return trend;
+  return {
+    actual: trend.actual.map((point) => ({
+      year: point.year,
+      value: Number.isFinite(point.value) ? Number((((point.value || 0) - base) / base * 100).toFixed(1)) : null,
+    })),
+    projection: trend.projection
+      ? {
+          ...trend.projection,
+          value: Number((((trend.projection.value || 0) - base) / base * 100).toFixed(1)),
+        }
+      : null,
+  };
+}
+
+function radiusTrend(radius: number): TrendSeries {
+  return {
+    actual: [
+      { year: 1, value: 5000 },
+      { year: 2, value: 10000 },
+      { year: 3, value: radius },
+    ],
+    projection: null,
+  };
+}
+
 function DiscoveryPanel({ result, emptyLabel }: { result: DiscoveryResult; emptyLabel: string }) {
   if (result.status === "loading") {
-    return <div className="free-probe loading"><strong>Searching live free sources...</strong><span>This can take several minutes because public Overpass instances are rate-limited.</span></div>;
+    return <div className="free-probe loading"><strong>Loading dumped data...</strong><span>The dashboard reads static JSON generated from free sources.</span></div>;
   }
 
   if (result.status === "error") {
@@ -427,7 +567,7 @@ function DiscoveryPanel({ result, emptyLabel }: { result: DiscoveryResult; empty
   return (
     <div className="company-list">
       <div className="free-probe ready">
-        <strong>{result.count} live free-source matches</strong>
+        <strong>{result.count} pre-gathered free-source matches</strong>
         <span>{result.message}</span>
         <SourceBadge label="OSM" />
       </div>

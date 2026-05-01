@@ -332,6 +332,9 @@ h2 {
 .rank-list {
   display: grid;
   gap: 8px;
+  max-height: 760px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .search-input {
@@ -352,6 +355,77 @@ h2 {
   gap: 10px;
   min-height: 390px;
   align-content: end;
+}
+
+.state-rank-map {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 260px;
+  gap: 18px;
+  align-items: end;
+  min-height: 410px;
+}
+
+.state-rank-map svg {
+  width: 100%;
+  height: min(58vh, 500px);
+  min-height: 360px;
+}
+
+.state-shape {
+  fill: #edf4f0;
+  stroke: #8fa79d;
+  stroke-width: 1.2;
+}
+
+.rank-dot-group {
+  cursor: pointer;
+}
+
+.rank-dot {
+  stroke: #fff;
+  stroke-width: 1.4;
+}
+
+.rank-dot.active {
+  stroke: var(--text);
+  stroke-width: 1.8;
+}
+
+.rank-dot-group text {
+  fill: #fff;
+  font-size: 4px;
+  font-weight: 900;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.rank-1 { fill: #064e3b; }
+.rank-2 { fill: #0f6b4c; }
+.rank-3 { fill: #15803d; }
+.rank-4 { fill: #1f8f48; }
+.rank-5 { fill: #2f9e58; }
+.rank-6 { fill: #45ad68; }
+.rank-7 { fill: #64bc7c; }
+.rank-8 { fill: #83cb92; }
+.rank-9 { fill: #a4d9ad; }
+.rank-10 { fill: #c4e8c7; }
+
+.map-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+}
+
+.map-legend strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.85rem;
+}
+
+.map-legend span {
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 .market-tile {
@@ -479,24 +553,64 @@ h2 {
 }
 
 .metric {
+  position: relative;
+  overflow: hidden;
+  min-height: 142px;
   padding: 14px;
 }
 
 .metric span,
 .metric small {
+  position: relative;
+  z-index: 1;
   display: block;
   color: var(--muted);
   font-size: 0.8rem;
 }
 
 .metric strong {
+  position: relative;
+  z-index: 1;
   display: block;
   margin: 7px 0 4px;
   font-size: clamp(1.15rem, 2vw, 1.7rem);
 }
 
 .metric .source-badge {
+  position: relative;
+  z-index: 1;
   margin-top: 8px;
+}
+
+.metric-spark {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.spark-area {
+  fill: rgba(47, 111, 115, 0.08);
+}
+
+.spark-line,
+.spark-projection {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.spark-line {
+  stroke: rgba(23, 79, 85, 0.55);
+}
+
+.spark-projection {
+  stroke: rgba(183, 95, 66, 0.75);
+  stroke-dasharray: 4 4;
 }
 
 .tabs {
@@ -800,6 +914,11 @@ h2 {
   padding: 12px;
 }
 
+.compact-note {
+  margin: -8px 0 10px;
+  padding: 9px 10px;
+}
+
 .source-note code {
   color: var(--text);
   font-size: 0.82rem;
@@ -881,6 +1000,21 @@ h2 {
   .live-map-grid {
     grid-template-columns: 1fr;
     min-height: 0;
+  }
+
+  .state-rank-map {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .state-rank-map svg {
+    min-height: 300px;
+  }
+
+  .map-legend {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 14px 0 0;
   }
 
   .confidence {

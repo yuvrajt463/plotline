@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-05-01T03:09:36.413Z",
+  "files": [
+    {
+      "state": "01",
+      "stateName": "Alabama",
+      "abbr": "AL",
+      "url": "/data/al-free-research.json"
+    },
+    {
+      "state": "13",
+      "stateName": "Georgia",
+      "abbr": "GA",
+      "url": "/data/ga-free-research.json"
+    }
+  ]
+}

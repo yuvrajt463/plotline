@@ -166,7 +166,7 @@ function App() {
   async function runDiscovery(type: DiscoveryType) {
     if (!activeCity) return;
     const setter = type === "services" ? setServices : setRentals;
-    setter({ status: "loading", count: 0, items: [], message: `Searching ${state.name} free sources...` });
+    setter({ status: "loading", count: 0, items: [], message: `Searching ${state.name} free sources. Public Overpass can be slow, so this request can run for several minutes.` });
     try {
       const url = `/api/osm?city=${encodeURIComponent(activeCity.name)}&stateName=${encodeURIComponent(state.name)}&type=${type}&radius=${radius}`;
       const response = await fetch(url);
@@ -413,7 +413,7 @@ function Metric({ title, value, note, source }: { title: string; value: string; 
 
 function DiscoveryPanel({ result, emptyLabel }: { result: DiscoveryResult; emptyLabel: string }) {
   if (result.status === "loading") {
-    return <div className="free-probe loading"><strong>Searching live free sources...</strong><span>This can take a few seconds because public Overpass instances are rate-limited.</span></div>;
+    return <div className="free-probe loading"><strong>Searching live free sources...</strong><span>This can take several minutes because public Overpass instances are rate-limited.</span></div>;
   }
 
   if (result.status === "error") {

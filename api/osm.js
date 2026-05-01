@@ -1,5 +1,7 @@
 const OVERPASS_URLS = [
   "https://overpass.kumi.systems/api/interpreter",
+  "https://overpass-api.de/api/interpreter",
+  "https://overpass.osm.ch/api/interpreter",
 ];
 
 const NOMINATIM_URL = "https://nominatim.openstreetmap.org/search";
@@ -15,7 +17,7 @@ async function geocode(city, state) {
 
   const response = await fetch(url, {
     headers: { "User-Agent": "plotline-growth-dashboard/0.1 (free discovery probe)" },
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(290000),
   });
 
   if (!response.ok) throw new Error(`Nominatim returned HTTP ${response.status}`);
@@ -26,10 +28,10 @@ async function geocode(city, state) {
 
 function queryFor(type, lat, lon, radius) {
   if (type === "rentals") {
-    return `[out:json][timeout:6];(nwr["name"~"${RENTAL_REGEX}",i](around:${radius},${lat},${lon});nwr["building"="apartments"](around:${radius},${lat},${lon});nwr["residential"="apartments"](around:${radius},${lat},${lon}););out center tags 50;`;
+    return `[out:json][timeout:180];(nwr["name"~"${RENTAL_REGEX}",i](around:${radius},${lat},${lon});nwr["building"="apartments"](around:${radius},${lat},${lon});nwr["residential"="apartments"](around:${radius},${lat},${lon}););out center tags 50;`;
   }
 
-  return `[out:json][timeout:6];(nwr["craft"~"^(plumber|electrician|hvac)$"](around:${radius},${lat},${lon});nwr["shop"~"^(plumbing|heating|electrical|pest_control)$"](around:${radius},${lat},${lon});nwr["name"~"${SERVICE_REGEX}",i](around:${radius},${lat},${lon}););out center tags 50;`;
+  return `[out:json][timeout:180];(nwr["craft"~"^(plumber|electrician|hvac)$"](around:${radius},${lat},${lon});nwr["shop"~"^(plumbing|heating|electrical|pest_control)$"](around:${radius},${lat},${lon});nwr["name"~"${SERVICE_REGEX}",i](around:${radius},${lat},${lon}););out center tags 50;`;
 }
 
 function normalize(el) {
@@ -68,14 +70,15 @@ export default async function handler(req, res) {
 
     for (const endpoint of OVERPASS_URLS) {
       try {
+        const body = new URLSearchParams({ data: query });
         const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
             "User-Agent": "plotline-growth-dashboard/0.1",
           },
-          body: query,
-          signal: AbortSignal.timeout(7000),
+          body,
+          signal: AbortSignal.timeout(290000),
         });
 
         if (!response.ok) {

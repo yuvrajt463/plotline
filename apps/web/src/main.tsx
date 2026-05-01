@@ -435,7 +435,9 @@ function fmtNum(value: number) {
 }
 
 function App() {
-  const [isAuthed, setIsAuthed] = useState(() => localStorage.getItem("plotline-demo-auth") === "true");
+  const [isAuthed, setIsAuthed] = useState(
+    () => localStorage.getItem("city-dashboard-auth") === "true" || localStorage.getItem("plotline-demo-auth") === "true",
+  );
   const [liveCities, setLiveCities] = useState<City[] | null>(null);
   const [growthStatus, setGrowthStatus] = useState<"loading" | "ready" | "fallback">("loading");
   const [selectedCityName, setSelectedCityName] = useState("Foley");
@@ -524,16 +526,10 @@ function App() {
   return (
     <main className="shell">
       <header className="topbar">
-        <a className="brand" href="/" aria-label="Plotline dashboard">
-          <span className="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40">
-              <path d="M7 27 C 12 13, 18 28, 25 14 S 34 13, 34 8" />
-              <circle cx="34" cy="8" r="3.4" />
-            </svg>
-          </span>
+        <a className="brand" href="/" aria-label="City Growth Dashboard">
           <span>
-            <strong>Plotline</strong>
-            <small>Market service intelligence</small>
+            <strong>City Growth Dashboard</strong>
+            <small>Markets, services, and rental supply</small>
           </span>
         </a>
         <div className="toolbar">
@@ -554,6 +550,7 @@ function App() {
           <button
             className="ghost"
             onClick={() => {
+              localStorage.removeItem("city-dashboard-auth");
               localStorage.removeItem("plotline-demo-auth");
               setIsAuthed(false);
             }}
@@ -743,7 +740,7 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (user === expectedUser && password === expectedPassword) {
-      localStorage.setItem("plotline-demo-auth", "true");
+      localStorage.setItem("city-dashboard-auth", "true");
       onLogin();
       return;
     }
@@ -754,15 +751,9 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
     <main className="login-shell">
       <form className="login-panel" onSubmit={submit}>
         <div className="brand login-brand">
-          <span className="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40">
-              <path d="M7 27 C 12 13, 18 28, 25 14 S 34 13, 34 8" />
-              <circle cx="34" cy="8" r="3.4" />
-            </svg>
-          </span>
           <span>
-            <strong>Plotline</strong>
-            <small>Market service intelligence</small>
+            <strong>City Growth Dashboard</strong>
+            <small>Markets, services, and rental supply</small>
           </span>
         </div>
         <div>

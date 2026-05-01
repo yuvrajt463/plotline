@@ -121,36 +121,8 @@ button {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: inherit;
   text-decoration: none;
-}
-
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-}
-
-.brand-mark svg {
-  width: 30px;
-  height: 30px;
-}
-
-.brand-mark path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
-}
-
-.brand-mark circle {
-  fill: var(--rust);
 }
 
 .brand strong {
